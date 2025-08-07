@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Train } from 'lucide-react'
+import { Train, X, Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface MobileNavProps {
@@ -18,14 +18,18 @@ export default function MobileNav({ theme }: MobileNavProps) {
       secondary: 'teal-600',
       hover: 'emerald-700',
       bg: 'emerald-50',
-      border: 'emerald-300'
+      border: 'emerald-300',
+      text: 'emerald-600',
+      bgGradient: 'from-emerald-50 via-white to-teal-50'
     },
     blue: {
       primary: 'blue-600',
       secondary: 'indigo-600', 
       hover: 'blue-700',
       bg: 'blue-50',
-      border: 'blue-300'
+      border: 'blue-300',
+      text: 'blue-600',
+      bgGradient: 'from-blue-50 via-white to-indigo-50'
     }
   }
 
@@ -40,138 +44,287 @@ export default function MobileNav({ theme }: MobileNavProps) {
     { name: 'Contact', href: '#' }
   ]
 
-  // Close menu when clicking outside
+  // Prevent body scroll when menu is open and ensure proper cleanup
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element
-      if (isOpen && !target.closest('.mobile-nav-container')) {
+    if (isOpen) {
+      // Store original overflow value
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      
+      return () => {
+        document.body.style.overflow = originalOverflow
+        document.documentElement.style.overflow = 'unset'
+      }
+    }
+  }, [isOpen])
+
+  // Close menu on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
         setIsOpen(false)
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [isOpen])
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset'
+      document.addEventListener('keydown', handleEscape)
+      return () => document.removeEventListener('keydown', handleEscape)
     }
   }, [isOpen])
 
   return (
-    <div className="md:hidden mobile-nav-container">
-      {/* Mobile Header */}
-      <div className="flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-3 group">
+    <>
+      {/* Mobile Header - Only Logo and Hamburger */}
+      <div className="md:hidden flex items-center justify-between w-full">
+        {/* Mobile Logo */}
+        <Link href="/" className="flex items-center space-x-2 group">
           <div className="relative">
-            <Train className={`h-8 w-8 text-${colors.primary} transition-colors duration-300 group-hover:text-${colors.hover}`} />
-            <div className={`absolute -top-1 -right-1 w-2.5 h-2.5 bg-gradient-to-r from-${colors.primary} to-${colors.secondary} rounded-full animate-pulse`}></div>
+            <Train 
+              className={`h-7 w-7 transition-colors duration-300 group-hover:text-gray-600 ${
+                theme === 'green' ? 'text-emerald-600' : 'text-blue-600'
+              }`} 
+            />
+            <div 
+              className={`absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full animate-pulse ${
+                theme === 'green'
+                  ? 'bg-gradient-to-r from-emerald-400 to-teal-500'
+                  : 'bg-gradient-to-r from-blue-400 to-indigo-500'
+              }`}
+            ></div>
           </div>
           <div>
-            <span className="text-xl font-bold text-gray-900 tracking-tight">LSME</span>
+            <span className="text-lg font-bold text-gray-900 tracking-tight">LSME</span>
             <div className="text-xs text-gray-500 font-medium">Railway Solutions</div>
           </div>
         </Link>
 
-        {/* Animated Hamburger Button */}
+        {/* Hamburger Button - Enhanced Visibility */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`relative w-10 h-10 rounded-lg border-2 border-${colors.border} bg-${colors.bg} transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-${colors.primary} focus:ring-opacity-50`}
+          className={`relative w-12 h-12 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 z-[100] border-2 shadow-lg ${
+            theme === 'green'
+              ? 'bg-emerald-100 border-emerald-300 focus:ring-emerald-500 hover:bg-emerald-200'
+              : 'bg-blue-100 border-blue-300 focus:ring-blue-500 hover:bg-blue-200'
+          }`}
           aria-label="Toggle navigation menu"
+          aria-expanded={isOpen}
         >
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-5 h-4 flex flex-col justify-between">
-              {/* Top line */}
-              <span 
-                className={`block h-0.5 w-full bg-${colors.primary} transform transition-all duration-300 ease-in-out ${
-                  isOpen ? 'rotate-45 translate-y-1.5' : ''
-                }`}
-              />
-              {/* Middle line */}
-              <span 
-                className={`block h-0.5 w-full bg-${colors.primary} transition-all duration-300 ease-in-out ${
-                  isOpen ? 'opacity-0' : ''
-                }`}
-              />
-              {/* Bottom line */}
-              <span 
-                className={`block h-0.5 w-full bg-${colors.primary} transform transition-all duration-300 ease-in-out ${
-                  isOpen ? '-rotate-45 -translate-y-1.5' : ''
-                }`}
-              />
+            <div className={`transition-all duration-300 ${isOpen ? 'rotate-180 scale-110' : 'rotate-0 scale-100'}`}>
+              {!isOpen ? (
+                <Menu 
+                  className={`h-6 w-6 transition-colors duration-300 ${
+                    theme === 'green' ? 'text-emerald-700' : 'text-blue-700'
+                  }`} 
+                />
+              ) : (
+                <X 
+                  className={`h-6 w-6 transition-colors duration-300 ${
+                    theme === 'green' ? 'text-emerald-700' : 'text-blue-700'
+                  }`} 
+                />
+              )}
             </div>
           </div>
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Full-Screen Mobile Menu Overlay - COMPLETELY COVERS EVERYTHING */}
       <div 
-        className={`fixed inset-0 z-50 transform transition-all duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+        className={`fixed inset-0 z-[9999] md:hidden transition-all duration-500 ease-in-out ${
+          isOpen 
+            ? 'opacity-100 visible' 
+            : 'opacity-0 invisible pointer-events-none'
         }`}
-        style={{ top: '80px' }} // Start below the header
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mobile-menu-title"
       >
-        {/* Backdrop */}
+        {/* Full Background - 100% Opaque, Completely Hides Page */}
         <div 
-          className={`absolute inset-0 bg-black transition-opacity duration-300 ${
-            isOpen ? 'opacity-50' : 'opacity-0'
-          }`}
-          onClick={() => setIsOpen(false)}
-        />
-        
-        {/* Menu Content */}
-        <div 
-          className={`relative ml-auto h-full w-80 max-w-sm bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${
-            isOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`absolute inset-0 w-full h-full min-h-screen transition-all duration-500 ${
+            isOpen ? 'scale-100' : 'scale-95'
+          } ${
+            theme === 'green'
+              ? 'bg-gradient-to-br from-emerald-50 via-white to-emerald-100'
+              : 'bg-gradient-to-br from-blue-50 via-white to-blue-100'
           }`}
         >
-          <div className="flex flex-col h-full">
-            {/* Navigation Links */}
-            <nav className="flex-1 px-6 py-8">
-              <ul className="space-y-6">
+          {/* Decorative Background Elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div 
+              className={`absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl opacity-20 animate-pulse ${
+                theme === 'green'
+                  ? 'bg-gradient-to-br from-emerald-200 to-teal-200'
+                  : 'bg-gradient-to-br from-blue-200 to-indigo-200'
+              }`}
+            ></div>
+            <div 
+              className={`absolute -bottom-40 -left-40 w-80 h-80 rounded-full blur-3xl opacity-20 animate-pulse ${
+                theme === 'green'
+                  ? 'bg-gradient-to-br from-teal-200 to-emerald-200'
+                  : 'bg-gradient-to-br from-indigo-200 to-blue-200'
+              }`}
+              style={{ animationDelay: '2s' }}
+            ></div>
+          </div>
+
+          {/* Beautiful Close Button - Top Right */}
+          <div className="absolute top-0 right-0 pt-6 pr-6 z-20">
+            <button
+              onClick={() => setIsOpen(false)}
+              className={`relative group p-3 rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg backdrop-blur-sm ${
+                theme === 'green'
+                  ? 'bg-white/90 hover:bg-emerald-50 border-2 border-emerald-200 hover:border-emerald-300'
+                  : 'bg-white/90 hover:bg-blue-50 border-2 border-blue-200 hover:border-blue-300'
+              }`}
+              aria-label="Close navigation menu"
+            >
+              {/* Close Icon with Animation */}
+              <div className="relative">
+                <X 
+                  className={`h-5 w-5 transition-all duration-300 ${
+                    theme === 'green' ? 'text-emerald-700 group-hover:text-emerald-800' : 'text-blue-700 group-hover:text-blue-800'
+                  }`} 
+                />
+                {/* Animated Ring */}
+                <div 
+                  className={`absolute -inset-2 rounded-full border-2 opacity-0 group-hover:opacity-100 transition-all duration-300 ${
+                    theme === 'green' ? 'border-emerald-300' : 'border-blue-300'
+                  }`}
+                ></div>
+              </div>
+            </button>
+          </div>
+
+          {/* Main Content Container - Adjusted Spacing */}
+          <div className="flex flex-col items-center justify-center h-full min-h-screen px-6 pt-20 pb-10 relative z-10">
+            
+            {/* Logo Section - Adjusted Position */}
+            <div className={`mb-10 text-center transition-all duration-700 ${isOpen ? 'animate-fade-in-up' : ''}`}>
+              <div className="flex items-center justify-center space-x-3 mb-5">
+                <div className="relative">
+                  <Train 
+                    className={`h-12 w-12 transition-all duration-500 ${
+                      theme === 'green' ? 'text-emerald-600' : 'text-blue-600'
+                    } ${isOpen ? 'animate-bounce-slow' : ''}`} 
+                  />
+                  <div 
+                    className={`absolute -top-1.5 -right-1.5 w-3 h-3 rounded-full animate-pulse ${
+                      theme === 'green'
+                        ? 'bg-gradient-to-r from-emerald-400 to-teal-500'
+                        : 'bg-gradient-to-r from-blue-400 to-indigo-500'
+                    }`}
+                  ></div>
+                </div>
+              </div>
+              <h1 
+                id="mobile-menu-title"
+                className="text-3xl font-bold text-gray-900 mb-2 tracking-tight"
+              >
+                LSME
+              </h1>
+              <p className="text-base text-gray-600 font-medium mb-3">
+                Leading Saudi Railway R&D Solutions
+              </p>
+              <div 
+                className={`w-20 h-0.5 mx-auto rounded-full ${
+                  theme === 'green'
+                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                    : 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                }`}
+              ></div>
+            </div>
+
+            {/* Navigation Links - Compact Spacing */}
+            <nav className="mb-10">
+              <ul className="space-y-3 text-center">
                 {navigationItems.map((item, index) => (
-                  <li key={item.name}>
+                  <li
+                    key={item.name}
+                    className={`transition-all duration-700 ${
+                      isOpen ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+                    }`}
+                    style={{ 
+                      animationDelay: isOpen ? `${index * 120 + 400}ms` : '0ms',
+                      animationFillMode: 'forwards'
+                    }}
+                  >
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block text-lg font-medium text-gray-700 hover:text-${colors.primary} transition-all duration-300 transform hover:translate-x-2 hover:scale-105 py-2 relative group`}
-                      style={{ animationDelay: `${index * 50}ms` }}
+                      className={`block text-lg font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-6 rounded-xl relative group ${
+                        theme === 'green' 
+                          ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
+                          : 'hover:text-blue-600 hover:bg-blue-50/80'
+                      }`}
                     >
                       {item.name}
-                      <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-${colors.primary} to-${colors.secondary} transition-all duration-300 group-hover:w-full`}></span>
+                      <span 
+                        className={`absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-3/4 ${
+                          theme === 'green'
+                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                            : 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                        }`}
+                      ></span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </nav>
 
-            {/* Action Buttons */}
-            <div className="px-6 py-6 border-t border-gray-200 space-y-4">
-              <Button 
-                variant="outline" 
-                className={`w-full hover:bg-${colors.bg} hover:border-${colors.border} transition-all duration-300`}
+            {/* Action Buttons - Compact Styling */}
+            <div 
+              className={`space-y-2.5 w-full max-w-xs transition-all duration-700 ${
+                isOpen ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ animationDelay: isOpen ? '900ms' : '0ms', animationFillMode: 'forwards' }}
+            >
+              <Button
+                variant="outline"
+                size="lg"
+                className={`w-full border-2 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg text-sm py-3 ${
+                  theme === 'green'
+                    ? 'border-emerald-300 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-400 focus:ring-emerald-500'
+                    : 'border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 focus:ring-blue-500'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Get Quote
               </Button>
-              <Button 
-                className={`w-full bg-gradient-to-r from-${colors.primary} to-${colors.secondary} hover:from-${colors.hover} hover:to-${colors.hover} transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}
+              <Button
+                size="lg"
+                className={`w-full text-white transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg text-sm py-3 ${
+                  theme === 'green'
+                    ? 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700'
+                    : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Portal Login
               </Button>
             </div>
+
+            {/* Footer Text - Compact */}
+            <div 
+              className={`mt-6 text-center transition-all duration-700 ${
+                isOpen ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ animationDelay: isOpen ? '1000ms' : '0ms', animationFillMode: 'forwards' }}
+            >
+              <p className="text-xs text-gray-500 mb-1.5">
+                Supporting Saudi Arabia's Vision 2030
+              </p>
+              <div className="flex items-center justify-center space-x-1.5 text-xs text-gray-400">
+                <span>Advanced Railway Solutions</span>
+                <span>•</span>
+                <span>Technical Excellence</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
-} 
+}
