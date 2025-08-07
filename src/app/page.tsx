@@ -7,6 +7,7 @@ import { Train, MapPin, Clock, Shield, Users, Zap, Phone, Mail, MapIcon, Microsc
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect } from "react"
+import MobileNav from "@/components/MobileNav"
 
 export default function HomePage() {
   useEffect(() => {
@@ -24,7 +25,8 @@ export default function HomePage() {
       <header className="border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 sticky top-0 z-50 transition-all duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            <div className="flex items-center space-x-4 group">
+            {/* Desktop Logo */}
+            <div className="hidden md:flex items-center space-x-4 group">
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
                   <Train className="h-10 w-10 text-emerald-600 transition-colors duration-300 group-hover:text-emerald-700" />
@@ -36,7 +38,11 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+
+            {/* Mobile Navigation */}
+            <MobileNav theme="green" />
             
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {[
                 { name: 'Home', href: '/' },
@@ -58,8 +64,9 @@ export default function HomePage() {
               ))}
             </nav>
 
-            <div className="flex items-center space-x-4">
-              <Button variant="outline" className="hidden sm:inline-flex hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300">
+            {/* Desktop Action Buttons */}
+            <div className="hidden md:flex items-center space-x-4">
+              <Button variant="outline" className="hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300">
                 Get Quote
               </Button>
               <Button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
@@ -86,12 +93,12 @@ export default function HomePage() {
                   <Star className="w-3 h-3 mr-1" />
                   Leading Saudi Railway R&D Solutions
                 </Badge>
-                <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
+                <h1 className="hero-text text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
                   Pioneering 
                   <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> Railway Innovation</span>
                   <br />in Saudi Arabia
                 </h1>
-                <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
+                <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
                   Advanced research, development, and technical services for railway infrastructure. Driving the future of transportation technology across the Kingdom.
                 </p>
               </div>
@@ -106,7 +113,7 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-3 gap-8 pt-8">
+              <div className="stats-grid grid grid-cols-3 gap-8 pt-8">
                 {[
                   { number: '15+', label: 'Years of Excellence', delay: '0ms' },
                   { number: '200+', label: 'Technical Projects', delay: '200ms' },
@@ -137,26 +144,26 @@ export default function HomePage() {
               </div>
               
               {/* Floating Cards */}
-              <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float">
+              <div className="hidden md:block absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float">
                 <div className="flex items-center space-x-4">
                   <div className="bg-gradient-to-br from-emerald-100 to-teal-100 p-3 rounded-xl">
                     <Microscope className="h-8 w-8 text-emerald-600" />
                   </div>
                   <div>
                     <div className="font-bold text-gray-900 text-lg">Advanced R&D</div>
-                    <div className="text-sm text-gray-600">Cutting-edge Research</div>
+                    <div className="text-xs text-gray-600">Cutting-edge Research</div>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -top-8 -right-8 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float" style={{ animationDelay: '1s' }}>
+              <div className="hidden md:block absolute -top-8 -right-8 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center space-x-4">
                   <div className="bg-gradient-to-br from-blue-100 to-emerald-100 p-3 rounded-xl">
                     <Award className="h-8 w-8 text-blue-600" />
                   </div>
                   <div>
                     <div className="font-bold text-gray-900 text-lg">ISO Certified</div>
-                    <div className="text-sm text-gray-600">Quality Assured</div>
+                    <div className="text-xs text-gray-600">Quality Assured</div>
                   </div>
                 </div>
               </div>
@@ -175,7 +182,7 @@ export default function HomePage() {
               <Globe className="w-3 h-3 mr-1" />
               Technical Excellence
             </Badge>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+            <h2 className="section-title text-4xl lg:text-5xl font-bold text-gray-900">
               Our Core <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Technical Services</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
@@ -183,7 +190,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="service-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Microscope,
@@ -274,7 +281,7 @@ export default function HomePage() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="feature-grid grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative animate-fade-in-left">
               <div className="relative group overflow-hidden rounded-3xl">
                 <Image
@@ -288,7 +295,7 @@ export default function HomePage() {
               </div>
               
               {/* Floating Achievement Badge */}
-              <div className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl animate-bounce-slow">
+              <div className="hidden md:block absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl animate-bounce-slow">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-emerald-600">15+</div>
                   <div className="text-xs text-gray-600">Years Excellence</div>
@@ -354,10 +361,12 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <Button size="lg" className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
-                Discover Our Capabilities
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
+              <div className="text-center">
+                <Button size="lg" className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+                  Discover Our Capabilities
+                  <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -379,33 +388,27 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="project-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=400&auto=format&fit=crop",
-                category: "Research",
                 title: "AI-Powered Railway Management System",
                 description: "Revolutionary AI system for predictive maintenance and real-time optimization of railway operations across the Kingdom.",
                 date: "December 2024",
-                color: "emerald",
                 delay: "0ms"
               },
               {
                 image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=400&auto=format&fit=crop",
-                category: "Innovation",
                 title: "Solar-Powered Railway Infrastructure",
                 description: "Groundbreaking renewable energy integration for railway stations and maintenance facilities, supporting Vision 2030.",
                 date: "November 2024",
-                color: "blue",
                 delay: "200ms"
               },
               {
                 image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=400&auto=format&fit=crop",
-                category: "Development",
                 title: "Next-Gen High-Speed Rail Technology",
                 description: "Advanced research into 400+ km/h railway systems with enhanced safety and efficiency for Saudi terrain.",
                 date: "October 2024",
-                color: "purple",
                 delay: "400ms"
               }
             ].map((project, index) => (
@@ -419,9 +422,6 @@ export default function HomePage() {
                     className="w-full h-56 object-cover transition-all duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <Badge className={`absolute top-4 left-4 bg-gradient-to-r from-${project.color}-600 to-${project.color}-700 text-white transition-all duration-300 group-hover:scale-105`}>
-                    {project.category}
-                  </Badge>
                 </div>
                 <CardHeader className="pb-4 flex-1">
                   <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 line-clamp-2">
