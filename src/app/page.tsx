@@ -397,7 +397,7 @@ export default function HomePage() {
                 delay: "400ms"
               }
             ].map((project, index) => (
-              <Card key={index} className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 bg-gradient-to-br from-white to-gray-50/50 animate-fade-in-up overflow-hidden" style={{ animationDelay: project.delay }}>
+              <Card key={index} className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 bg-gradient-to-br from-white to-gray-50/50 animate-fade-in-up overflow-hidden h-full flex flex-col" style={{ animationDelay: project.delay }}>
                 <div className="relative overflow-hidden">
                   <Image
                     src={project.image}
@@ -411,7 +411,7 @@ export default function HomePage() {
                     {project.category}
                   </Badge>
                 </div>
-                <CardHeader className="pb-4">
+                <CardHeader className="pb-4 flex-1">
                   <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 line-clamp-2">
                     {project.title}
                   </CardTitle>
