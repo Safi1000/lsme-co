@@ -249,8 +249,8 @@ export default function HomePage() {
             ].map((service, index) => (
               <Card key={index} className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50/50 animate-fade-in-up h-full flex flex-col" style={{ animationDelay: service.delay }}>
                 <CardHeader className="pb-4">
-                  <div className={`bg-gradient-to-br from-${service.color}-100 to-${service.color}-200 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                    <service.icon className={`h-8 w-8 text-${service.color}-600`} />
+                  <div className="bg-gray-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    <service.icon className="h-8 w-8 text-black" />
                   </div>
                   <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
                     {service.title}
@@ -263,7 +263,7 @@ export default function HomePage() {
                   <ul className="space-y-3 flex-1">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center space-x-3 text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
-                        <div className={`w-2 h-2 bg-gradient-to-r from-${service.color}-500 to-${service.color}-600 rounded-full transition-all duration-300 group-hover:scale-125`}></div>
+                        <div className="w-2 h-2 bg-gray-600 rounded-full transition-all duration-300 group-hover:scale-125"></div>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -352,8 +352,8 @@ export default function HomePage() {
                   }
                 ].map((feature, index) => (
                   <div key={index} className="flex items-start space-x-6 group cursor-pointer animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
-                    <div className={`bg-gradient-to-br from-${feature.color}-100 to-${feature.color}-200 p-4 rounded-2xl flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                      <feature.icon className={`h-6 w-6 text-${feature.color}-600`} />
+                    <div className="bg-gray-100 p-4 rounded-2xl flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                      <feature.icon className="h-6 w-6 text-black" />
                     </div>
                     <div className="space-y-2">
                       <h3 className="font-bold text-xl text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
