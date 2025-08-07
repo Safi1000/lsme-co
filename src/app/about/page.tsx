@@ -1,13 +1,25 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Train, MapPin, Clock, Shield, Users, Zap, Phone, Mail, MapIcon, Microscope, Cog, Database, Wrench, ChevronRight, Star, Award, Globe } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect } from "react"
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.documentElement.classList.add('page-blue')
+    document.documentElement.classList.remove('page-green')
+    
+    return () => {
+      document.documentElement.classList.remove('page-blue')
+    }
+  }, [])
+
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden page-blue">
       {/* Header */}
       <header className="border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 sticky top-0 z-50 transition-all duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

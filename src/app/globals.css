@@ -148,22 +148,40 @@
   background-clip: text;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
+/* Custom Scrollbar - Default (Green Theme) */
+html.page-green ::-webkit-scrollbar {
   width: 8px;
 }
 
-::-webkit-scrollbar-track {
+html.page-green ::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
 
-::-webkit-scrollbar-thumb {
+html.page-green ::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, #10b981, #0d9488);
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+html.page-green ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #059669, #0f766e);
+}
+
+/* Custom Scrollbar - Blue Theme */
+html.page-blue ::-webkit-scrollbar {
+  width: 8px;
+}
+
+html.page-blue ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+html.page-blue ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-radius: 4px;
+}
+
+html.page-blue ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
 }
 
 /* Smooth transitions for all interactive elements */
