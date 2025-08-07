@@ -106,10 +106,10 @@ export default function HomePage() {
             </div>
 
             <div className="relative animate-fade-in-right">
-              <div className="relative group">
+              <div className="relative group overflow-hidden rounded-3xl">
                 <Image
-                  src="/placeholder.svg?height=600&width=800&text=Advanced+Railway+Research+Lab"
-                  alt="LSME Advanced Railway Research Laboratory"
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop"
+                  alt="LSME Advanced Railway Research Laboratory - Modern train control center with advanced monitoring systems"
                   width={800}
                   height={600}
                   className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105"
@@ -257,13 +257,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative animate-fade-in-left">
-              <div className="relative group">
+              <div className="relative group overflow-hidden rounded-3xl">
                 <Image
-                  src="/placeholder.svg?height=500&width=600&text=LSME+Technical+Research+Center"
-                  alt="LSME Technical Research Center"
+                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=600&auto=format&fit=crop"
+                  alt="LSME Technical Research Center - Engineers working on railway infrastructure design and testing"
                   width={600}
                   height={500}
-                  className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl"
+                  className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -363,7 +363,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                image: "/placeholder.svg?height=300&width=400&text=Smart+Railway+Systems",
+                image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=400&auto=format&fit=crop",
                 category: "Research",
                 title: "AI-Powered Railway Management System",
                 description: "Revolutionary AI system for predictive maintenance and real-time optimization of railway operations across the Kingdom.",
@@ -372,7 +372,7 @@ export default function HomePage() {
                 delay: "0ms"
               },
               {
-                image: "/placeholder.svg?height=300&width=400&text=Sustainable+Rail+Tech",
+                image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=400&auto=format&fit=crop",
                 category: "Innovation",
                 title: "Solar-Powered Railway Infrastructure",
                 description: "Groundbreaking renewable energy integration for railway stations and maintenance facilities, supporting Vision 2030.",
@@ -381,7 +381,7 @@ export default function HomePage() {
                 delay: "200ms"
               },
               {
-                image: "/placeholder.svg?height=300&width=400&text=High+Speed+Rail+Research",
+                image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=400&auto=format&fit=crop",
                 category: "Development",
                 title: "Next-Gen High-Speed Rail Technology",
                 description: "Advanced research into 400+ km/h railway systems with enhanced safety and efficiency for Saudi terrain.",
@@ -393,7 +393,7 @@ export default function HomePage() {
               <Card key={index} className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 bg-gradient-to-br from-white to-gray-50/50 animate-fade-in-up overflow-hidden" style={{ animationDelay: project.delay }}>
                 <div className="relative overflow-hidden">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image}
                     alt={project.title}
                     width={400}
                     height={300}
