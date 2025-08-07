@@ -11,11 +11,17 @@ import MobileNav from "@/components/MobileNav"
 
 export default function AboutPage() {
   useEffect(() => {
-    document.documentElement.classList.add('page-blue')
+    // Force remove any existing theme classes
     document.documentElement.classList.remove('page-green')
+    document.body.classList.remove('page-green')
+    
+    // Add blue theme
+    document.documentElement.classList.add('page-blue')
+    document.body.classList.add('page-blue')
     
     return () => {
       document.documentElement.classList.remove('page-blue')
+      document.body.classList.remove('page-blue')
     }
   }, [])
 
@@ -25,9 +31,6 @@ export default function AboutPage() {
       <header className="border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 sticky top-0 z-50 transition-all duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            
-            {/* Mobile Navigation - Full Width */}
-            <MobileNav theme="blue" />
             
             {/* Desktop Logo */}
             <div className="hidden md:flex items-center space-x-4 group">
@@ -42,6 +45,9 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+
+            {/* Mobile Navigation */}
+            <MobileNav theme="blue" />
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">

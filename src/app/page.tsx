@@ -11,11 +11,17 @@ import MobileNav from "@/components/MobileNav"
 
 export default function HomePage() {
   useEffect(() => {
-    document.documentElement.classList.add('page-green')
+    // Force remove any existing theme classes
     document.documentElement.classList.remove('page-blue')
+    document.body.classList.remove('page-blue')
+    
+    // Add green theme
+    document.documentElement.classList.add('page-green')
+    document.body.classList.add('page-green')
     
     return () => {
       document.documentElement.classList.remove('page-green')
+      document.body.classList.remove('page-green')
     }
   }, [])
 

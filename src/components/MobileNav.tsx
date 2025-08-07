@@ -11,6 +11,7 @@ interface MobileNavProps {
 
 export default function MobileNav({ theme }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [animationStage, setAnimationStage] = useState(0)
 
   const themeColors = {
     green: {
@@ -37,14 +38,14 @@ export default function MobileNav({ theme }: MobileNavProps) {
 
   const navigationItems = [
     { name: 'Home', href: '/' },
-    { name: 'R&D Services', href: '#' },
-    { name: 'Technical Solutions', href: '#' },
-    { name: 'Projects', href: '#' },
     { name: 'About', href: '/about' },
-    { name: 'Contact', href: '#' }
+    { name: 'R&D Services', href: '#services' },
+    { name: 'Technical Solutions', href: '#solutions' },
+    { name: 'Innovation Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' }
   ]
 
-  // Prevent body scroll when menu is open and ensure proper cleanup
+  // Handle opening animation sequence
   useEffect(() => {
     if (isOpen) {
       // Store original overflow value
@@ -52,10 +53,26 @@ export default function MobileNav({ theme }: MobileNavProps) {
       document.body.style.overflow = 'hidden'
       document.documentElement.style.overflow = 'hidden'
       
+      // Reset animation stage
+      setAnimationStage(0)
+      
+      // Start animation sequence
+      const timers = [
+        setTimeout(() => setAnimationStage(1), 300),  // Background decorations
+        setTimeout(() => setAnimationStage(2), 500),  // Close button
+        setTimeout(() => setAnimationStage(3), 700),  // Logo section
+        setTimeout(() => setAnimationStage(4), 1000), // Navigation items
+        setTimeout(() => setAnimationStage(5), 1800), // Action buttons
+        setTimeout(() => setAnimationStage(6), 2200), // Footer text
+      ]
+      
       return () => {
         document.body.style.overflow = originalOverflow
         document.documentElement.style.overflow = 'unset'
+        timers.forEach(timer => clearTimeout(timer))
       }
+    } else {
+      setAnimationStage(0)
     }
   }, [isOpen])
 
@@ -99,7 +116,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
           </div>
         </Link>
 
-        {/* Hamburger Button - Enhanced Visibility */}
+        {/* Hamburger Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`relative w-12 h-12 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 z-[100] border-2 shadow-lg ${
@@ -130,7 +147,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
         </button>
       </div>
 
-      {/* Full-Screen Mobile Menu Overlay - COMPLETELY COVERS EVERYTHING */}
+      {/* Full-Screen Mobile Menu Overlay */}
       <div 
         className={`fixed inset-0 z-[9999] md:hidden transition-all duration-500 ease-in-out ${
           isOpen 
@@ -141,7 +158,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
         aria-modal="true"
         aria-labelledby="mobile-menu-title"
       >
-        {/* Full Background - 100% Opaque, Completely Hides Page */}
+        {/* Full Background - Starts Completely Blank */}
         <div 
           className={`absolute inset-0 w-full h-full min-h-screen transition-all duration-500 ${
             isOpen ? 'scale-100' : 'scale-95'
@@ -151,27 +168,34 @@ export default function MobileNav({ theme }: MobileNavProps) {
               : 'bg-gradient-to-br from-blue-50 via-white to-blue-100'
           }`}
         >
-          {/* Decorative Background Elements */}
-          <div className="absolute inset-0 overflow-hidden">
+          {/* Decorative Background Elements - Stage 1 */}
+          <div className={`absolute inset-0 overflow-hidden transition-opacity duration-800 ${
+            animationStage >= 1 ? 'opacity-100' : 'opacity-0'
+          }`}>
             <div 
-              className={`absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl opacity-20 animate-pulse ${
+              className={`absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl opacity-20 animate-pulse transform transition-all duration-1000 ${
+                animationStage >= 1 ? 'scale-100' : 'scale-0'
+              } ${
                 theme === 'green'
                   ? 'bg-gradient-to-br from-emerald-200 to-teal-200'
                   : 'bg-gradient-to-br from-blue-200 to-indigo-200'
               }`}
             ></div>
             <div 
-              className={`absolute -bottom-40 -left-40 w-80 h-80 rounded-full blur-3xl opacity-20 animate-pulse ${
+              className={`absolute -bottom-40 -left-40 w-80 h-80 rounded-full blur-3xl opacity-20 animate-pulse transform transition-all duration-1000 delay-300 ${
+                animationStage >= 1 ? 'scale-100' : 'scale-0'
+              } ${
                 theme === 'green'
                   ? 'bg-gradient-to-br from-teal-200 to-emerald-200'
                   : 'bg-gradient-to-br from-indigo-200 to-blue-200'
               }`}
-              style={{ animationDelay: '2s' }}
             ></div>
           </div>
 
-          {/* Beautiful Close Button - Top Right */}
-          <div className="absolute top-0 right-0 pt-6 pr-6 z-20">
+          {/* Close Button - Stage 2 */}
+          <div className={`absolute top-0 right-0 pt-6 pr-6 z-20 transition-all duration-600 ${
+            animationStage >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+          }`}>
             <button
               onClick={() => setIsOpen(false)}
               className={`relative group p-3 rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg backdrop-blur-sm ${
@@ -181,14 +205,12 @@ export default function MobileNav({ theme }: MobileNavProps) {
               }`}
               aria-label="Close navigation menu"
             >
-              {/* Close Icon with Animation */}
               <div className="relative">
                 <X 
                   className={`h-5 w-5 transition-all duration-300 ${
                     theme === 'green' ? 'text-emerald-700 group-hover:text-emerald-800' : 'text-blue-700 group-hover:text-blue-800'
                   }`} 
                 />
-                {/* Animated Ring */}
                 <div 
                   className={`absolute -inset-2 rounded-full border-2 opacity-0 group-hover:opacity-100 transition-all duration-300 ${
                     theme === 'green' ? 'border-emerald-300' : 'border-blue-300'
@@ -198,17 +220,21 @@ export default function MobileNav({ theme }: MobileNavProps) {
             </button>
           </div>
 
-          {/* Main Content Container - Adjusted Spacing */}
+          {/* Main Content Container */}
           <div className="flex flex-col items-center justify-center h-full min-h-screen px-6 pt-20 pb-10 relative z-10">
             
-            {/* Logo Section - Adjusted Position */}
-            <div className={`mb-10 text-center transition-all duration-700 ${isOpen ? 'animate-fade-in-up' : ''}`}>
+            {/* Logo Section - Stage 3 */}
+            <div 
+              className={`mb-10 text-center transition-all duration-800 ${
+                animationStage >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
+              }`}
+            >
               <div className="flex items-center justify-center space-x-3 mb-5">
                 <div className="relative">
                   <Train 
                     className={`h-12 w-12 transition-all duration-500 ${
                       theme === 'green' ? 'text-emerald-600' : 'text-blue-600'
-                    } ${isOpen ? 'animate-bounce-slow' : ''}`} 
+                    } ${animationStage >= 3 ? 'animate-bounce-slow' : ''}`} 
                   />
                   <div 
                     className={`absolute -top-1.5 -right-1.5 w-3 h-3 rounded-full animate-pulse ${
@@ -219,7 +245,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
                   ></div>
                 </div>
               </div>
-              <h1 
+              <h1
                 id="mobile-menu-title"
                 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight"
               >
@@ -229,7 +255,9 @@ export default function MobileNav({ theme }: MobileNavProps) {
                 Leading Saudi Railway R&D Solutions
               </p>
               <div 
-                className={`w-20 h-0.5 mx-auto rounded-full ${
+                className={`w-20 h-0.5 mx-auto rounded-full transition-all duration-600 ${
+                  animationStage >= 3 ? 'scale-x-100' : 'scale-x-0'
+                } ${
                   theme === 'green'
                     ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
                     : 'bg-gradient-to-r from-blue-500 to-indigo-500'
@@ -237,18 +265,17 @@ export default function MobileNav({ theme }: MobileNavProps) {
               ></div>
             </div>
 
-            {/* Navigation Links - Compact Spacing */}
+            {/* Navigation Links - Stage 4 */}
             <nav className="mb-10">
               <ul className="space-y-3 text-center">
                 {navigationItems.map((item, index) => (
                   <li
                     key={item.name}
-                    className={`transition-all duration-700 ${
-                      isOpen ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+                    className={`transition-all duration-600 ${
+                      animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
-                    style={{ 
-                      animationDelay: isOpen ? `${index * 120 + 400}ms` : '0ms',
-                      animationFillMode: 'forwards'
+                    style={{
+                      transitionDelay: animationStage >= 4 ? `${index * 100}ms` : '0ms'
                     }}
                   >
                     <Link
@@ -274,12 +301,11 @@ export default function MobileNav({ theme }: MobileNavProps) {
               </ul>
             </nav>
 
-            {/* Action Buttons - Compact Styling */}
+            {/* Action Buttons - Stage 5 */}
             <div 
               className={`space-y-2.5 w-full max-w-xs transition-all duration-700 ${
-                isOpen ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+                animationStage >= 5 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
               }`}
-              style={{ animationDelay: isOpen ? '900ms' : '0ms', animationFillMode: 'forwards' }}
             >
               <Button
                 variant="outline"
@@ -306,12 +332,11 @@ export default function MobileNav({ theme }: MobileNavProps) {
               </Button>
             </div>
 
-            {/* Footer Text - Compact */}
+            {/* Footer Text - Stage 6 */}
             <div 
-              className={`mt-6 text-center transition-all duration-700 ${
-                isOpen ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+              className={`mt-6 text-center transition-all duration-600 ${
+                animationStage >= 6 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
-              style={{ animationDelay: isOpen ? '1000ms' : '0ms', animationFillMode: 'forwards' }}
             >
               <p className="text-xs text-gray-500 mb-1.5">
                 Supporting Saudi Arabia's Vision 2030
