@@ -1,15 +1,17 @@
 'use client'
 
+import { useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Train, MapPin, Clock, Shield, Users, Zap, Phone, Mail, MapIcon, Microscope, Cog, Database, Wrench, ChevronRight, Star, Award, Globe } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
 import MobileNav from "@/components/MobileNav"
+import { motion } from 'framer-motion'
 
 export default function HomePage() {
+  // Set theme on component mount
   useEffect(() => {
     // Force remove any existing theme classes
     document.documentElement.classList.remove('page-blue')
@@ -18,7 +20,7 @@ export default function HomePage() {
     // Add green theme
     document.documentElement.classList.add('page-green')
     document.body.classList.add('page-green')
-    
+
     return () => {
       document.documentElement.classList.remove('page-green')
       document.body.classList.remove('page-green')
@@ -26,9 +28,19 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden page-green">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="min-h-screen bg-white overflow-x-hidden page-green"
+    >
       {/* Header */}
-      <header className="border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 sticky top-0 z-50 transition-all duration-300">
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+        className="border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 sticky top-0 z-50 transition-all duration-300"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             {/* Desktop Logo */}
@@ -44,7 +56,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
+            
             {/* Mobile Navigation */}
             <MobileNav theme="green" />
             
@@ -81,10 +93,15 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 py-24 lg:py-32 overflow-hidden">
+      <motion.section
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+        className="relative bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 py-24 lg:py-32 overflow-hidden"
+      >
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-emerald-200/30 to-teal-200/30 rounded-full blur-3xl animate-pulse"></div>
@@ -176,10 +193,15 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <motion.section
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+        className="py-24 bg-white relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -277,10 +299,15 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Features Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-emerald-50/30 relative overflow-hidden">
+      <motion.section
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+        className="py-24 bg-gradient-to-br from-gray-50 to-emerald-50/30 relative overflow-hidden"
+      >
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-emerald-200/20 to-teal-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-emerald-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
@@ -376,10 +403,15 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Projects & Research Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <motion.section
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.0, duration: 0.8, ease: "easeOut" }}
+        className="py-24 bg-white relative overflow-hidden"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-6 mb-20 animate-fade-in-up">
             <Badge className="bg-gradient-to-r from-purple-100 to-emerald-100 text-purple-800">
@@ -421,7 +453,7 @@ export default function HomePage() {
               <Card key={index} className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 bg-gradient-to-br from-white to-gray-50/50 animate-fade-in-up overflow-hidden h-full flex flex-col" style={{ animationDelay: project.delay }}>
                 <div className="relative overflow-hidden">
                   <Image
-                    src={project.image}
+                    src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     width={400}
                     height={300}
@@ -456,10 +488,15 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-600 relative overflow-hidden">
+      <motion.section
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+        className="py-24 bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-600 relative overflow-hidden"
+      >
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald-600/90 to-teal-600/90"></div>
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
@@ -507,10 +544,15 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-20 relative overflow-hidden">
+      <motion.footer
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8, ease: "easeOut" }}
+        className="bg-gray-900 text-white py-20 relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -588,7 +630,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </motion.footer>
+    </motion.div>
   )
 }
