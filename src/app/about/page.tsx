@@ -36,12 +36,12 @@ export default function AboutPage() {
             <div className="hidden md:flex items-center space-x-4 group">
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-blue-600 transition-colors duration-300 group-hover:text-blue-700" />
+                  <Cog className="h-10 w-10 text-blue-600 transition-colors duration-300 group-hover:text-blue-700" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
                   <span className="text-2xl font-bold text-gray-900 tracking-tight">LSME</span>
-                  <div className="text-xs text-gray-500 font-medium">Railway Solutions</div>
+                  <div className="text-xs text-gray-500 font-medium">Engineering Solutions</div>
                 </div>
               </div>
             </div>
@@ -98,15 +98,15 @@ export default function AboutPage() {
               <div className="space-y-6">
                 <Badge className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 hover:from-blue-200 hover:to-indigo-200 transition-all duration-300 transform hover:scale-105 shadow-md">
                   <Star className="w-3 h-3 mr-1" />
-                  Leading Saudi Railway R&D Solutions
+                  Leading Saudi Engineering R&D Solutions
                 </Badge>
                 <h1 className="hero-text text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
                   Pioneering 
-                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Railway Innovation</span>
+                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Innovation</span>
                   <br />in Saudi Arabia
                 </h1>
                 <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Advanced research, development, and technical services for railway infrastructure. Driving the future of transportation technology across the Kingdom.
+                  Advanced research, development, and technical engineering services. Driving the future of technology across the Kingdom.
                 </p>
               </div>
               
@@ -142,7 +142,7 @@ export default function AboutPage() {
               <div className="relative group overflow-hidden rounded-3xl">
                 <Image
                   src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop"
-                  alt="LSME Advanced Railway Research Laboratory - Modern train control center with advanced monitoring systems"
+                  alt="LSME Advanced Research Laboratory - Modern control center with advanced monitoring systems"
                   width={800}
                   height={600}
                   className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105"
@@ -193,7 +193,7 @@ export default function AboutPage() {
               Our Core <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Technical Services</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive railway solutions combining advanced research, innovative technology, and decades of engineering expertise to transform Saudi Arabia's transportation infrastructure.
+              Comprehensive engineering solutions combining advanced research, innovative technology, and decades of expertise to transform Saudi Arabia's infrastructure.
             </p>
           </div>
 
@@ -201,8 +201,8 @@ export default function AboutPage() {
             {[
               {
                 icon: Microscope,
-                title: "Railway Research & Development",
-                description: "Advanced materials research, signal systems development, and next-generation railway technology innovation.",
+                title: "Research & Development",
+                description: "Advanced materials research, signal systems development, and next-generation technology innovation.",
                 features: ["Materials Engineering", "Signal System R&D", "Safety Technology", "Performance Analytics"],
                 color: "blue",
                 delay: "0ms"
@@ -210,7 +210,7 @@ export default function AboutPage() {
               {
                 icon: Cog,
                 title: "Technical Consulting",
-                description: "Expert consultation for railway infrastructure projects, system optimization, and technical feasibility studies.",
+                description: "Expert consultation for infrastructure projects, system optimization, and technical feasibility studies.",
                 features: ["Infrastructure Planning", "System Integration", "Risk Assessment", "Technical Audits"],
                 color: "indigo",
                 delay: "200ms"
@@ -218,7 +218,7 @@ export default function AboutPage() {
               {
                 icon: Database,
                 title: "Data Analytics & AI",
-                description: "Big data solutions, predictive maintenance systems, and AI-powered railway optimization technologies.",
+                description: "Big data solutions, predictive maintenance systems, and AI-powered optimization technologies.",
                 features: ["Predictive Maintenance", "Traffic Optimization", "Safety Analytics", "Performance Monitoring"],
                 color: "sky",
                 delay: "400ms"
@@ -226,7 +226,7 @@ export default function AboutPage() {
               {
                 icon: Wrench,
                 title: "Engineering Services",
-                description: "Complete engineering solutions from design to implementation for railway infrastructure projects.",
+                description: "Complete engineering solutions from design to implementation for infrastructure projects.",
                 features: ["System Design", "Project Management", "Quality Assurance", "Technical Support"],
                 color: "cyan",
                 delay: "600ms"
@@ -234,7 +234,7 @@ export default function AboutPage() {
               {
                 icon: Shield,
                 title: "Safety & Compliance",
-                description: "Comprehensive safety assessments, regulatory compliance, and risk management for railway operations.",
+                description: "Comprehensive safety assessments, regulatory compliance, and risk management for operations.",
                 features: ["Safety Audits", "Compliance Testing", "Risk Management", "Certification Support"],
                 color: "slate",
                 delay: "800ms"
@@ -293,7 +293,7 @@ export default function AboutPage() {
               <div className="relative group overflow-hidden rounded-3xl">
                 <Image
                   src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=600&auto=format&fit=crop"
-                  alt="LSME Technical Research Center - Engineers working on railway infrastructure design and testing"
+                  alt="LSME Technical Research Center - Engineers working on infrastructure design and testing"
                   width={600}
                   height={500}
                   className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105 w-full h-full object-cover"
@@ -318,10 +318,10 @@ export default function AboutPage() {
                 </Badge>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                   Leading Saudi Arabia's 
-                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Railway Future</span>
+                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Future</span>
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  As Saudi Arabia's premier railway research and development company, we combine cutting-edge technology with deep local expertise to deliver world-class solutions.
+                  As Saudi Arabia's premier engineering research and development company, we combine cutting-edge technology with deep local expertise to deliver world-class solutions.
                 </p>
               </div>
 
@@ -336,19 +336,19 @@ export default function AboutPage() {
                   {
                     icon: Shield,
                     title: "Advanced Safety Standards",
-                    description: "ISO 9001:2015 certified with comprehensive safety protocols exceeding international railway standards.",
+                    description: "ISO 9001:2015 certified with comprehensive safety protocols exceeding international industry standards.",
                     color: "indigo"
                   },
                   {
                     icon: Users,
                     title: "Expert Team",
-                    description: "200+ certified engineers, researchers, and technical specialists with global railway expertise.",
+                    description: "200+ certified engineers, researchers, and technical specialists with global expertise.",
                     color: "sky"
                   },
                   {
                     icon: Globe,
                     title: "Vision 2030 Aligned",
-                    description: "Supporting Saudi Arabia's Vision 2030 with sustainable, innovative railway solutions for the future.",
+                    description: "Supporting Saudi Arabia's Vision 2030 with sustainable, innovative engineering solutions for the future.",
                     color: "cyan"
                   }
                 ].map((feature, index) => (
@@ -519,7 +519,7 @@ export default function AboutPage() {
             <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-blue-400 transition-colors duration-300 group-hover:text-blue-300" />
+                  <Cog className="h-10 w-10 text-blue-400 transition-colors duration-300 group-hover:text-blue-300" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>

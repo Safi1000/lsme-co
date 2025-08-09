@@ -8,12 +8,12 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "LSME - Leading Saudi Railway Solutions",
-  description: "Advanced research, development, and technical services for railway infrastructure. Driving the future of transportation technology across Saudi Arabia.",
-  keywords: "railway, Saudi Arabia, research, development, transportation, LSME",
-  authors: [{ name: "LSME Railway Solutions" }],
-  creator: "LSME Railway Solutions",
-  publisher: "LSME Railway Solutions",
+  title: "LSME - Engineering Solutions",
+  description: "Advanced research, development, and technical engineering services across industries in Saudi Arabia.",
+  keywords: "engineering, Saudi Arabia, research, development, technology, LSME",
+  authors: [{ name: "LSME Engineering Solutions" }],
+  creator: "LSME Engineering Solutions",
+  publisher: "LSME Engineering Solutions",
   robots: {
     index: true,
     follow: true,
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://lsme.sa",
-    title: "LSME - Leading Saudi Railway Solutions",
-    description: "Advanced research, development, and technical services for railway infrastructure.",
-    siteName: "LSME Railway Solutions",
+    title: "LSME - Engineering Solutions",
+    description: "Advanced research, development, and technical engineering services.",
+    siteName: "LSME Engineering Solutions",
   },
   twitter: {
     card: "summary_large_image",
-    title: "LSME - Leading Saudi Railway Solutions",
-    description: "Advanced research, development, and technical services for railway infrastructure.",
+    title: "LSME - Engineering Solutions",
+    description: "Advanced research, development, and technical engineering services.",
   },
 }
 

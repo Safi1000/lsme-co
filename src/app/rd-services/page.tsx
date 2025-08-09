@@ -55,7 +55,7 @@ export default function RDServicesPage() {
             <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-amber-700 transition-colors duration-300 group-hover:text-amber-800" />
+                  <Cog className="h-10 w-10 text-amber-700 transition-colors duration-300 group-hover:text-amber-800" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full animate-pulse"></div>
                 </div>
                 <div>
@@ -148,7 +148,7 @@ export default function RDServicesPage() {
               {
                 icon: Lightbulb,
                 title: "Product Design and Prototyping",
-                description: "End-to-end product development from conceptual design to functional prototypes for railway systems and components.",
+                description: "End-to-end product development from conceptual design to functional prototypes for systems and components.",
                 features: [
                   "Conceptual Design & Engineering",
                   "3D Modeling & CAD Development",
@@ -157,7 +157,7 @@ export default function RDServicesPage() {
                   "Material Selection & Analysis",
                   "Cost-Effective Design Solutions"
                 ],
-                details: "Our product design and prototyping services transform innovative ideas into tangible railway solutions. We utilize advanced CAD software, 3D printing, and rapid prototyping technologies to create functional prototypes that meet stringent railway industry standards. Our multidisciplinary team ensures optimal design for manufacturability, safety, and performance.",
+                details: "Our product design and prototyping services transform innovative ideas into tangible engineering solutions. We utilize advanced CAD software, 3D printing, and rapid prototyping technologies to create functional prototypes that meet stringent industry standards. Our multidisciplinary team ensures optimal design for manufacturability, safety, and performance.",
                 imagePlaceholder: "3D Design & Prototyping Lab",
                 delay: "0ms",
                 image: "/images/rd-services/product-design.jpg"
@@ -165,7 +165,7 @@ export default function RDServicesPage() {
               {
                 icon: Cpu,
                 title: "Embedded Systems Development",
-                description: "Custom embedded systems and firmware development for railway control, monitoring, and automation applications.",
+                description: "Custom embedded systems and firmware development for control, monitoring, and automation applications.",
                 features: [
                   "Microcontroller Programming",
                   "Real-Time Operating Systems",
@@ -174,7 +174,7 @@ export default function RDServicesPage() {
                   "Safety-Critical Software",
                   "Firmware Development & Testing"
                 ],
-                details: "We develop sophisticated embedded systems that form the backbone of modern railway infrastructure. Our expertise spans microcontroller programming, real-time systems, and safety-critical software development. We ensure reliable, efficient, and secure embedded solutions that meet railway industry safety standards and certification requirements.",
+                details: "We develop sophisticated embedded systems that form the backbone of modern infrastructure. Our expertise spans microcontroller programming, real-time systems, and safety-critical software development. We ensure reliable, efficient, and secure embedded solutions that meet industry safety standards and certification requirements.",
                 imagePlaceholder: "Embedded Systems Lab",
                 delay: "100ms",
                 image: "/images/rd-services/embedded-systems.jpg"
@@ -182,7 +182,7 @@ export default function RDServicesPage() {
               {
                 icon: Settings2,
                 title: "Industrial Automation and Controls",
-                description: "Advanced automation solutions and control systems for railway operations, maintenance, and infrastructure management.",
+                description: "Advanced automation solutions and control systems for operations, maintenance, and infrastructure management.",
                 features: [
                   "PLC Programming & Configuration",
                   "SCADA System Development",
@@ -191,7 +191,7 @@ export default function RDServicesPage() {
                   "Human Machine Interface (HMI)",
                   "Control System Integration"
                 ],
-                details: "Our industrial automation services leverage cutting-edge technologies to optimize railway operations. We design and implement comprehensive control systems that enhance efficiency, safety, and reliability. From PLC programming to SCADA systems, we deliver automation solutions that streamline operations and reduce manual intervention.",
+                details: "Our industrial automation services leverage cutting-edge technologies to optimize operations. We design and implement comprehensive control systems that enhance efficiency, safety, and reliability. From PLC programming to SCADA systems, we deliver automation solutions that streamline operations and reduce manual intervention.",
                 imagePlaceholder: "Automation Control Center",
                 delay: "200ms",
                 image: "/images/rd-services/automation.jpg"
@@ -199,7 +199,7 @@ export default function RDServicesPage() {
               {
                 icon: Cog,
                 title: "Mechanical Design and Simulation",
-                description: "Comprehensive mechanical engineering services including design, analysis, and simulation for railway components and systems.",
+                description: "Comprehensive mechanical engineering services including design, analysis, and simulation for components and systems.",
                 features: [
                   "Finite Element Analysis (FEA)",
                   "Computational Fluid Dynamics",
@@ -208,7 +208,7 @@ export default function RDServicesPage() {
                   "Mechanical Component Design",
                   "Performance Optimization"
                 ],
-                details: "We provide advanced mechanical design and simulation services to ensure optimal performance and safety of railway systems. Using state-of-the-art simulation software, we conduct thorough analysis of stress, vibration, thermal behavior, and fluid dynamics to optimize designs before physical implementation.",
+                details: "We provide advanced mechanical design and simulation services to ensure optimal performance and safety of complex systems. Using state-of-the-art simulation software, we conduct thorough analysis of stress, vibration, thermal behavior, and fluid dynamics to optimize designs before physical implementation.",
                 imagePlaceholder: "Mechanical Simulation Lab",
                 delay: "300ms",
                 image: "/images/rd-services/mechanical-simulation.jpg"
@@ -216,7 +216,7 @@ export default function RDServicesPage() {
               {
                 icon: Zap,
                 title: "Electrical System Design",
-                description: "Complete electrical engineering solutions for railway power systems, control circuits, and electrical infrastructure.",
+                description: "Complete electrical engineering solutions for power systems, control circuits, and electrical infrastructure.",
                 features: [
                   "Power System Design & Analysis",
                   "Electrical Circuit Development",
@@ -225,7 +225,7 @@ export default function RDServicesPage() {
                   "Energy Management Solutions",
                   "Electrical Safety Assessment"
                 ],
-                details: "Our electrical system design services cover all aspects of railway electrical infrastructure. From high-voltage power systems to low-voltage control circuits, we ensure reliable, efficient, and safe electrical solutions. Our designs comply with international standards and incorporate advanced protection and monitoring systems.",
+                details: "Our electrical system design services cover all aspects of electrical infrastructure. From high-voltage power systems to low-voltage control circuits, we ensure reliable, efficient, and safe electrical solutions. Our designs comply with international standards and incorporate advanced protection and monitoring systems.",
                 imagePlaceholder: "Electrical Design Lab",
                 delay: "400ms",
                 image: "/images/rd-services/eletrical-design.jpg"
@@ -233,7 +233,7 @@ export default function RDServicesPage() {
               {
                 icon: Wifi,
                 title: "Communication and IoT Integration",
-                description: "Advanced communication systems and IoT solutions for smart railway infrastructure and connected operations.",
+                description: "Advanced communication systems and IoT solutions for smart infrastructure and connected operations.",
                 features: [
                   "Wireless Communication Networks",
                   "IoT Sensor Integration",
@@ -242,7 +242,7 @@ export default function RDServicesPage() {
                   "Cloud Connectivity Platforms",
                   "Real-Time Monitoring Systems"
                 ],
-                details: "We develop comprehensive communication and IoT solutions that enable smart railway operations. Our systems provide real-time data collection, secure wireless communication, and intelligent monitoring capabilities. We integrate various sensors and devices to create connected railway ecosystems that enhance operational efficiency.",
+                details: "We develop comprehensive communication and IoT solutions that enable smart operations. Our systems provide real-time data collection, secure wireless communication, and intelligent monitoring capabilities. We integrate various sensors and devices to create connected ecosystems that enhance operational efficiency.",
                 imagePlaceholder: "IoT & Communication Lab",
                 delay: "500ms",
                 image: "/images/rd-services/iot-communication.jpg"
@@ -250,7 +250,7 @@ export default function RDServicesPage() {
               {
                 icon: TestTube,
                 title: "Material and Process Innovation",
-                description: "Advanced materials research and innovative manufacturing processes for enhanced railway component performance and durability.",
+                description: "Advanced materials research and innovative manufacturing processes for enhanced component performance and durability.",
                 features: [
                   "Advanced Materials Research",
                   "Composite Material Development",
@@ -259,7 +259,7 @@ export default function RDServicesPage() {
                   "Manufacturing Process Optimization",
                   "Material Testing & Validation"
                 ],
-                details: "Our materials and process innovation services focus on developing advanced materials and manufacturing techniques that enhance railway system performance. We research new composites, surface treatments, and processing methods that improve durability, reduce weight, and extend component lifespan while maintaining safety standards.",
+                details: "Our materials and process innovation services focus on developing advanced materials and manufacturing techniques that enhance system performance. We research new composites, surface treatments, and processing methods that improve durability, reduce weight, and extend component lifespan while maintaining safety standards.",
                 imagePlaceholder: "Materials Research Lab",
                 delay: "600ms",
                 image: "/images/rd-services/materials-research..jpg"
@@ -267,7 +267,7 @@ export default function RDServicesPage() {
               {
                 icon: Clipboard,
                 title: "Testing and Validation",
-                description: "Comprehensive testing and validation services ensuring railway systems meet safety, performance, and regulatory requirements.",
+                description: "Comprehensive testing and validation services ensuring systems meet safety, performance, and regulatory requirements.",
                 features: [
                   "Performance Testing Protocols",
                   "Safety Compliance Testing",
@@ -276,7 +276,7 @@ export default function RDServicesPage() {
                   "Regulatory Compliance Validation",
                   "Quality Assurance Programs"
                 ],
-                details: "We provide rigorous testing and validation services to ensure railway systems meet the highest standards of safety, performance, and reliability. Our comprehensive testing protocols cover environmental conditions, safety requirements, and regulatory compliance, providing confidence in system performance across all operating conditions.",
+                details: "We provide rigorous testing and validation services to ensure systems meet the highest standards of safety, performance, and reliability. Our comprehensive testing protocols cover environmental conditions, safety requirements, and regulatory compliance, providing confidence in system performance across all operating conditions.",
                 imagePlaceholder: "Testing & Validation Facility",
                 delay: "700ms",
                 image: "/images/rd-services/testing-validation.jpg"
@@ -284,7 +284,7 @@ export default function RDServicesPage() {
               {
                 icon: Hammer,
                 title: "Custom Equipment Development",
-                description: "Specialized equipment design and development for unique railway applications and custom engineering requirements.",
+                description: "Specialized equipment design and development for unique applications and custom engineering requirements.",
                 features: [
                   "Custom Machinery Design",
                   "Specialized Tool Development",
@@ -293,7 +293,7 @@ export default function RDServicesPage() {
                   "Prototype Equipment Building",
                   "Custom Manufacturing Support"
                 ],
-                details: "We specialize in developing custom equipment and machinery for unique railway applications. Our team designs and builds specialized tools, machinery, and equipment tailored to specific operational requirements. From one-off solutions to small-scale production, we deliver custom engineering excellence.",
+                details: "We specialize in developing custom equipment and machinery for unique applications. Our team designs and builds specialized tools, machinery, and equipment tailored to specific operational requirements. From one-off solutions to small-scale production, we deliver custom engineering excellence.",
                 imagePlaceholder: "Custom Equipment Workshop",
                 delay: "800ms",
                 image: "/images/rd-services/custom-equipment.jpg"
@@ -301,7 +301,7 @@ export default function RDServicesPage() {
               {
                 icon: Award,
                 title: "Innovation Consulting and IP Support",
-                description: "Strategic innovation consulting and intellectual property support services for railway technology development and commercialization.",
+                description: "Strategic innovation consulting and intellectual property support services for technology development and commercialization.",
                 features: [
                   "Technology Innovation Strategy",
                   "Patent Research & Filing",
@@ -461,7 +461,7 @@ export default function RDServicesPage() {
             <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
+                  <Cog className="h-10 w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
@@ -520,7 +520,7 @@ export default function RDServicesPage() {
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 LSME Engineering Services. All rights reserved.</p>
+                <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">

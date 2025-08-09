@@ -47,7 +47,7 @@ export default function TechnicalSolutionsPage() {
             <div className="hidden md:flex items-center space-x-4 group">
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-teal-600 transition-colors duration-300 group-hover:text-teal-700" />
+                  <Cog className="h-10 w-10 text-teal-600 transition-colors duration-300 group-hover:text-teal-700" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full animate-pulse"></div>
                 </div>
                 <div>
@@ -213,7 +213,7 @@ export default function TechnicalSolutionsPage() {
               Comprehensive <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Engineering Solutions</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              From system design and integration to implementation and maintenance, our technical solutions deliver robust, scalable, and efficient railway systems that meet the highest industry standards.
+              From system design and integration to implementation and maintenance, our technical solutions deliver robust, scalable, and efficient systems that meet the highest industry standards.
             </p>
           </div>
 
@@ -222,7 +222,7 @@ export default function TechnicalSolutionsPage() {
               {
                 icon: Cog,
                 title: "System Integration",
-                description: "Seamless integration of complex railway systems with existing infrastructure and advanced technology platforms.",
+                description: "Seamless integration of complex systems with existing infrastructure and advanced technology platforms.",
                 features: ["API Integration", "Legacy System Modernization", "Real-time Monitoring", "Data Synchronization"],
                 color: "teal",
                 delay: "0ms"
@@ -230,7 +230,7 @@ export default function TechnicalSolutionsPage() {
               {
                 icon: Monitor,
                 title: "Control Systems",
-                description: "Advanced control systems for traffic management, signal control, and automated railway operations.",
+                description: "Advanced control systems for traffic management, signal control, and automated operations.",
                 features: ["SCADA Systems", "Traffic Control", "Signal Management", "Automation Solutions"],
                 color: "cyan",
                 delay: "200ms"
@@ -238,7 +238,7 @@ export default function TechnicalSolutionsPage() {
               {
                 icon: Database,
                 title: "Data Management",
-                description: "Comprehensive data solutions for railway operations, including analytics, storage, and processing systems.",
+                description: "Comprehensive data solutions for operations, including analytics, storage, and processing systems.",
                 features: ["Big Data Processing", "Analytics Platforms", "Data Warehousing", "Business Intelligence"],
                 color: "teal",
                 delay: "400ms"
@@ -246,7 +246,7 @@ export default function TechnicalSolutionsPage() {
               {
                 icon: Shield,
                 title: "Cybersecurity",
-                description: "Robust cybersecurity solutions protecting critical railway infrastructure from modern digital threats.",
+                description: "Robust cybersecurity solutions protecting critical infrastructure from modern digital threats.",
                 features: ["Network Security", "Threat Detection", "Access Control", "Security Auditing"],
                 color: "cyan",
                 delay: "600ms"
@@ -254,7 +254,7 @@ export default function TechnicalSolutionsPage() {
               {
                 icon: Cpu,
                 title: "Hardware Solutions",
-                description: "Custom hardware design and implementation for specialized railway equipment and control systems.",
+                description: "Custom hardware design and implementation for specialized equipment and control systems.",
                 features: ["Embedded Systems", "IoT Devices", "Custom Controllers", "Hardware Testing"],
                 color: "teal",
                 delay: "800ms"
@@ -421,7 +421,7 @@ export default function TechnicalSolutionsPage() {
               Latest <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Technical Projects</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Discover our recent technical implementations that showcase our engineering capabilities and innovative solutions for modern railway systems.
+              Discover our recent technical implementations that showcase our engineering capabilities and innovative solutions for modern systems.
             </p>
           </div>
 
@@ -438,7 +438,7 @@ export default function TechnicalSolutionsPage() {
               {
                 image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=400&auto=format&fit=crop",
                 title: "Integrated Security Platform",
-                description: "Comprehensive cybersecurity solution protecting critical railway infrastructure across multiple regional networks.",
+                description: "Comprehensive cybersecurity solution protecting critical infrastructure across multiple regional networks.",
                 date: "November 2024",
                 status: "In Progress",
                 delay: "200ms"
@@ -567,7 +567,7 @@ export default function TechnicalSolutionsPage() {
             <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-teal-400 transition-colors duration-300 group-hover:text-teal-300" />
+                  <Cog className="h-10 w-10 text-teal-400 transition-colors duration-300 group-hover:text-teal-300" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
@@ -624,7 +624,7 @@ export default function TechnicalSolutionsPage() {
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 LSME Engineering Services. All rights reserved.</p>
+                <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">

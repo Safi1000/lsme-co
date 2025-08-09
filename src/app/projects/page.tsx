@@ -47,7 +47,7 @@ export default function ProjectsPage() {
             <div className="hidden md:flex items-center space-x-4 group">
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-amber-700 transition-colors duration-300 group-hover:text-amber-800" />
+                  <Cog className="h-10 w-10 text-amber-700 transition-colors duration-300 group-hover:text-amber-800" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full animate-pulse"></div>
                 </div>
                 <div>
@@ -158,7 +158,7 @@ export default function ProjectsPage() {
               <div className="relative group overflow-hidden rounded-3xl">
                 <Image
                   src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop"
-                  alt="LSME Project Portfolio - Advanced railway infrastructure and research facilities"
+                  alt="LSME Project Portfolio - Advanced infrastructure and research facilities"
                   width={800}
                   height={600}
                   className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105"
@@ -214,7 +214,7 @@ export default function ProjectsPage() {
               Diverse <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Project Portfolio</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              From groundbreaking research initiatives to large-scale infrastructure projects, explore our comprehensive portfolio of railway solutions that are shaping the future of transportation.
+              From groundbreaking research initiatives to large-scale infrastructure projects, explore our comprehensive portfolio of engineering solutions that are shaping the future of technology.
             </p>
           </div>
 
@@ -223,7 +223,7 @@ export default function ProjectsPage() {
               {
                 icon: Microscope,
                 title: "Research & Development Projects",
-                description: "Innovative research studies and breakthrough technologies advancing railway science and engineering.",
+                description: "Innovative research studies and breakthrough technologies advancing science and engineering.",
                 features: ["AI & Machine Learning", "Advanced Materials", "Safety Innovations", "Sustainability Studies"],
                 color: "amber",
                 delay: "0ms"
@@ -231,7 +231,7 @@ export default function ProjectsPage() {
               {
                 icon: Cog,
                 title: "Infrastructure Projects",
-                description: "Large-scale railway infrastructure development and modernization projects across the Kingdom.",
+                description: "Large-scale infrastructure development and modernization projects across the Kingdom.",
                 features: ["Track Systems", "Station Development", "Signal Upgrades", "Maintenance Facilities"],
                 color: "orange",
                 delay: "200ms"
@@ -239,7 +239,7 @@ export default function ProjectsPage() {
               {
                 icon: Database,
                 title: "Technology Integration",
-                description: "Smart railway systems and digital transformation projects enhancing operational efficiency.",
+                description: "Smart systems and digital transformation projects enhancing operational efficiency.",
                 features: ["Smart Systems", "IoT Integration", "Data Analytics", "Automation"],
                 color: "yellow",
                 delay: "400ms"
@@ -247,7 +247,7 @@ export default function ProjectsPage() {
               {
                 icon: Wrench,
                 title: "Consulting Projects",
-                description: "Strategic consulting and advisory projects for railway operators and government entities.",
+                description: "Strategic consulting and advisory projects for operators and government entities.",
                 features: ["Strategic Planning", "Technical Advisory", "Feasibility Studies", "Optimization"],
                 color: "amber",
                 delay: "600ms"
@@ -263,7 +263,7 @@ export default function ProjectsPage() {
               {
                 icon: Zap,
                 title: "Innovation Initiatives",
-                description: "Future-focused innovation projects exploring next-generation railway technologies and solutions.",
+                description: "Future-focused innovation projects exploring next-generation technologies and solutions.",
                 features: ["Prototype Development", "Pilot Programs", "Technology Validation", "Future Concepts"],
                 color: "yellow",
                 delay: "1000ms"
@@ -319,7 +319,7 @@ export default function ProjectsPage() {
               <div className="relative group overflow-hidden rounded-3xl">
                 <Image
                   src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=600&auto=format&fit=crop"
-                  alt="LSME Featured Projects - Advanced railway systems and infrastructure development"
+                  alt="LSME Featured Projects - Advanced systems and infrastructure development"
                   width={600}
                   height={500}
                   className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105 w-full h-full object-cover"
@@ -343,11 +343,11 @@ export default function ProjectsPage() {
                   Featured Projects
                 </Badge>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                  Transforming Railway 
+                  Transforming Industries 
                   <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> Infrastructure</span>
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Our flagship projects demonstrate our commitment to innovation, safety, and sustainable development in railway transportation across Saudi Arabia.
+                  Our flagship projects demonstrate our commitment to innovation, safety, and sustainable development across Saudi Arabia.
                 </p>
               </div>
 
@@ -361,7 +361,7 @@ export default function ProjectsPage() {
                   },
                   {
                     icon: Shield,
-                    title: "Smart Railway Operations Center",
+                    title: "Smart Operations Center",
                     description: "AI-powered control center managing real-time operations, predictive maintenance, and safety monitoring across the network.",
                     color: "orange"
                   },
@@ -374,7 +374,7 @@ export default function ProjectsPage() {
                   {
                     icon: Globe,
                     title: "Research Excellence Center",
-                    description: "State-of-the-art facility advancing railway technology through collaborative research and innovation partnerships.",
+                    description: "State-of-the-art facility advancing technology through collaborative research and innovation partnerships.",
                     color: "amber"
                   }
                 ].map((feature, index) => (
@@ -422,7 +422,7 @@ export default function ProjectsPage() {
               Recent <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Project Milestones</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Stay updated with our latest project achievements, breakthrough innovations, and ongoing developments that are advancing railway technology in the region.
+              Stay updated with our latest project achievements, breakthrough innovations, and ongoing developments that are advancing technology in the region.
             </p>
           </div>
 
@@ -431,7 +431,7 @@ export default function ProjectsPage() {
               {
                 image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=400&auto=format&fit=crop",
                 title: "Smart Traffic Management System Launch",
-                description: "Revolutionary AI-powered system now managing traffic flow and optimization across 500+ km of railway network.",
+                description: "Revolutionary AI-powered system now managing traffic flow and optimization across 500+ km of transport network.",
                 date: "December 2024",
                 status: "Completed",
                 delay: "0ms"
@@ -439,7 +439,7 @@ export default function ProjectsPage() {
               {
                 image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=400&auto=format&fit=crop",
                 title: "Renewable Energy Integration Project",
-                description: "Solar panel installation project providing 100% renewable energy to 15 major railway stations across the Kingdom.",
+                description: "Solar panel installation project providing 100% renewable energy to 15 major facilities across the Kingdom.",
                 date: "November 2024",
                 status: "In Progress",
                 delay: "200ms"
@@ -572,7 +572,7 @@ export default function ProjectsPage() {
             <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
+                  <Cog className="h-10 w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
@@ -629,7 +629,7 @@ export default function ProjectsPage() {
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 LSME Engineering Services. All rights reserved.</p>
+                <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">

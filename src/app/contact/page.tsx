@@ -47,12 +47,12 @@ export default function ContactPage() {
             <div className="hidden md:flex items-center space-x-4 group">
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-yellow-800 transition-colors duration-300 group-hover:text-yellow-900" />
+                  <Cog className="h-10 w-10 text-yellow-800 transition-colors duration-300 group-hover:text-yellow-900" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full animate-pulse"></div>
                 </div>
                 <div>
                   <span className="text-2xl font-bold text-gray-900 tracking-tight">LSME</span>
-                  <div className="text-xs text-gray-500 font-medium">Railway Solutions</div>
+                  <div className="text-xs text-gray-500 font-medium">Engineering Solutions</div>
                 </div>
               </div>
             </div>
@@ -119,10 +119,10 @@ export default function ContactPage() {
                 <h1 className="hero-text text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
                   Get in Touch 
                   <span className="bg-gradient-to-r from-yellow-800 to-amber-800 bg-clip-text text-transparent"> With LSME</span>
-                  <br />Railway Solutions
+                  <br />Engineering Solutions
                 </h1>
                 <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Ready to transform your railway infrastructure? Contact our team of experts for consultation, project inquiries, and partnership opportunities across Saudi Arabia.
+                  Ready to transform your infrastructure? Contact our team of experts for consultation, project inquiries, and partnership opportunities across Saudi Arabia.
                 </p>
               </div>
               
@@ -343,11 +343,11 @@ export default function ContactPage() {
                   Send Us a Message
                 </Badge>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                  Start Your Railway 
-                  <span className="bg-gradient-to-r from-yellow-800 to-amber-800 bg-clip-text text-transparent"> Project Today</span>
+                  Start Your Project 
+                  <span className="bg-gradient-to-r from-yellow-800 to-amber-800 bg-clip-text text-transparent"> Today</span>
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Fill out our contact form and our experts will reach out within 24 hours to discuss your railway infrastructure needs and project requirements.
+                  Fill out our contact form and our experts will reach out within 24 hours to discuss your infrastructure needs and project requirements.
                 </p>
               </div>
 
@@ -356,7 +356,7 @@ export default function ContactPage() {
                   {
                     icon: User,
                     title: "Project Consultation",
-                    description: "Get expert advice on railway infrastructure projects, technical feasibility, and implementation strategies.",
+                    description: "Get expert advice on infrastructure projects, technical feasibility, and implementation strategies.",
                     color: "yellow"
                   },
                   {
@@ -368,7 +368,7 @@ export default function ContactPage() {
                   {
                     icon: Users,
                     title: "Partnership Opportunities",
-                    description: "Explore collaboration opportunities, joint ventures, and strategic partnerships in railway technology.",
+                    description: "Explore collaboration opportunities, joint ventures, and strategic partnerships in technology and engineering.",
                     color: "yellow"
                   },
                   {
@@ -422,7 +422,7 @@ export default function ContactPage() {
               Nationwide <span className="bg-gradient-to-r from-yellow-800 to-amber-800 bg-clip-text text-transparent">Presence</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              With offices and service centers across Saudi Arabia, LSME provides local support and expertise wherever your railway projects take you.
+              With offices and service centers across Saudi Arabia, LSME provides local support and expertise wherever your projects take you.
             </p>
           </div>
 
@@ -439,7 +439,7 @@ export default function ContactPage() {
               {
                 image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=400&auto=format&fit=crop",
                 title: "Jeddah Regional Office",
-                description: "Western region operations center serving the Makkah Province with specialized coastal railway expertise.",
+                description: "Western region operations center serving the Makkah Province with specialized coastal infrastructure expertise.",
                 address: "Corniche Road, Jeddah",
                 services: "Regional Support",
                 delay: "200ms"
@@ -447,7 +447,7 @@ export default function ContactPage() {
               {
                 image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=400&auto=format&fit=crop",
                 title: "Dammam Technical Center",
-                description: "Eastern Province facility specializing in industrial railway systems and petrochemical transport solutions.",
+                description: "Eastern Province facility specializing in industrial systems and petrochemical transport solutions.",
                 address: "King Abdulaziz Port, Dammam",
                 services: "Technical Support",
                 delay: "400ms"
@@ -521,10 +521,10 @@ export default function ContactPage() {
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Let's Build the Future of
                 <br />
-                <span className="text-yellow-200">Railway Transportation</span>
+                <span className="text-yellow-200">Infrastructure</span>
               </h2>
               <p className="text-xl text-yellow-100 max-w-4xl mx-auto leading-relaxed">
-                Join us in revolutionizing Saudi Arabia's railway infrastructure. Contact our experts today and discover how LSME can transform your transportation vision into reality.
+                Join us in revolutionizing Saudi Arabia's infrastructure. Contact our experts today and discover how LSME can transform your vision into reality.
               </p>
             </div>
             
@@ -568,16 +568,16 @@ export default function ContactPage() {
             <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-yellow-400 transition-colors duration-300 group-hover:text-yellow-300" />
+                  <Cog className="h-10 w-10 text-yellow-400 transition-colors duration-300 group-hover:text-yellow-300" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
                   <span className="text-2xl font-bold">LSME</span>
-                  <div className="text-sm text-gray-400">Railway Solutions</div>
+                  <div className="text-sm text-gray-400">Engineering Solutions</div>
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Connecting Saudi Arabia through innovative railway solutions. Your trusted partner for technical excellence and sustainable transportation infrastructure.
+                Connecting Saudi Arabia through innovative engineering solutions. Your trusted partner for technical excellence and sustainable infrastructure.
               </p>
               <div className="flex space-x-6 pt-4">
                 <div className="bg-gray-800 p-3 rounded-xl hover:bg-yellow-800 transition-all duration-300 transform hover:scale-110 cursor-pointer">
@@ -627,7 +627,7 @@ export default function ContactPage() {
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 LSME Railway Solutions. All rights reserved.</p>
+                <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">

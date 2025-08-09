@@ -133,7 +133,7 @@ export default function HomePage() {
                   <br />for the Kingdom
                 </h1>
                 <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Specialized electrical, electronics, and mechanical engineering solutions delivering mission-critical performance across industries and railway infrastructure.
+                  Specialized electrical, electronics, and mechanical engineering solutions delivering mission-critical performance across industries.
                 </p>
               </div>
               
@@ -169,7 +169,7 @@ export default function HomePage() {
               <div className="relative group overflow-hidden rounded-3xl">
                 <Image
                   src="/images/hero/homepage-hero.jpg"
-                  alt="LSME Railway Engineering Excellence"
+                  alt="LSME Engineering Excellence"
                   width={800}
                   height={500}
                   className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105 w-full h-full object-cover"
@@ -233,7 +233,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <Link href="/projects">
                 <Button size="lg" className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                  Explore Railway Projects
+                  Explore Our Projects
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -243,7 +243,7 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
               {[
-                { icon: Train, label: 'Railway Infrastructure' },
+                { icon: Settings, label: 'Infrastructure Excellence' },
                 { icon: Shield, label: 'Safety & Standards' },
                 { icon: Globe, label: 'National Impact' },
               ].map((item, index) => (
@@ -569,7 +569,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Delivering electrical, electronics, mechanical, and railway engineering excellence across Saudi Arabia.
+                Delivering electrical, electronics, and mechanical engineering excellence across Saudi Arabia.
               </p>
               <div className="flex space-x-6 pt-4">
                 <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
@@ -592,7 +592,7 @@ export default function HomePage() {
               },
               {
                 title: "Services",
-                links: ["Power Systems Design", "Corrosion Protection", "Railway Systems Engineering", "Rolling Stock Engineering", "System Integration", "Project Management"],
+                links: ["Power Systems Design", "Corrosion Protection", "Systems Engineering", "Asset Engineering", "System Integration", "Project Management"],
                 delay: "400ms"
               },
               {
@@ -619,7 +619,7 @@ export default function HomePage() {
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 LSME Railway Engineering Solutions. All rights reserved.</p>
+                <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">

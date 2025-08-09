@@ -369,7 +369,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
                 LSME
               </h1>
               <p className="text-base text-gray-600 font-medium mb-3">
-                Leading Saudi Railway R&D Solutions
+                Leading Saudi Engineering Solutions
               </p>
               <div 
                 className={`w-20 h-0.5 mx-auto rounded-full transition-all duration-600 ${
