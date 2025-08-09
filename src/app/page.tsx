@@ -122,7 +122,7 @@ export default function HomePage() {
                   <br />for the Kingdom
                 </h1>
                 <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Specialized electrical, electrochemical, and mechanical engineering solutions driving Saudi Arabia's railway infrastructure excellence and innovation.
+                  Specialized electrical, electronics, and mechanical engineering solutions driving Saudi Arabia's railway infrastructure excellence and innovation.
                 </p>
               </div>
               
@@ -156,13 +156,13 @@ export default function HomePage() {
 
             <div className="relative animate-fade-in-right">
               <div className="relative group overflow-hidden rounded-3xl">
-                <div className="w-full h-[500px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <Train className="h-20 w-20 mx-auto mb-4" />
-                    <p className="text-lg font-medium">Railway Engineering Excellence</p>
-                    <p className="text-sm">Image placeholder for main hero visual</p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/hero/homepage-hero.jpg"
+                  alt="LSME Railway Engineering Excellence"
+                  width={800}
+                  height={500}
+                  className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105 w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
@@ -214,7 +214,7 @@ export default function HomePage() {
               Our Specialized <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Divisions</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Three core engineering divisions delivering comprehensive railway solutions across electrical systems, electrochemical processes, and mechanical engineering for Saudi Arabia's transportation infrastructure.
+              Three core engineering divisions delivering comprehensive railway solutions across electrical systems, electronics, and mechanical engineering for Saudi Arabia's transportation infrastructure.
             </p>
           </div>
 
@@ -235,24 +235,26 @@ export default function HomePage() {
                 details: "Our electrical division specializes in designing, implementing, and maintaining sophisticated electrical systems that power Saudi Arabia's modern railway infrastructure. From high-voltage electrification to advanced signaling systems, we ensure safe, efficient, and reliable electrical operations.",
                 color: "amber",
                 delay: "0ms",
-                imagePlaceholder: "Electrical Systems & Control Panels"
+                imagePlaceholder: "Electrical Systems & Control Panels",
+                image: "/images/divisions/electrical-division.jpg"
               },
               {
                 icon: Battery,
-                title: "Electrochemical Division", 
-                description: "Advanced electrochemical engineering for railway applications including battery systems, corrosion protection, and energy storage solutions for sustainable transportation.",
+                title: "Electronics Division", 
+                description: "Design and integration of embedded electronics, control boards, sensors, and communication modules for rolling stock and infrastructure.",
                 features: [
-                  "Battery & Energy Storage Systems",
-                  "Corrosion Protection & Prevention",
-                  "Electrochemical Testing & Analysis",
-                  "Cathodic Protection Systems",
-                  "Material Degradation Studies",
-                  "Renewable Energy Integration"
+                  "Embedded PCB Design",
+                  "Power Electronics & Converters",
+                  "Sensors & Instrumentation",
+                  "Control & Interface Boards",
+                  "EMC/EMI Compliance",
+                  "Environmental Hardening (IP/NEMA)"
                 ],
-                details: "Our electrochemical division focuses on protecting railway infrastructure through advanced materials science and electrochemical processes. We develop cutting-edge solutions for energy storage, corrosion prevention, and sustainable power systems that extend infrastructure lifespan.",
+                details: "Our electronics division delivers robust hardware designs for railway systems: embedded controllers, sensor interfaces, power conversion, and communication hardware engineered for harsh environments and railway standards.",
                 color: "orange",
                 delay: "200ms",
-                imagePlaceholder: "Battery Systems & Lab Equipment"
+                imagePlaceholder: "Electronics Hardware & Embedded Systems",
+                image: "/images/divisions/electronics-division.jpg"
               },
               {
                 icon: Settings,
@@ -269,18 +271,20 @@ export default function HomePage() {
                 details: "Our mechanical division delivers robust engineering solutions for all mechanical aspects of railway systems. From rolling stock design to track infrastructure and maintenance equipment, we ensure mechanical excellence that meets the demanding requirements of Saudi Arabia's railway network.",
                 color: "yellow",
                 delay: "400ms",
-                imagePlaceholder: "Mechanical Components & Testing"
+                imagePlaceholder: "Mechanical Components & Testing",
+                image: "/images/divisions/mechanical-division.jpg"
               }
             ].map((division, index) => (
               <Card key={index} className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50/50 animate-fade-in-up h-full flex flex-col" style={{ animationDelay: division.delay }}>
-                {/* Image Placeholder */}
+                {/* Image */}
                 <div className="relative overflow-hidden rounded-t-xl">
-                  <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <div className="text-center text-gray-500">
-                      <division.icon className="h-12 w-12 mx-auto mb-2" />
-                      <p className="text-sm font-medium">{division.imagePlaceholder}</p>
-                    </div>
-                  </div>
+                  <Image
+                    src={division.image}
+                    alt={division.imagePlaceholder}
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover"
+                  />
                 </div>
 
                 <CardHeader className="pb-4">
@@ -336,14 +340,14 @@ export default function HomePage() {
           <div className="feature-grid grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative animate-fade-in-left">
               <div className="relative group overflow-hidden rounded-3xl">
-                <div className="w-full h-[500px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <Users className="h-20 w-20 mx-auto mb-4" />
-                    <p className="text-lg font-medium">Engineering Team Excellence</p>
-                    <p className="text-sm">Image placeholder for team/facility</p>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <Image
+                  src="/images/hero/features-image.jpg"
+                  alt="Engineering Team Excellence"
+                  width={600}
+                  height={500}
+                  className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
               {/* Floating Achievement Badge */}
@@ -375,7 +379,7 @@ export default function HomePage() {
                   {
                     icon: Clock,
                     title: "Proven Engineering Excellence",
-                    description: "15+ years of successful project delivery with 99.8% client satisfaction rate across electrical, electrochemical, and mechanical engineering solutions.",
+                    description: "15+ years of successful project delivery with 99.8% client satisfaction rate across electrical, electronics, and mechanical engineering solutions.",
                     color: "emerald"
                   },
                   {
@@ -387,7 +391,7 @@ export default function HomePage() {
                   {
                     icon: Users,
                     title: "Specialized Expert Teams",
-                    description: "150+ certified engineers across our three divisions with specialized expertise in electrical, electrochemical, and mechanical railway systems.",
+                    description: "150+ certified engineers across our three divisions with specialized expertise in electrical, electronics, and mechanical railway systems.",
                     color: "purple"
                   },
                   {
@@ -450,7 +454,7 @@ export default function HomePage() {
                 <span className="text-amber-200">Railway Engineering Leaders</span>
               </h2>
               <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
-                Connect with our specialized engineering divisions. From electrical systems to electrochemical solutions and mechanical excellence - let's build the future of railway technology together.
+                Connect with our specialized engineering divisions. From electrical systems to electronics and mechanical excellence - let's build the future of railway technology together.
               </p>
             </div>
             
@@ -503,7 +507,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Leading Saudi Arabia's railway innovation through specialized electrical, electrochemical, and mechanical engineering excellence. Building the future of transportation.
+                Leading Saudi Arabia's railway innovation through specialized electrical, electronics, and mechanical engineering excellence. Building the future of transportation.
               </p>
               <div className="flex space-x-6 pt-4">
                 <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
@@ -521,7 +525,7 @@ export default function HomePage() {
             {[
               {
                 title: "Engineering Divisions",
-                links: ["Electrical Division", "Electrochemical Division", "Mechanical Division", "Integrated Solutions", "Technical Support"],
+                links: ["Electrical Division", "Electronics Division", "Mechanical Division", "Integrated Solutions", "Technical Support"],
                 delay: "200ms"
               },
               {

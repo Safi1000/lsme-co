@@ -148,7 +148,8 @@ export default function RDServicesPage() {
                 ],
                 details: "Our product design and prototyping services transform innovative ideas into tangible railway solutions. We utilize advanced CAD software, 3D printing, and rapid prototyping technologies to create functional prototypes that meet stringent railway industry standards. Our multidisciplinary team ensures optimal design for manufacturability, safety, and performance.",
                 imagePlaceholder: "3D Design & Prototyping Lab",
-                delay: "0ms"
+                delay: "0ms",
+                image: "/images/rd-services/product-design.jpg"
               },
               {
                 icon: Cpu,
@@ -164,7 +165,8 @@ export default function RDServicesPage() {
                 ],
                 details: "We develop sophisticated embedded systems that form the backbone of modern railway infrastructure. Our expertise spans microcontroller programming, real-time systems, and safety-critical software development. We ensure reliable, efficient, and secure embedded solutions that meet railway industry safety standards and certification requirements.",
                 imagePlaceholder: "Embedded Systems Lab",
-                delay: "100ms"
+                delay: "100ms",
+                image: "/images/rd-services/embedded-systems.jpg"
               },
               {
                 icon: Settings2,
@@ -180,7 +182,8 @@ export default function RDServicesPage() {
                 ],
                 details: "Our industrial automation services leverage cutting-edge technologies to optimize railway operations. We design and implement comprehensive control systems that enhance efficiency, safety, and reliability. From PLC programming to SCADA systems, we deliver automation solutions that streamline operations and reduce manual intervention.",
                 imagePlaceholder: "Automation Control Center",
-                delay: "200ms"
+                delay: "200ms",
+                image: "/images/rd-services/automation.jpg"
               },
               {
                 icon: Cog,
@@ -196,7 +199,8 @@ export default function RDServicesPage() {
                 ],
                 details: "We provide advanced mechanical design and simulation services to ensure optimal performance and safety of railway systems. Using state-of-the-art simulation software, we conduct thorough analysis of stress, vibration, thermal behavior, and fluid dynamics to optimize designs before physical implementation.",
                 imagePlaceholder: "Mechanical Simulation Lab",
-                delay: "300ms"
+                delay: "300ms",
+                image: "/images/rd-services/mechanical-simulation.jpg"
               },
               {
                 icon: Zap,
@@ -212,7 +216,8 @@ export default function RDServicesPage() {
                 ],
                 details: "Our electrical system design services cover all aspects of railway electrical infrastructure. From high-voltage power systems to low-voltage control circuits, we ensure reliable, efficient, and safe electrical solutions. Our designs comply with international standards and incorporate advanced protection and monitoring systems.",
                 imagePlaceholder: "Electrical Design Lab",
-                delay: "400ms"
+                delay: "400ms",
+                image: "/images/rd-services/eletrical-design.jpg"
               },
               {
                 icon: Wifi,
@@ -228,7 +233,8 @@ export default function RDServicesPage() {
                 ],
                 details: "We develop comprehensive communication and IoT solutions that enable smart railway operations. Our systems provide real-time data collection, secure wireless communication, and intelligent monitoring capabilities. We integrate various sensors and devices to create connected railway ecosystems that enhance operational efficiency.",
                 imagePlaceholder: "IoT & Communication Lab",
-                delay: "500ms"
+                delay: "500ms",
+                image: "/images/rd-services/iot-communication.jpg"
               },
               {
                 icon: TestTube,
@@ -244,7 +250,8 @@ export default function RDServicesPage() {
                 ],
                 details: "Our materials and process innovation services focus on developing advanced materials and manufacturing techniques that enhance railway system performance. We research new composites, surface treatments, and processing methods that improve durability, reduce weight, and extend component lifespan while maintaining safety standards.",
                 imagePlaceholder: "Materials Research Lab",
-                delay: "600ms"
+                delay: "600ms",
+                image: "/images/rd-services/materials-research..jpg"
               },
               {
                 icon: Clipboard,
@@ -260,7 +267,8 @@ export default function RDServicesPage() {
                 ],
                 details: "We provide rigorous testing and validation services to ensure railway systems meet the highest standards of safety, performance, and reliability. Our comprehensive testing protocols cover environmental conditions, safety requirements, and regulatory compliance, providing confidence in system performance across all operating conditions.",
                 imagePlaceholder: "Testing & Validation Facility",
-                delay: "700ms"
+                delay: "700ms",
+                image: "/images/rd-services/testing-validation.jpg"
               },
               {
                 icon: Hammer,
@@ -276,7 +284,8 @@ export default function RDServicesPage() {
                 ],
                 details: "We specialize in developing custom equipment and machinery for unique railway applications. Our team designs and builds specialized tools, machinery, and equipment tailored to specific operational requirements. From one-off solutions to small-scale production, we deliver custom engineering excellence.",
                 imagePlaceholder: "Custom Equipment Workshop",
-                delay: "800ms"
+                delay: "800ms",
+                image: "/images/rd-services/custom-equipment.jpg"
               },
               {
                 icon: Award,
@@ -292,7 +301,8 @@ export default function RDServicesPage() {
                 ],
                 details: "Our innovation consulting services help organizations maximize their R&D investment and protect their intellectual property. We provide strategic guidance on technology development, patent filing, IP management, and commercialization strategies. Our expertise ensures that innovations are properly protected and successfully brought to market.",
                 imagePlaceholder: "Innovation Consulting Center",
-                delay: "900ms"
+                delay: "900ms",
+                image: "/images/rd-services/innovation-consulting.jpg"
               }
             ].map((service, index) => (
               <motion.div
@@ -354,13 +364,13 @@ export default function RDServicesPage() {
                 {/* Image Section */}
                 <div className={`relative ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div className="relative group overflow-hidden rounded-3xl">
-                    <div className="w-full h-[400px] bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center">
-                      <div className="text-center text-gray-500">
-                        <service.icon className="h-20 w-20 mx-auto mb-4" />
-                        <p className="text-lg font-medium">{service.imagePlaceholder}</p>
-                        <p className="text-sm">Professional image placeholder</p>
-                      </div>
-                    </div>
+                    <Image
+                      src={service.image}
+                      alt={service.imagePlaceholder}
+                      width={800}
+                      height={400}
+                      className="w-full h-[400px] object-cover rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
