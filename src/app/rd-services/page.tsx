@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -27,6 +27,14 @@ export default function RDServicesPage() {
     }
   }, [])
 
+  const [isScrolled, setIsScrolled] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 8)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -37,14 +45,14 @@ export default function RDServicesPage() {
       {/* Header */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={{ y: 0, opacity: 1, boxShadow: isScrolled ? '0 8px 30px rgba(0,0,0,0.06)' : '0 0 0 rgba(0,0,0,0)' }}
         transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-        className="border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 sticky top-0 z-50 transition-all duration-300"
+        className={`fixed top-0 inset-x-0 z-50 border-b supports-[backdrop-filter]:bg-white/80 backdrop-blur-md transition-all duration-300 ${isScrolled ? 'bg-white/95' : 'bg-white/70'}`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
+          <div className={`flex ${isScrolled ? 'h-16' : 'h-20'} items-center justify-between transition-all duration-300`}>
             {/* Desktop Logo */}
-            <div className="hidden md:flex items-center space-x-4 group">
+            <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
                   <Train className="h-10 w-10 text-amber-700 transition-colors duration-300 group-hover:text-amber-800" />
@@ -94,6 +102,9 @@ export default function RDServicesPage() {
           </div>
         </div>
       </motion.header>
+
+      {/* Spacer under fixed header */}
+      <div style={{ height: isScrolled ? 64 : 80 }} />
 
       {/* Page Header Section */}
       <motion.section
