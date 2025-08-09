@@ -42,16 +42,15 @@ export default function ProjectsPage() {
         className="border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 sticky top-0 z-50 transition-all duration-300"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
+          <div className="flex h-24 items-center justify-between">
             {/* Desktop Logo */}
             <div className="hidden md:flex items-center space-x-4 group">
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
-                  <Cog className="h-10 w-10 text-amber-700 transition-colors duration-300 group-hover:text-amber-800" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full animate-pulse"></div>
+                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={80} height={80} className="h-20 w-20 object-contain animate-pulse" />
                 </div>
                 <div>
-                  <span className="text-2xl font-bold text-gray-900 tracking-tight">LSME</span>
+                  <span className="brand-font text-5xl font-normal text-gray-900 tracking-tight leading-none">LSME</span>
                   <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
                 </div>
               </div>

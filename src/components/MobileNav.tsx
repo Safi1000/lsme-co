@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Train, X, Menu } from 'lucide-react'
+import { X, Menu } from 'lucide-react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 
 interface MobileNavProps {
@@ -133,33 +134,10 @@ export default function MobileNav({ theme }: MobileNavProps) {
         {/* Mobile Logo */}
         <Link href="/" className="flex items-center space-x-2 group">
           <div className="relative">
-            <Train 
-              className={`h-7 w-7 transition-colors duration-300 group-hover:text-gray-600 ${
-                theme === 'green' ? 'text-emerald-600' : 
-                theme === 'blue' ? 'text-blue-600' : 
-                theme === 'cream' ? 'text-amber-700' : 
-                theme === 'lightbrown' ? 'text-yellow-800' :
-                theme === 'purple' ? 'text-purple-600' : 'text-teal-600'
-              }`} 
-            />
-            <div 
-              className={`absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full animate-pulse ${
-                theme === 'green'
-                  ? 'bg-gradient-to-r from-emerald-400 to-teal-500'
-                  : theme === 'blue'
-                  ? 'bg-gradient-to-r from-blue-400 to-indigo-500'
-                  : theme === 'cream'
-                  ? 'bg-gradient-to-r from-amber-400 to-orange-500'
-                  : theme === 'lightbrown'
-                  ? 'bg-gradient-to-r from-yellow-400 to-amber-500'
-                  : theme === 'purple'
-                  ? 'bg-gradient-to-r from-purple-400 to-violet-500'
-                  : 'bg-gradient-to-r from-teal-400 to-cyan-500'
-              }`}
-            ></div>
+            <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={56} height={56} className="h-14 w-14 object-contain animate-pulse" />
           </div>
           <div>
-            <span className="text-lg font-bold text-gray-900 tracking-tight">LSME</span>
+            <span className="brand-font text-lg font-normal text-gray-900 tracking-tight leading-none">LSME</span>
             <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
           </div>
         </Link>
@@ -336,35 +314,12 @@ export default function MobileNav({ theme }: MobileNavProps) {
             >
               <div className="flex items-center justify-center space-x-3 mb-5">
                 <div className="relative">
-                  <Train 
-                    className={`h-12 w-12 transition-all duration-500 ${
-                      theme === 'green' ? 'text-emerald-600' : 
-                      theme === 'blue' ? 'text-blue-600' : 
-                      theme === 'cream' ? 'text-amber-700' : 
-                      theme === 'lightbrown' ? 'text-yellow-800' :
-                      theme === 'purple' ? 'text-purple-600' : 'text-teal-600'
-                    } ${animationStage >= 3 ? 'animate-bounce-slow' : ''}`} 
-                  />
-                  <div 
-                    className={`absolute -top-1.5 -right-1.5 w-3 h-3 rounded-full animate-pulse ${
-                      theme === 'green'
-                        ? 'bg-gradient-to-r from-emerald-400 to-teal-500'
-                        : theme === 'blue'
-                        ? 'bg-gradient-to-r from-blue-400 to-indigo-500'
-                        : theme === 'cream'
-                        ? 'bg-gradient-to-r from-amber-400 to-orange-500'
-                        : theme === 'lightbrown'
-                        ? 'bg-gradient-to-r from-yellow-400 to-amber-500'
-                        : theme === 'purple'
-                        ? 'bg-gradient-to-r from-purple-400 to-violet-500'
-                        : 'bg-gradient-to-r from-teal-400 to-cyan-500'
-                    }`}
-                  ></div>
+                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={96} height={96} className={`h-24 w-24 object-contain ${animationStage >= 3 ? 'animate-bounce-slow' : ''}`} />
                 </div>
               </div>
               <h1
                 id="mobile-menu-title"
-                className="text-3xl font-bold text-gray-900 mb-2 tracking-tight"
+                className="brand-font text-5xl font-normal text-gray-900 mb-2 tracking-tight leading-none"
               >
                 LSME
               </h1>
