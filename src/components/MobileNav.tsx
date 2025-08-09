@@ -160,7 +160,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
           </div>
           <div>
             <span className="text-lg font-bold text-gray-900 tracking-tight">LSME</span>
-            <div className="text-xs text-gray-500 font-medium">Railway Solutions</div>
+            <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
           </div>
         </Link>
 
@@ -499,7 +499,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
                 Supporting Saudi Arabia's Vision 2030
               </p>
               <div className="flex items-center justify-center space-x-1.5 text-xs text-gray-400">
-                <span>Advanced Railway Solutions</span>
+                <span>Advanced Engineering Solutions</span>
                 <span>•</span>
                 <span>Technical Excellence</span>
               </div>

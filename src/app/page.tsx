@@ -60,7 +60,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <span className="text-2xl font-bold text-gray-900 tracking-tight">LSME</span>
-                  <div className="text-xs text-gray-500 font-medium">Railway Engineering</div>
+                  <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
                 </div>
               </div>
             </div>
@@ -125,15 +125,15 @@ export default function HomePage() {
               <div className="space-y-6">
                 <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md">
                   <Star className="w-3 h-3 mr-1" />
-                  Leading Saudi Railway Engineering Solutions
+                  Leading Engineering Solutions
                 </Badge>
                 <h1 className="hero-text text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
                   Advanced 
-                  <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> Railway Engineering</span>
+                  <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> Engineering Services</span>
                   <br />for the Kingdom
                 </h1>
                 <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Specialized electrical, electronics, and mechanical engineering solutions driving Saudi Arabia's railway infrastructure excellence and innovation.
+                  Specialized electrical, electronics, and mechanical engineering solutions delivering mission-critical performance across industries and railway infrastructure.
                 </p>
               </div>
               
@@ -201,6 +201,67 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
+
+              <div className="hidden md:block absolute bottom-10 right-0 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float" style={{ animationDelay: '1.6s' }}>
+                <div className="flex items-center space-x-4">
+                  <div className="bg-gradient-to-br from-amber-100 to-orange-100 p-3 rounded-xl">
+                    <Train className="h-8 w-8 text-amber-700" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-gray-900 text-lg">Railway Systems</div>
+                    <div className="text-xs text-gray-600">Infrastructure Expertise</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Vision 2030 Spotlight */}
+      <motion.section
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+        className="relative py-20 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 overflow-hidden"
+      >
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-24 -left-24 w-72 h-72 bg-gradient-to-br from-amber-200/30 to-orange-200/30 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-gradient-to-br from-yellow-200/30 to-amber-200/30 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center max-w-5xl mx-auto space-y-6">
+            <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 inline-flex items-center gap-1">
+              <Star className="w-3 h-3" /> Vision 2030
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight text-gray-900">
+              Collective Endeavour, Brighter Future: <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">LSMECO drives KSA's Vision 2030 forward!</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+              Proudly enabling sustainable transformation across the Kingdom with world-class engineering in power, electronics, mechanics, and railway systems.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+              <Link href="/projects">
+                <Button size="lg" className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                  Explore Railway Projects
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Button size="lg" variant="outline" className="hover:bg-amber-50 hover:border-amber-300">
+                Our Commitment
+              </Button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
+              {[
+                { icon: Train, label: 'Railway Infrastructure' },
+                { icon: Shield, label: 'Safety & Standards' },
+                { icon: Globe, label: 'National Impact' },
+              ].map((item, index) => (
+                <div key={index} className="flex items-center justify-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 shadow-md hover:shadow-lg transition-all">
+                  <item.icon className="h-5 w-5 text-amber-700" />
+                  <span className="text-sm font-medium text-gray-800">{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -225,7 +286,7 @@ export default function HomePage() {
               Our Specialized <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Divisions</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Three core engineering divisions delivering comprehensive railway solutions across electrical systems, electronics, and mechanical engineering for Saudi Arabia's transportation infrastructure.
+              Three core engineering divisions delivering comprehensive solutions across electrical systems, electronics, and mechanical engineering for infrastructure and industry.
             </p>
           </div>
 
@@ -234,16 +295,16 @@ export default function HomePage() {
               {
                 icon: Zap,
                 title: "Electrical Division",
-                description: "Comprehensive electrical engineering solutions for railway power systems, signaling, control systems, and electrification infrastructure across the Kingdom.",
+                description: "Power systems, protection, signaling, control, and electrification for facilities and critical infrastructure.",
                 features: [
-                  "Railway Electrification Systems",
-                  "Power Distribution & Control",
+                  "Power Distribution & Protection",
+                  "Control & Automation",
                   "Signal & Communication Systems",
-                  "Electrical Safety & Protection",
+                  "Electrical Safety",
                   "Smart Grid Integration",
-                  "Energy Management Systems"
+                  "Energy Management"
                 ],
-                details: "Our electrical division specializes in designing, implementing, and maintaining sophisticated electrical systems that power Saudi Arabia's modern railway infrastructure. From high-voltage electrification to advanced signaling systems, we ensure safe, efficient, and reliable electrical operations.",
+                details: "Design, implementation, and maintenance of sophisticated electrical systems for modern facilities and infrastructure. From high-voltage distribution to advanced control and protection, we ensure safe, efficient, and reliable operations.",
                 color: "amber",
                 delay: "0ms",
                 imagePlaceholder: "Electrical Systems & Control Panels",
@@ -252,7 +313,7 @@ export default function HomePage() {
               {
                 icon: Battery,
                 title: "Electronics Division", 
-                description: "Design and integration of embedded electronics, control boards, sensors, and communication modules for rolling stock and infrastructure.",
+                description: "Embedded electronics, control boards, sensors, and communication modules for connected, intelligent systems.",
                 features: [
                   "Embedded PCB Design",
                   "Power Electronics & Converters",
@@ -261,7 +322,7 @@ export default function HomePage() {
                   "EMC/EMI Compliance",
                   "Environmental Hardening (IP/NEMA)"
                 ],
-                details: "Our electronics division delivers robust hardware designs for railway systems: embedded controllers, sensor interfaces, power conversion, and communication hardware engineered for harsh environments and railway standards.",
+                details: "Robust electronics hardware: embedded controllers, sensor interfaces, power conversion, and communication hardware engineered for harsh environments and demanding standards.",
                 color: "orange",
                 delay: "200ms",
                 imagePlaceholder: "Electronics Hardware & Embedded Systems",
@@ -270,16 +331,16 @@ export default function HomePage() {
               {
                 icon: Settings,
                 title: "Mechanical Division",
-                description: "Precision mechanical engineering services for railway vehicles, track systems, maintenance equipment, and structural components ensuring optimal performance and safety.",
+                description: "Precision mechanical engineering for equipment, structures, motion systems, and maintenance tooling.",
                 features: [
-                  "Rolling Stock Engineering",
-                  "Track & Infrastructure Design",
-                  "Maintenance Equipment Systems",
+                  "Equipment & Mechanism Design",
+                  "Structural & Infrastructure Design",
+                  "Maintenance Tooling & Systems",
                   "Structural Analysis & Design",
                   "Mechanical Testing & Validation",
                   "Performance Optimization"
                 ],
-                details: "Our mechanical division delivers robust engineering solutions for all mechanical aspects of railway systems. From rolling stock design to track infrastructure and maintenance equipment, we ensure mechanical excellence that meets the demanding requirements of Saudi Arabia's railway network.",
+                details: "Mechanical design and analysis for equipment and infrastructure. From motion systems to structural components and tooling, we ensure durability, safety, and performance.",
                 color: "yellow",
                 delay: "400ms",
                 imagePlaceholder: "Mechanical Components & Testing",
@@ -378,10 +439,10 @@ export default function HomePage() {
                 </Badge>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                   Leading Saudi Arabia's 
-                  <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> Railway Engineering</span>
+                  <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> Engineering Services</span>
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  As Saudi Arabia's premier railway engineering company, we combine cutting-edge technology with deep local expertise across our three specialized divisions.
+                  As Saudi Arabia's premier engineering company, we combine cutting-edge technology with deep local expertise across our three specialized divisions.
                 </p>
               </div>
 
@@ -390,25 +451,25 @@ export default function HomePage() {
                   {
                     icon: Clock,
                     title: "Proven Engineering Excellence",
-                    description: "15+ years of successful project delivery with 99.8% client satisfaction rate across electrical, electronics, and mechanical engineering solutions.",
+                    description: "15+ years of successful project delivery with 99.8% client satisfaction rate across electrical, electronics, and mechanical solutions.",
                     color: "emerald"
                   },
                   {
                     icon: Shield,
                     title: "Advanced Safety & Standards",
-                    description: "ISO 9001:2015 certified with comprehensive safety protocols exceeding international railway engineering standards across all divisions.",
+                    description: "ISO 9001:2015 certified with comprehensive safety protocols exceeding international engineering standards across all divisions.",
                     color: "blue"
                   },
                   {
                     icon: Users,
                     title: "Specialized Expert Teams",
-                    description: "150+ certified engineers across our three divisions with specialized expertise in electrical, electronics, and mechanical railway systems.",
+                    description: "150+ certified engineers across our three divisions with specialized expertise in electrical, electronics, and mechanical systems.",
                     color: "purple"
                   },
                   {
                     icon: Globe,
                     title: "Vision 2030 Aligned",
-                    description: "Supporting Saudi Arabia's Vision 2030 with sustainable, innovative railway engineering solutions for the future of transportation.",
+                    description: "Supporting Saudi Arabia's Vision 2030 with sustainable, innovative engineering solutions for the future.",
                     color: "teal"
                   }
                 ].map((feature, index) => (
@@ -462,10 +523,10 @@ export default function HomePage() {
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Partner with Saudi Arabia's
                 <br />
-                <span className="text-amber-200">Railway Engineering Leaders</span>
+                <span className="text-amber-200">Engineering Leaders</span>
               </h2>
               <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
-                Connect with our specialized engineering divisions. From electrical systems to electronics and mechanical excellence - let's build the future of railway technology together.
+                Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
               </p>
             </div>
             
@@ -514,11 +575,11 @@ export default function HomePage() {
                 </div>
                 <div>
                   <span className="text-2xl font-bold">LSME</span>
-                  <div className="text-sm text-gray-400">Railway Engineering</div>
+                  <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Leading Saudi Arabia's railway innovation through specialized electrical, electronics, and mechanical engineering excellence. Building the future of transportation.
+                Delivering electrical, electronics, mechanical, and railway engineering excellence across Saudi Arabia.
               </p>
               <div className="flex space-x-6 pt-4">
                 <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
@@ -541,7 +602,7 @@ export default function HomePage() {
               },
               {
                 title: "Services",
-                links: ["Power Systems Design", "Corrosion Protection", "Rolling Stock Engineering", "System Integration", "Project Management"],
+                links: ["Power Systems Design", "Corrosion Protection", "Railway Systems Engineering", "Rolling Stock Engineering", "System Integration", "Project Management"],
                 delay: "400ms"
               },
               {

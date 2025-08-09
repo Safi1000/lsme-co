@@ -52,7 +52,7 @@ export default function ProjectsPage() {
                 </div>
                 <div>
                   <span className="text-2xl font-bold text-gray-900 tracking-tight">LSME</span>
-                  <div className="text-xs text-gray-500 font-medium">Railway Solutions</div>
+                  <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
                 </div>
               </div>
             </div>
@@ -114,15 +114,15 @@ export default function ProjectsPage() {
               <div className="space-y-6">
                 <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md">
                   <Star className="w-3 h-3 mr-1" />
-                  Transformative Railway Projects
+                  Transformative Engineering Projects
                 </Badge>
                 <h1 className="hero-text text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
                   Showcasing 
                   <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> World-Class</span>
-                  <br />Railway Projects
+                  <br />Engineering Projects
                 </h1>
                 <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Explore our portfolio of cutting-edge railway projects, from research breakthroughs to large-scale infrastructure implementations across Saudi Arabia.
+                  Explore our portfolio of cutting-edge projects across electrical, electronics, and mechanical engineering— from research breakthroughs to large-scale implementations.
                 </p>
               </div>
               
@@ -523,12 +523,12 @@ export default function ProjectsPage() {
                 Start Your Project
               </Badge>
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Ready to Begin Your
+                Ready for Your
                 <br />
-                <span className="text-amber-200">Next Railway Project?</span>
+                <span className="text-amber-200">Next Engineering Project?</span>
               </h2>
               <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
-                Partner with us to bring your railway vision to life. From initial concept to successful delivery, we provide comprehensive project management and technical expertise.
+                Partner with us from concept to delivery. We provide comprehensive project management and technical expertise to bring your vision to life.
               </p>
             </div>
             
@@ -577,12 +577,10 @@ export default function ProjectsPage() {
                 </div>
                 <div>
                   <span className="text-2xl font-bold">LSME</span>
-                  <div className="text-sm text-gray-400">Railway Solutions</div>
+                  <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed">
-                Delivering world-class railway projects through innovation, expertise, and commitment to excellence. Building the future of transportation in Saudi Arabia.
-              </p>
+              <p className="text-gray-400">Delivering world-class engineering projects through innovation, expertise, and commitment to excellence.</p>
               <div className="flex space-x-6 pt-4">
                 <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-700 transition-all duration-300 transform hover:scale-110 cursor-pointer">
                   <Phone className="h-5 w-5 text-amber-400" />
@@ -631,7 +629,7 @@ export default function ProjectsPage() {
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 LSME Railway Solutions. All rights reserved.</p>
+                <p>&copy; 2024 LSME Engineering Services. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">

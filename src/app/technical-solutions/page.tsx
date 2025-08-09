@@ -52,7 +52,7 @@ export default function TechnicalSolutionsPage() {
                 </div>
                 <div>
                   <span className="text-2xl font-bold text-gray-900 tracking-tight">LSME</span>
-                  <div className="text-xs text-gray-500 font-medium">Railway Solutions</div>
+                  <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
                 </div>
               </div>
             </div>
@@ -117,11 +117,11 @@ export default function TechnicalSolutionsPage() {
                   Advanced Technical Solutions
                 </Badge>
                 <h1 className="hero-text text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
-                  Engineering Excellence in 
-                  <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent"> Railway Systems</span>
+                  Comprehensive 
+                  <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent"> Engineering Solutions</span>
                 </h1>
                 <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Comprehensive technical solutions and engineering services that transform railway infrastructure projects from concept to completion with precision, efficiency, and innovation.
+                  Comprehensive technical solutions and engineering services that transform projects from concept to completion with precision, efficiency, and innovation.
                 </p>
               </div>
               
@@ -343,10 +343,10 @@ export default function TechnicalSolutionsPage() {
                 </Badge>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                   Precision Engineering for 
-                  <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent"> Railway Systems</span>
+                  <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent"> Engineering Systems</span>
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Our technical solutions combine decades of engineering expertise with cutting-edge technology to deliver railway systems that exceed performance expectations and operational requirements.
+                  Our technical solutions combine decades of engineering expertise with cutting-edge technology to deliver systems that exceed performance expectations and operational requirements.
                 </p>
               </div>
 
@@ -355,7 +355,7 @@ export default function TechnicalSolutionsPage() {
                   {
                     icon: Users,
                     title: "Expert Engineering Team",
-                    description: "Certified engineers and technical specialists with extensive experience in railway system design, implementation, and optimization.",
+                    description: "Certified engineers and technical specialists with extensive experience in engineering system design, implementation, and optimization.",
                     color: "teal"
                   },
                   {
@@ -367,7 +367,7 @@ export default function TechnicalSolutionsPage() {
                   {
                     icon: Globe,
                     title: "Industry Standards",
-                    description: "Full compliance with international railway standards and certifications, ensuring safety, reliability, and interoperability.",
+                    description: "Full compliance with international engineering standards and certifications, ensuring safety, reliability, and interoperability.",
                     color: "teal"
                   },
                   {
@@ -518,12 +518,12 @@ export default function TechnicalSolutionsPage() {
                 Ready to Implement?
               </Badge>
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Transform Your Railway Infrastructure with
+                Transform Your Infrastructure with
                 <br />
-                <span className="text-teal-200">Advanced Technical Solutions</span>
+                <span className="text-teal-200">Advanced Engineering Solutions</span>
               </h2>
               <p className="text-xl text-teal-100 max-w-4xl mx-auto leading-relaxed">
-                Partner with LSME's technical experts to implement cutting-edge railway solutions that enhance performance, reliability, and operational efficiency.
+                Partner with LSME's technical experts to implement cutting-edge solutions that enhance performance, reliability, and operational efficiency.
               </p>
             </div>
             
@@ -572,12 +572,10 @@ export default function TechnicalSolutionsPage() {
                 </div>
                 <div>
                   <span className="text-2xl font-bold">LSME</span>
-                  <div className="text-sm text-gray-400">Railway Solutions</div>
+                  <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed">
-                Delivering exceptional technical solutions and engineering excellence for railway infrastructure projects across Saudi Arabia and the region.
-              </p>
+              <p className="text-gray-400">Delivering exceptional technical solutions and engineering excellence across Saudi Arabia and the region.</p>
               <div className="flex space-x-6 pt-4">
                 <div className="bg-gray-800 p-3 rounded-xl hover:bg-teal-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
                   <Phone className="h-5 w-5 text-teal-400" />
@@ -626,7 +624,7 @@ export default function TechnicalSolutionsPage() {
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 LSME Railway Solutions. All rights reserved.</p>
+                <p>&copy; 2024 LSME Engineering Services. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">

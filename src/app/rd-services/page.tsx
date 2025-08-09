@@ -60,7 +60,7 @@ export default function RDServicesPage() {
                 </div>
                 <div>
                   <span className="text-2xl font-bold text-gray-900 tracking-tight">LSME</span>
-                  <div className="text-xs text-gray-500 font-medium">Railway Engineering</div>
+                  <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function RDServicesPage() {
               <br />Services
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive engineering and innovation services driving breakthrough solutions for railway technology, from concept to implementation across all engineering disciplines.
+              Comprehensive engineering and innovation services driving breakthrough solutions from concept to implementation across electrical, electronics, and mechanical disciplines.
             </p>
           </div>
         </div>
@@ -412,12 +412,12 @@ export default function RDServicesPage() {
                 Ready to Innovate?
               </Badge>
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Transform Your Railway Projects with
+                Transform Your Projects with
                 <br />
                 <span className="text-amber-200">Advanced R&D Services</span>
               </h2>
               <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
-                Partner with LSME's R&D team to bring your innovative railway solutions to life. From concept to implementation, we provide comprehensive engineering services that drive technological advancement.
+                Partner with LSME's R&D team to bring innovative solutions to life. From concept to implementation, we provide comprehensive engineering services that drive technological advancement.
               </p>
             </div>
             
@@ -466,11 +466,11 @@ export default function RDServicesPage() {
                 </div>
                 <div>
                   <span className="text-2xl font-bold">LSME</span>
-                  <div className="text-sm text-gray-400">Railway Engineering</div>
+                  <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Leading railway innovation through comprehensive R&D services and advanced engineering solutions across all disciplines.
+                Leading innovation through comprehensive R&D services and advanced engineering solutions across disciplines.
               </p>
               <div className="flex space-x-6 pt-4">
                 <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
@@ -520,7 +520,7 @@ export default function RDServicesPage() {
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 LSME Railway Engineering Solutions. All rights reserved.</p>
+                <p>&copy; 2024 LSME Engineering Services. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">
