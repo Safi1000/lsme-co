@@ -47,7 +47,7 @@ export default function HomePage() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1, boxShadow: isScrolled ? '0 8px 30px rgba(0,0,0,0.06)' : '0 0 0 rgba(0,0,0,0)' }}
         transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 inset-x-0 z-50 border-b supports-[backdrop-filter]:bg-white/80 backdrop-blur-md transition-all duration-300 ${isScrolled ? 'bg-white/95' : 'bg-white/70'}`}
+        className={`fixed top-0 inset-x-0 z-50 border-b bg-white transition-all duration-300`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex ${isScrolled ? 'h-20' : 'h-24'} items-center justify-between transition-all duration-300`}>

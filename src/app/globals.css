@@ -210,6 +210,107 @@
   animation: staggerFadeIn 0.4s ease-out forwards;
 }
 
+/* Logo Spinner Animations */
+@keyframes spin-2x {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(720deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.45)); }
+  50% { filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.85)); }
+}
+
+.animate-spin-2x {
+  animation: spin-2x 2s linear infinite;
+}
+
+.animate-logo-glow {
+  animation: glow-pulse 1.2s ease-in-out infinite;
+}
+
+/* Combined spinner helper (unused by default) */
+.animate-logo-spinner {
+  animation: spin-2x 2s linear infinite, glow-pulse 1.2s ease-in-out infinite;
+}
+
+/* Burst spin: 30ms spin (0->720deg), then 30ms pause */
+@keyframes spin-burst {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(720deg); }
+  100% { transform: rotate(720deg); }
+}
+
+/* 3s total (50 cycles of 60ms) */
+.animate-burst-3s {
+  animation: spin-burst 60ms linear 50;
+}
+
+/* 3s glow */
+.animate-glow-3s {
+  animation: glow-pulse 3s ease-in-out 1;
+}
+
+/* Spin-pulse: 0.5s stand, 0.5s spin (360deg), 0.5s stand */
+@keyframes spin-pulse {
+  0% { transform: rotate(0deg); }
+  33.333% { transform: rotate(0deg); }       /* first 0.5s */
+  66.666% { transform: rotate(360deg); }     /* spin over next 0.5s */
+  100% { transform: rotate(360deg); }        /* stand last 0.5s */
+}
+
+/* Run for 3s total (two 1.5s cycles) */
+.animate-spin-pulse-3s {
+  animation: spin-pulse 1500ms linear 2;
+}
+
+/* Radial glow bg without rectangular edges */
+@keyframes glow-bg {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+.logo-glow-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(245,158,11,0.65) 0%, rgba(245,158,11,0.0) 60%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+.animate-glow-bg-3s {
+  animation: glow-bg 3s ease-in-out 1;
+}
+
+/* Provided circular loader */
+.loader {
+  width: 256px;
+  aspect-ratio: 1;
+  display: grid;
+  color: #514b82;
+  background:
+    conic-gradient(from 90deg at 3px 3px, rgba(0,0,0,0) 90deg, currentColor 0)
+    -3px -3px / calc(50% + 1.5px) calc(50% + 1.5px);
+  animation: l28 2s infinite linear;
+  border-radius: 50%;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  background: repeating-conic-gradient(rgba(0,0,0,0) 0 35deg, currentColor 0 90deg);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0,0,0,0) calc(100% - 3px), #000 0);
+  border-radius: 50%;
+}
+.loader::after {
+  margin: 20%;
+}
+@keyframes l28 { 100% { transform: rotate(1turn) } }
+
+/* Optional extra glow for the loader ring */
+.loader-glow {
+  filter: drop-shadow(0 0 10px rgba(245,158,11,0.45)) drop-shadow(0 0 18px rgba(245,158,11,0.65));
+}
+
 /* Mobile Responsive Improvements */
 @media (max-width: 768px) {
   .hero-text {
@@ -382,4 +483,39 @@ html.page-teal ::-webkit-scrollbar-thumb:hover {
 
 .brand-font {
   font-family: 'ColonnaMT', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+.spinner-logo {
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  will-change: transform, filter;
+}
+
+/* Logo spinner wrapper (accelerate → decelerate per rotation) */
+.logo-spinner {
+  display: inline-block;
+  width: 160px; /* adjusted to match current spinner size */
+  height: 160px;
+  animation: spinCycle 2s 2 forwards;
+  will-change: transform;
+}
+.logo-spinner img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* Each cycle accelerates gently from 0° and decelerates approaching 360°, then resets at 360° */
+@keyframes spinCycle {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.4, 0.0, 1, 1); /* gentle ease-in */
+  }
+  70% {
+    transform: rotate(320deg);
+    animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1); /* gentle ease-out */
+  }
+  100% {
+    transform: rotate(360deg); /* exactly one turn per cycle */
+  }
 }

@@ -41,6 +41,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body className="antialiased">
+        <div id="global-loader" data-loader className="fixed inset-0 z-[99999] flex items-center justify-center bg-white opacity-100 pointer-events-none">
+          <div className="logo-spinner animate-logo-glow">
+            <img src="/images/logo/lsme-logo.jpg" alt="Loading" className="spinner-logo" />
+          </div>
+        </div>
+        <script dangerouslySetInnerHTML={{
+          __html: `(()=>{try{var el=document.querySelector('[data-loader]');if(!el)return;setTimeout(function(){el.style.transition='opacity 250ms ease';el.style.opacity='0';setTimeout(function(){el&&el.parentNode&&el.parentNode.removeChild(el)},280)},4000)}catch(e){}})();`
+        }} />
         {children}
       </body>
     </html>
