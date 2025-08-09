@@ -202,17 +202,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="hidden md:block absolute bottom-10 right-0 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float" style={{ animationDelay: '1.6s' }}>
-                <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-amber-100 to-orange-100 p-3 rounded-xl">
-                    <Train className="h-8 w-8 text-amber-700" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 text-lg">Railway Systems</div>
-                    <div className="text-xs text-gray-600">Infrastructure Expertise</div>
-                  </div>
-                </div>
-              </div>
+              {/* Removed Railway Systems floating badge as requested */}
             </div>
           </div>
         </div>
@@ -359,7 +349,7 @@ export default function HomePage() {
                   />
                 </div>
 
-                <CardHeader className="pb-4">
+                <CardHeader className="pb-4 min-h-60">
                   <div className="bg-gray-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
                     <division.icon className="h-8 w-8 text-black" />
                   </div>
@@ -371,20 +361,20 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col">
-                  <div className="space-y-4 mb-6">
-                    <p className="text-sm text-gray-700 leading-relaxed">
+                  <div className="mb-6">
+                    <p className="text-sm text-gray-700 leading-relaxed min-h-36">
                       {division.details}
                     </p>
-                    <h4 className="font-semibold text-gray-900">Key Services:</h4>
-                    <ul className="space-y-2 flex-1">
-                      {division.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center space-x-3 text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
-                          <div className="w-2 h-2 bg-gray-600 rounded-full transition-all duration-300 group-hover:scale-125"></div>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
+                  <h4 className="font-semibold text-gray-900 mb-4">Key Services:</h4>
+                  <ul className="space-y-3 mb-6 sm:mb-8">
+                    {division.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-3 text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                        <div className="w-2 h-2 bg-gray-600 rounded-full transition-all duration-300 group-hover:scale-125"></div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                   <Button variant="ghost" className="w-full mt-auto group-hover:bg-amber-50 group-hover:text-amber-700 transition-all duration-300">
                     Learn More About {division.title.split(' ')[0]}
                     <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -425,7 +415,7 @@ export default function HomePage() {
               {/* Floating Achievement Badge */}
               <div className="hidden md:block absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl animate-bounce-slow">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600">15+</div>
+                  <div className="text-2xl font-bold text-amber-800">15+</div>
                   <div className="text-xs text-gray-600">Years of Excellence</div>
                 </div>
               </div>
