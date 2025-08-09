@@ -50,7 +50,7 @@ export default function HomePage() {
         className={`fixed top-0 inset-x-0 z-50 border-b bg-white transition-all duration-300`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`flex ${isScrolled ? 'h-20' : 'h-24'} items-center justify-between transition-all duration-300`}>
+          <div className={`flex ${isScrolled ? 'h-28' : 'h-24'} items-center justify-between transition-all duration-300`}>
             {/* Desktop Logo */}
             <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
@@ -103,7 +103,7 @@ export default function HomePage() {
       </motion.header>
 
       {/* Spacer under fixed header */}
-      <div style={{ height: isScrolled ? 80 : 96 }} />
+      <div style={{ height: isScrolled ? 112 : 96 }} />
 
       {/* Hero Section */}
       <motion.section

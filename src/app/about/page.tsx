@@ -30,7 +30,7 @@ export default function AboutPage() {
       {/* Header */}
       <header className="border-b bg-white sticky top-0 z-50 transition-all duration-300">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-24 items-center justify-between">
+          <div className="flex h-28 items-center justify-between">
             
             {/* Desktop Logo */}
             <div className="hidden md:flex items-center space-x-4 group">
