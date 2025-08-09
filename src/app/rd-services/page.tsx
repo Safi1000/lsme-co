@@ -17,13 +17,13 @@ export default function RDServicesPage() {
     document.documentElement.classList.remove('page-blue', 'page-green', 'page-cream', 'page-lightbrown', 'page-teal')
     document.body.classList.remove('page-blue', 'page-green', 'page-cream', 'page-lightbrown', 'page-teal')
     
-    // Add purple theme
-    document.documentElement.classList.add('page-purple')
-    document.body.classList.add('page-purple')
+    // Add cream theme
+    document.documentElement.classList.add('page-cream')
+    document.body.classList.add('page-cream')
 
     return () => {
-      document.documentElement.classList.remove('page-purple')
-      document.body.classList.remove('page-purple')
+      document.documentElement.classList.remove('page-cream')
+      document.body.classList.remove('page-cream')
     }
   }, [])
 
@@ -32,7 +32,7 @@ export default function RDServicesPage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen bg-white overflow-x-hidden page-purple"
+      className="min-h-screen bg-white overflow-x-hidden page-cream"
     >
       {/* Header */}
       <motion.header
@@ -47,8 +47,8 @@ export default function RDServicesPage() {
             <div className="hidden md:flex items-center space-x-4 group">
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-purple-600 transition-colors duration-300 group-hover:text-purple-700" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full animate-pulse"></div>
+                  <Train className="h-10 w-10 text-amber-700 transition-colors duration-300 group-hover:text-amber-800" />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full animate-pulse"></div>
                 </div>
                 <div>
                   <span className="text-2xl font-bold text-gray-900 tracking-tight">LSME</span>
@@ -58,7 +58,7 @@ export default function RDServicesPage() {
             </div>
             
             {/* Mobile Navigation */}
-            <MobileNav theme="purple" />
+            <MobileNav theme="cream" />
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
@@ -73,21 +73,21 @@ export default function RDServicesPage() {
                 <Link 
                   key={item.name}
                   href={item.href} 
-                  className="relative text-gray-700 hover:text-purple-600 font-medium transition-all duration-300 group py-2"
+                  className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-violet-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </nav>
 
             {/* Desktop Action Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="outline" className="hover:bg-purple-50 hover:border-purple-300 transition-all duration-300">
+              <Button variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300">
                 Get Quote
               </Button>
-              <Button className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <Button className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 Portal Login
               </Button>
             </div>
@@ -100,21 +100,21 @@ export default function RDServicesPage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-        className="py-16 bg-gradient-to-br from-purple-50 via-violet-50 to-fuchsia-50 relative overflow-hidden"
+        className="py-16 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden"
       >
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-purple-200/20 to-violet-200/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-violet-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-amber-200/20 to-orange-200/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-yellow-200/20 to-amber-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center space-y-6 animate-fade-in-up">
-            <Badge className="bg-gradient-to-r from-purple-100 to-violet-100 text-purple-800 hover:from-purple-200 hover:to-violet-200 transition-all duration-300 transform hover:scale-105 shadow-md">
+            <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md">
               <Brain className="w-3 h-3 mr-1" />
               Comprehensive R&D Services
             </Badge>
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              Advanced <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Research & Development</span>
+              Advanced <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Research & Development</span>
               <br />Services
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
@@ -306,14 +306,14 @@ export default function RDServicesPage() {
                 <div className={`space-y-8 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                   <div className="space-y-6">
                     <div className="flex items-center space-x-4">
-                      <div className="bg-purple-100 p-4 rounded-2xl">
-                        <service.icon className="h-10 w-10 text-purple-600" />
+                      <div className="bg-amber-100 p-4 rounded-2xl">
+                        <service.icon className="h-10 w-10 text-amber-700" />
                       </div>
                       <div>
                         <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
                           {service.title}
                         </h2>
-                        <Badge className="bg-gradient-to-r from-purple-100 to-violet-100 text-purple-800 mt-2">
+                        <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 mt-2">
                           Service #{index + 1}
                         </Badge>
                       </div>
@@ -333,7 +333,7 @@ export default function RDServicesPage() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center space-x-3 text-gray-700">
-                          <div className="w-2 h-2 bg-purple-600 rounded-full flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-amber-700 rounded-full flex-shrink-0"></div>
                           <span className="text-sm">{feature}</span>
                         </div>
                       ))}
@@ -341,11 +341,11 @@ export default function RDServicesPage() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+                    <Button className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
                       Learn More About {service.title}
                       <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
-                    <Button variant="outline" className="hover:bg-purple-50 hover:border-purple-300 transition-all duration-300">
+                    <Button variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300">
                       Request Consultation
                     </Button>
                   </div>
@@ -361,7 +361,7 @@ export default function RDServicesPage() {
                         <p className="text-sm">Professional image placeholder</p>
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
               </motion.div>
@@ -375,10 +375,10 @@ export default function RDServicesPage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
-        className="py-24 bg-gradient-to-br from-purple-600 via-violet-600 to-purple-700 relative overflow-hidden"
+        className="py-24 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 relative overflow-hidden"
       >
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-600/90 to-violet-600/90"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-700/90 to-orange-700/90"></div>
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
@@ -393,19 +393,19 @@ export default function RDServicesPage() {
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Transform Your Railway Projects with
                 <br />
-                <span className="text-purple-200">Advanced R&D Services</span>
+                <span className="text-amber-200">Advanced R&D Services</span>
               </h2>
-              <p className="text-xl text-purple-100 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
                 Partner with LSME's R&D team to bring your innovative railway solutions to life. From concept to implementation, we provide comprehensive engineering services that drive technological advancement.
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
                 Start Your R&D Project
                 <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
                 Schedule Technical Consultation
               </Button>
             </div>
@@ -440,8 +440,8 @@ export default function RDServicesPage() {
             <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-purple-400 transition-colors duration-300 group-hover:text-purple-300" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-purple-400 to-violet-500 rounded-full animate-pulse"></div>
+                  <Train className="h-10 w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
                   <span className="text-2xl font-bold">LSME</span>
@@ -452,14 +452,14 @@ export default function RDServicesPage() {
                 Leading railway innovation through comprehensive R&D services and advanced engineering solutions across all disciplines.
               </p>
               <div className="flex space-x-6 pt-4">
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-purple-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Phone className="h-5 w-5 text-purple-400" />
+                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                  <Phone className="h-5 w-5 text-amber-400" />
                 </div>
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-purple-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Mail className="h-5 w-5 text-purple-400" />
+                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                  <Mail className="h-5 w-5 text-amber-400" />
                 </div>
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-purple-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Globe className="h-5 w-5 text-purple-400" />
+                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                  <Globe className="h-5 w-5 text-amber-400" />
                 </div>
               </div>
             </div>
@@ -486,7 +486,7 @@ export default function RDServicesPage() {
                 <ul className="space-y-3">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <Link href="#" className="text-gray-400 hover:text-purple-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                      <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
                         {link}
                       </Link>
                     </li>
@@ -503,9 +503,9 @@ export default function RDServicesPage() {
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">
-                <Link href="#" className="hover:text-purple-400 transition-colors duration-300">Privacy Policy</Link>
-                <Link href="#" className="hover:text-purple-400 transition-colors duration-300">Terms of Service</Link>
-                <Link href="#" className="hover:text-purple-400 transition-colors duration-300">ISO Certifications</Link>
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Terms of Service</Link>
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>
               </div>
             </div>
           </div>

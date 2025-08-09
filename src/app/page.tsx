@@ -17,13 +17,13 @@ export default function HomePage() {
     document.documentElement.classList.remove('page-blue')
     document.body.classList.remove('page-blue')
     
-    // Add green theme
-    document.documentElement.classList.add('page-green')
-    document.body.classList.add('page-green')
+    // Add cream theme
+    document.documentElement.classList.add('page-cream')
+    document.body.classList.add('page-cream')
 
     return () => {
-      document.documentElement.classList.remove('page-green')
-      document.body.classList.remove('page-green')
+      document.documentElement.classList.remove('page-cream')
+      document.body.classList.remove('page-cream')
     }
   }, [])
 
@@ -32,7 +32,7 @@ export default function HomePage() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen bg-white overflow-x-hidden page-green"
+      className="min-h-screen bg-white overflow-x-hidden page-cream"
     >
       {/* Header */}
       <motion.header
@@ -47,8 +47,8 @@ export default function HomePage() {
             <div className="hidden md:flex items-center space-x-4 group">
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-emerald-600 transition-colors duration-300 group-hover:text-emerald-700" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full animate-pulse"></div>
+                  <Train className="h-10 w-10 text-amber-700 transition-colors duration-300 group-hover:text-amber-800" />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full animate-pulse"></div>
                 </div>
                 <div>
                   <span className="text-2xl font-bold text-gray-900 tracking-tight">LSME</span>
@@ -58,7 +58,7 @@ export default function HomePage() {
             </div>
             
             {/* Mobile Navigation */}
-            <MobileNav theme="green" />
+            <MobileNav theme="cream" />
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
@@ -73,21 +73,21 @@ export default function HomePage() {
                 <Link 
                   key={item.name}
                   href={item.href} 
-                  className="relative text-gray-700 hover:text-emerald-600 font-medium transition-all duration-300 group py-2"
+                  className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </nav>
 
             {/* Desktop Action Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="outline" className="hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300">
+              <Button variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300">
                 Get Quote
               </Button>
-              <Button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <Button className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 Portal Login
               </Button>
             </div>
@@ -100,25 +100,25 @@ export default function HomePage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-        className="relative bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 py-24 lg:py-32 overflow-hidden"
+        className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-24 lg:py-32 overflow-hidden"
       >
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-emerald-200/30 to-teal-200/30 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-emerald-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-amber-200/30 to-orange-200/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-yellow-200/30 to-amber-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 animate-fade-in-up">
               <div className="space-y-6">
-                <Badge className="bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-800 hover:from-emerald-200 hover:to-teal-200 transition-all duration-300 transform hover:scale-105 shadow-md">
+                <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md">
                   <Star className="w-3 h-3 mr-1" />
                   Leading Saudi Railway Engineering Solutions
                 </Badge>
                 <h1 className="hero-text text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
                   Advanced 
-                  <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> Railway Engineering</span>
+                  <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> Railway Engineering</span>
                   <br />for the Kingdom
                 </h1>
                 <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
@@ -127,11 +127,11 @@ export default function HomePage() {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+                <Button size="lg" className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
                   Explore Our Divisions
                   <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
-                <Button size="lg" variant="outline" className="hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 transform hover:scale-105">
+                <Button size="lg" variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300 transform hover:scale-105">
                   View Engineering Projects
                 </Button>
               </div>
@@ -143,7 +143,7 @@ export default function HomePage() {
                   { number: '150+', label: 'Engineering Projects', delay: '400ms' }
                 ].map((stat, index) => (
                   <div key={index} className="text-center group cursor-pointer" style={{ animationDelay: stat.delay }}>
-                    <div className="text-4xl font-bold text-gray-900 transition-all duration-300 group-hover:text-emerald-600 group-hover:scale-110">
+                    <div className="text-4xl font-bold text-gray-900 transition-all duration-300 group-hover:text-amber-700 group-hover:scale-110">
                       {stat.number}
                     </div>
                     <div className="text-sm text-gray-600 transition-colors duration-300 group-hover:text-gray-800">
@@ -169,8 +169,8 @@ export default function HomePage() {
               {/* Floating Cards */}
               <div className="hidden md:block absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float">
                 <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-emerald-100 to-teal-100 p-3 rounded-xl">
-                    <Microscope className="h-8 w-8 text-emerald-600" />
+                  <div className="bg-gradient-to-br from-amber-100 to-orange-100 p-3 rounded-xl">
+                    <Microscope className="h-8 w-8 text-amber-700" />
                   </div>
                   <div>
                     <div className="font-bold text-gray-900 text-lg">Advanced R&D</div>
@@ -181,8 +181,8 @@ export default function HomePage() {
 
               <div className="hidden md:block absolute -top-8 -right-8 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-blue-100 to-emerald-100 p-3 rounded-xl">
-                    <Award className="h-8 w-8 text-blue-600" />
+                  <div className="bg-gradient-to-br from-yellow-100 to-amber-100 p-3 rounded-xl">
+                    <Award className="h-8 w-8 text-yellow-700" />
                   </div>
                   <div>
                     <div className="font-bold text-gray-900 text-lg">ISO Certified</div>
@@ -206,12 +206,12 @@ export default function HomePage() {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center space-y-6 mb-20 animate-fade-in-up">
-            <Badge className="bg-gradient-to-r from-blue-100 to-emerald-100 text-blue-800 hover:from-blue-200 hover:to-emerald-200 transition-all duration-300">
+            <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300">
               <Settings className="w-3 h-3 mr-1" />
               Engineering Excellence
             </Badge>
             <h2 className="section-title text-4xl lg:text-5xl font-bold text-gray-900">
-              Our Specialized <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Engineering Divisions</span>
+              Our Specialized <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Divisions</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Three core engineering divisions delivering comprehensive railway solutions across electrical systems, electrochemical processes, and mechanical engineering for Saudi Arabia's transportation infrastructure.
@@ -233,7 +233,7 @@ export default function HomePage() {
                   "Energy Management Systems"
                 ],
                 details: "Our electrical division specializes in designing, implementing, and maintaining sophisticated electrical systems that power Saudi Arabia's modern railway infrastructure. From high-voltage electrification to advanced signaling systems, we ensure safe, efficient, and reliable electrical operations.",
-                color: "emerald",
+                color: "amber",
                 delay: "0ms",
                 imagePlaceholder: "Electrical Systems & Control Panels"
               },
@@ -250,7 +250,7 @@ export default function HomePage() {
                   "Renewable Energy Integration"
                 ],
                 details: "Our electrochemical division focuses on protecting railway infrastructure through advanced materials science and electrochemical processes. We develop cutting-edge solutions for energy storage, corrosion prevention, and sustainable power systems that extend infrastructure lifespan.",
-                color: "blue",
+                color: "orange",
                 delay: "200ms",
                 imagePlaceholder: "Battery Systems & Lab Equipment"
               },
@@ -267,7 +267,7 @@ export default function HomePage() {
                   "Performance Optimization"
                 ],
                 details: "Our mechanical division delivers robust engineering solutions for all mechanical aspects of railway systems. From rolling stock design to track infrastructure and maintenance equipment, we ensure mechanical excellence that meets the demanding requirements of Saudi Arabia's railway network.",
-                color: "purple",
+                color: "yellow",
                 delay: "400ms",
                 imagePlaceholder: "Mechanical Components & Testing"
               }
@@ -287,7 +287,7 @@ export default function HomePage() {
                   <div className="bg-gray-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
                     <division.icon className="h-8 w-8 text-black" />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
+                  <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors duration-300">
                     {division.title}
                   </CardTitle>
                   <CardDescription className="text-gray-600 leading-relaxed">
@@ -309,7 +309,7 @@ export default function HomePage() {
                       ))}
                     </ul>
                   </div>
-                  <Button variant="ghost" className="w-full mt-auto group-hover:bg-emerald-50 group-hover:text-emerald-600 transition-all duration-300">
+                  <Button variant="ghost" className="w-full mt-auto group-hover:bg-amber-50 group-hover:text-amber-700 transition-all duration-300">
                     Learn More About {division.title.split(' ')[0]}
                     <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
@@ -325,11 +325,11 @@ export default function HomePage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-        className="py-24 bg-gradient-to-br from-gray-50 to-emerald-50/30 relative overflow-hidden"
+        className="py-24 bg-gradient-to-br from-gray-50 to-amber-50/30 relative overflow-hidden"
       >
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-emerald-200/20 to-teal-200/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-emerald-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
+          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-amber-200/20 to-orange-200/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-br from-yellow-200/20 to-amber-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -357,13 +357,13 @@ export default function HomePage() {
 
             <div className="space-y-10 animate-fade-in-right">
               <div className="space-y-6">
-                <Badge className="bg-gradient-to-r from-emerald-100 to-blue-100 text-emerald-800">
+                <Badge className="bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800">
                   <Award className="w-3 h-3 mr-1" />
                   Why Choose LSME
                 </Badge>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                   Leading Saudi Arabia's 
-                  <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> Railway Engineering</span>
+                  <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> Railway Engineering</span>
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   As Saudi Arabia's premier railway engineering company, we combine cutting-edge technology with deep local expertise across our three specialized divisions.
@@ -402,7 +402,7 @@ export default function HomePage() {
                       <feature.icon className="h-6 w-6 text-black" />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="font-bold text-xl text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
+                      <h3 className="font-bold text-xl text-gray-900 group-hover:text-amber-700 transition-colors duration-300">
                         {feature.title}
                       </h3>
                       <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -414,7 +414,7 @@ export default function HomePage() {
               </div>
 
               <div className="text-center">
-                <Button size="lg" className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+                <Button size="lg" className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
                   Discover Our Engineering Capabilities
                   <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
@@ -429,10 +429,10 @@ export default function HomePage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
-        className="py-24 bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-600 relative overflow-hidden"
+        className="py-24 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 relative overflow-hidden"
       >
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald-600/90 to-teal-600/90"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-700/90 to-orange-700/90"></div>
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
@@ -447,19 +447,19 @@ export default function HomePage() {
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Partner with Saudi Arabia's
                 <br />
-                <span className="text-emerald-200">Railway Engineering Leaders</span>
+                <span className="text-amber-200">Railway Engineering Leaders</span>
               </h2>
-              <p className="text-xl text-emerald-100 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
                 Connect with our specialized engineering divisions. From electrical systems to electrochemical solutions and mechanical excellence - let's build the future of railway technology together.
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
                 Start Your Engineering Project
                 <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-emerald-600 transition-all duration-300 transform hover:scale-105">
+              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
                 Schedule Technical Consultation
               </Button>
             </div>
@@ -494,8 +494,8 @@ export default function HomePage() {
             <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-emerald-400 transition-colors duration-300 group-hover:text-emerald-300" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full animate-pulse"></div>
+                  <Train className="h-10 w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
                   <span className="text-2xl font-bold">LSME</span>
@@ -506,14 +506,14 @@ export default function HomePage() {
                 Leading Saudi Arabia's railway innovation through specialized electrical, electrochemical, and mechanical engineering excellence. Building the future of transportation.
               </p>
               <div className="flex space-x-6 pt-4">
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-emerald-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Phone className="h-5 w-5 text-emerald-400" />
+                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                  <Phone className="h-5 w-5 text-amber-400" />
                 </div>
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-emerald-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Mail className="h-5 w-5 text-emerald-400" />
+                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                  <Mail className="h-5 w-5 text-amber-400" />
                 </div>
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-emerald-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Globe className="h-5 w-5 text-emerald-400" />
+                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                  <Globe className="h-5 w-5 text-amber-400" />
                 </div>
               </div>
             </div>
@@ -540,7 +540,7 @@ export default function HomePage() {
                 <ul className="space-y-3">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <Link href="#" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                      <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
                         {link}
                       </Link>
                     </li>
@@ -557,9 +557,9 @@ export default function HomePage() {
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">
-                <Link href="#" className="hover:text-emerald-400 transition-colors duration-300">Privacy Policy</Link>
-                <Link href="#" className="hover:text-emerald-400 transition-colors duration-300">Terms of Service</Link>
-                <Link href="#" className="hover:text-emerald-400 transition-colors duration-300">ISO Certifications</Link>
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Terms of Service</Link>
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>
               </div>
             </div>
           </div>
