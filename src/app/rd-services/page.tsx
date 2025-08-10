@@ -91,10 +91,10 @@ export default function RDServicesPage() {
 
             {/* Desktop Action Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300">
+              <Button variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300 border-amber-200 text-amber-700">
                 Get Quote
               </Button>
-              <Button className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <Button className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-white">
                 Portal Login
               </Button>
             </div>
