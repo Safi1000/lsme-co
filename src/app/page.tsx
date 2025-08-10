@@ -47,10 +47,16 @@ export default function HomePage() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1, boxShadow: isScrolled ? '0 8px 30px rgba(0,0,0,0.06)' : '0 0 0 rgba(0,0,0,0)' }}
         transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 inset-x-0 z-50 border-b bg-white transition-all duration-300`}
+        className={`fixed top-0 inset-x-0 z-50 border-b border-white/20 transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-white/80 backdrop-blur-lg shadow-xl border-amber-200/30' 
+            : 'bg-white/70 backdrop-blur-md shadow-lg'
+        }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`flex ${isScrolled ? 'h-28' : 'h-24'} items-center justify-between transition-all duration-300`}>
+          <div className={`flex items-center justify-between transition-all duration-300 ${
+            isScrolled ? 'h-20 md:h-28' : 'h-20 md:h-24'
+          }`}>
             {/* Desktop Logo */}
             <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
               <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
@@ -103,7 +109,7 @@ export default function HomePage() {
       </motion.header>
 
       {/* Spacer under fixed header */}
-      <div style={{ height: isScrolled ? 112 : 96 }} />
+      <div className="h-20 md:h-24" />
 
       {/* Hero Section */}
       <motion.section

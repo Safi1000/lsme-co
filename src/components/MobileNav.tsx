@@ -202,7 +202,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
       >
         {/* Full Background - Starts Completely Blank */}
         <div 
-          className={`absolute inset-0 w-full h-full min-h-screen overflow-y-auto transition-all duration-500 ${
+          className={`absolute inset-0 w-full h-full min-h-screen transition-all duration-500 ${
             isOpen ? 'scale-100' : 'scale-95'
           } ${
             theme === 'green'
@@ -304,30 +304,30 @@ export default function MobileNav({ theme }: MobileNavProps) {
           </div>
 
           {/* Main Content Container */}
-          <div className="flex flex-col items-center justify-center min-h-screen px-6 py-20 relative z-10">
+          <div className="flex flex-col items-center justify-center h-full px-6 py-6 relative z-10">
             
             {/* Logo Section - Stage 3 */}
             <div 
-              className={`mb-8 text-center transition-all duration-800 ${
+              className={`mb-6 text-center transition-all duration-800 ${
                 animationStage >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
               }`}
             >
-              <div className="flex items-center justify-center space-x-3 mb-4">
+              <div className="flex items-center justify-center space-x-2 mb-3">
                 <div className="relative">
-                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={80} height={80} className={`h-20 w-20 object-contain ${animationStage >= 3 ? 'animate-bounce-slow' : ''}`} />
+                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className={`h-16 w-16 object-contain ${animationStage >= 3 ? 'animate-bounce-slow' : ''}`} />
                 </div>
               </div>
               <h1
                 id="mobile-menu-title"
-                className="brand-font text-4xl font-normal text-gray-900 mb-2 tracking-tight leading-none"
+                className="brand-font text-3xl font-normal text-gray-900 mb-1 tracking-tight leading-none"
               >
                 LSME
               </h1>
-              <p className="text-sm text-gray-600 font-medium mb-2">
+              <p className="text-xs text-gray-600 font-medium mb-2">
                 Leading Saudi Engineering Solutions
               </p>
               <div 
-                className={`w-16 h-0.5 mx-auto rounded-full transition-all duration-600 ${
+                className={`w-12 h-0.5 mx-auto rounded-full transition-all duration-600 ${
                   animationStage >= 3 ? 'scale-x-100' : 'scale-x-0'
                 } ${
                   theme === 'green'
@@ -346,8 +346,8 @@ export default function MobileNav({ theme }: MobileNavProps) {
             </div>
 
             {/* Navigation Links - Stage 4 */}
-            <nav className="mb-8">
-              <ul className="space-y-2 text-center">
+            <nav className="mb-6">
+              <ul className="space-y-1 text-center">
                 {navigationItems.map((item, index) => (
                   <li
                     key={item.name}
@@ -355,13 +355,13 @@ export default function MobileNav({ theme }: MobileNavProps) {
                       animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                     style={{
-                      transitionDelay: animationStage >= 4 ? `${index * 100}ms` : '0ms'
+                      transitionDelay: animationStage >= 4 ? `${index * 80}ms` : '0ms'
                     }}
                   >
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block text-lg font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-6 rounded-xl relative group ${
+                      className={`block text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-5 rounded-xl relative group ${
                         theme === 'green' 
                           ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
                           : theme === 'blue'
@@ -399,14 +399,14 @@ export default function MobileNav({ theme }: MobileNavProps) {
 
             {/* Action Buttons - Stage 5 */}
             <div 
-              className={`space-y-3 w-full max-w-xs transition-all duration-700 ${
+              className={`space-y-2.5 w-full max-w-xs transition-all duration-700 ${
                 animationStage >= 5 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
               }`}
             >
               <Button
                 variant="outline"
-                size="lg"
-                className={`w-full border-2 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg text-sm py-4 ${
+                size="sm"
+                className={`w-full border-2 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg text-sm py-3 ${
                   theme === 'green'
                     ? 'border-emerald-300 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-400 focus:ring-emerald-500'
                     : theme === 'blue'
@@ -424,8 +424,8 @@ export default function MobileNav({ theme }: MobileNavProps) {
                 Get Quote
               </Button>
               <Button
-                size="lg"
-                className={`w-full text-white transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg text-sm py-4 ${
+                size="sm"
+                className={`w-full text-white transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg text-sm py-3 ${
                   theme === 'green'
                     ? 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700'
                     : theme === 'blue'
@@ -446,14 +446,14 @@ export default function MobileNav({ theme }: MobileNavProps) {
 
             {/* Footer Text - Stage 6 */}
             <div 
-              className={`mt-6 text-center transition-all duration-600 ${
+              className={`mt-4 text-center transition-all duration-600 ${
                 animationStage >= 6 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              <p className="text-xs text-gray-500 mb-1.5">
+              <p className="text-xs text-gray-500 mb-1">
                 Supporting Saudi Arabia's Vision 2030
               </p>
-              <div className="flex items-center justify-center space-x-1.5 text-xs text-gray-400">
+              <div className="flex items-center justify-center space-x-1 text-xs text-gray-400">
                 <span>Advanced Engineering Solutions</span>
                 <span>•</span>
                 <span>Technical Excellence</span>
