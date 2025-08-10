@@ -59,7 +59,7 @@ export default function RDServicesPage() {
           }`}>
             {/* Desktop Logo */}
             <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
-              <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
+              <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div className="relative">
                   <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={80} height={80} className="h-20 w-20 object-contain animate-pulse" />
                 </div>
@@ -67,7 +67,7 @@ export default function RDServicesPage() {
                   <span className="brand-font text-5xl font-normal text-gray-900 tracking-tight leading-none">LSME</span>
                   <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
                 </div>
-              </div>
+              </Link>
             </div>
             
             {/* Mobile Navigation */}
@@ -75,19 +75,60 @@ export default function RDServicesPage() {
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
+              <Link 
+                href="/" 
+                className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
+                style={{ animationDelay: '0ms' }}
+              >
+                Home
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              
+              {/* Services Dropdown - In second position */}
+              <div className="relative group">
+                <button className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 py-2 flex items-center gap-1">
+                  Services
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
+                </button>
+                
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                  <div className="py-2">
+                    {[
+                      { name: 'Electrical', href: '/services/electrical' },
+                      { name: 'Electronics', href: '/services/electronics' },
+                      { name: 'Mechanical', href: '/services/mechanical' },
+                      { name: 'R&D', href: '/rd-services' },
+                      { name: 'Supply Chain', href: '/services/supply-chain' }
+                    ].map((service, index) => (
+                      <Link
+                        key={service.name}
+                        href={service.href}
+                        className="block px-4 py-2 text-gray-700 hover:text-amber-700 hover:bg-amber-50 transition-all duration-200 transform hover:translate-x-1"
+                        style={{ animationDelay: `${index * 50}ms` }}
+                      >
+                        {service.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
               {[
-                { name: 'Home', href: '/' },
-                { name: 'R&D Services', href: '/rd-services' },
-                { name: 'Technical Solutions', href: '/technical-solutions' },
                 { name: 'Projects', href: '/projects' },
                 { name: 'About', href: '/about' },
+                { name: 'Our Partners', href: '/our-partners' },
+                { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
               ].map((item, index) => (
                 <Link 
                   key={item.name}
                   href={item.href} 
                   className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  style={{ animationDelay: `${(index + 2) * 100}ms` }}
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
@@ -95,15 +136,7 @@ export default function RDServicesPage() {
               ))}
             </nav>
 
-            {/* Desktop Action Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Button variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300 border-amber-200 text-amber-700">
-                Get Quote
-              </Button>
-              <Button className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-white">
-                Portal Login
-              </Button>
-            </div>
+
           </div>
         </div>
       </motion.header>
@@ -131,12 +164,13 @@ export default function RDServicesPage() {
               <Brain className="w-3 h-3 mr-1" />
               Comprehensive R&D Services
             </Badge>
-            {/* Hero title with better mobile responsiveness */}
-            <h1 className="hero-text text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
-              Advanced <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Research & Development</span>
-              <br />Services
+            {/* Hero title with homepage format */}
+            <h1 className="hero-text font-bold text-gray-900 leading-tight">
+              <span className="text-3xl lg:text-4xl">Advanced Services</span>
+              <br />
+              <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Research & Development</span>
             </h1>
-            <p className="hero-subtitle text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="hero-subtitle text-base lg:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Comprehensive engineering and innovation services driving breakthrough solutions from concept to implementation across electrical, electronics, and mechanical disciplines.
             </p>
             </div>

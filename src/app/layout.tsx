@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   authors: [{ name: "LSME Engineering Solutions" }],
   creator: "LSME Engineering Solutions",
   publisher: "LSME Engineering Solutions",
+  icons: {
+    icon: "/images/logo/favicon-logo.jpg",
+    shortcut: "/images/logo/favicon-logo.jpg",
+    apple: "/images/logo/favicon-logo.jpg",
+  },
   robots: {
     index: true,
     follow: true,

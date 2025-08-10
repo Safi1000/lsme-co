@@ -59,7 +59,7 @@ export default function HomePage() {
           }`}>
             {/* Desktop Logo */}
             <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
-              <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
+              <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div className="relative">
                   <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={80} height={80} className="h-20 w-20 object-contain animate-pulse" />
                 </div>
@@ -67,43 +67,76 @@ export default function HomePage() {
                   <span className="brand-font text-5xl font-normal text-gray-900 tracking-tight leading-none">LSME</span>
                   <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
                 </div>
-              </div>
+              </Link>
             </div>
             
             {/* Mobile Navigation */}
             <MobileNav theme="cream" />
             
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              {[
-                { name: 'Home', href: '/' },
-                { name: 'R&D Services', href: '/rd-services' },
-                { name: 'Technical Solutions', href: '/technical-solutions' },
+                         {/* Desktop Navigation */}
+             <nav className="hidden md:flex items-center space-x-8">
+               <Link 
+                 href="/" 
+                 className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
+                 style={{ animationDelay: '0ms' }}
+               >
+                 Home
+                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
+               </Link>
+               
+               {/* Services Dropdown - In second position */}
+               <div className="relative group">
+                 <button className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 py-2 flex items-center gap-1">
+                   Services
+                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                   </svg>
+                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
+                 </button>
+                 
+                 {/* Dropdown Menu */}
+                 <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                   <div className="py-2">
+                     {[
+                       { name: 'Electrical', href: '/services/electrical' },
+                       { name: 'Electronics', href: '/services/electronics' },
+                       { name: 'Mechanical', href: '/services/mechanical' },
+                       { name: 'R&D', href: '/rd-services' },
+                       { name: 'Supply Chain', href: '/services/supply-chain' }
+                     ].map((service, index) => (
+                       <Link
+                         key={service.name}
+                         href={service.href}
+                         className="block px-4 py-2 text-gray-700 hover:text-amber-700 hover:bg-amber-50 transition-all duration-200 transform hover:translate-x-1"
+                         style={{ animationDelay: `${index * 50}ms` }}
+                       >
+                         {service.name}
+                       </Link>
+                     ))}
+                   </div>
+                 </div>
+               </div>
+               
+                             {[
                 { name: 'Projects', href: '/projects' },
                 { name: 'About', href: '/about' },
+                { name: 'Our Partners', href: '/our-partners' },
+                { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
               ].map((item, index) => (
-                <Link 
-                  key={item.name}
-                  href={item.href} 
-                  className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              ))}
-            </nav>
+                 <Link 
+                   key={item.name}
+                   href={item.href} 
+                   className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
+                   style={{ animationDelay: `${(index + 2) * 100}ms` }}
+                 >
+                   {item.name}
+                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
+                 </Link>
+               ))}
+             </nav>
 
-            {/* Desktop Action Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Button variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300">
-                Get Quote
-              </Button>
-              <Button className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Portal Login
-              </Button>
-            </div>
+
           </div>
         </div>
       </motion.header>
@@ -116,7 +149,7 @@ export default function HomePage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-        className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-24 lg:py-32 overflow-hidden"
+        className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-12 lg:py-20 overflow-hidden"
       >
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -132,13 +165,13 @@ export default function HomePage() {
                   <Star className="w-3 h-3 mr-1" />
                   Leading Engineering Solutions
                 </Badge>
-                <h1 className="hero-text text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
-                  Advanced 
-                  <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> Engineering Services</span>
-                  <br />for the Kingdom
+                <h1 className="hero-text font-bold text-gray-900 leading-tight">
+                  <span className="text-3xl lg:text-4xl">Welcome to</span>
+                  <br />
+                  <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">LSMECO</span>
                 </h1>
-                <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Specialized electrical, electronics, and mechanical engineering solutions delivering mission-critical performance across industries.
+                <p className="hero-subtitle text-base lg:text-lg text-gray-600 leading-relaxed">
+                  At LSMECO, we are a dynamic and innovative company dedicated to providing solutions in the fields of electrical, mechanical, and electronics engineering. Our expertise spans a wide range of industries. We pride ourselves on our unique capability to develop retrofits through reverse engineering.
                 </p>
               </div>
               
@@ -152,25 +185,37 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              <div className="stats-grid grid grid-cols-3 gap-8 pt-8">
-                {[
-                  { number: '15+', label: 'Years of Excellence', delay: '0ms' },
-                  { number: '3', label: 'Specialized Divisions', delay: '200ms' },
-                  { number: '150+', label: 'Engineering Projects', delay: '400ms' }
-                ].map((stat, index) => (
-                  <div key={index} className="text-center group cursor-pointer" style={{ animationDelay: stat.delay }}>
-                    <div className="text-4xl font-bold text-gray-900 transition-all duration-300 group-hover:text-amber-700 group-hover:scale-110">
-                      {stat.number}
-                    </div>
-                    <div className="text-sm text-gray-600 transition-colors duration-300 group-hover:text-gray-800">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+
             </div>
 
             <div className="relative animate-fade-in-right">
+              {/* Achievement Badges Above Hero Image */}
+              <div className="flex justify-between items-start mb-6 gap-4">
+                <div className="hidden md:block bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float">
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-gradient-to-br from-amber-100 to-orange-100 p-2 rounded-xl">
+                      <Microscope className="h-6 w-6 text-amber-700" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-gray-900 text-base">Advanced R&D</div>
+                      <div className="text-xs text-gray-600">Cutting-edge Research</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="hidden md:block bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-float" style={{ animationDelay: '1s' }}>
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-gradient-to-br from-yellow-100 to-amber-100 p-2 rounded-xl">
+                      <Award className="h-6 w-6 text-yellow-700" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-gray-900 text-base">ISO Certified</div>
+                      <div className="text-xs text-gray-600">Quality Assured</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div className="relative group overflow-hidden rounded-3xl">
                 <Image
                   src="/images/hero/homepage-hero.jpg"
@@ -181,30 +226,12 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              
-              {/* Floating Cards */}
-              <div className="hidden md:block absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-amber-100 to-orange-100 p-3 rounded-xl">
-                    <Microscope className="h-8 w-8 text-amber-700" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 text-lg">Advanced R&D</div>
-                    <div className="text-xs text-gray-600">Cutting-edge Research</div>
-                  </div>
-                </div>
-              </div>
 
-              <div className="hidden md:block absolute -top-8 -right-8 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-float" style={{ animationDelay: '1s' }}>
-                <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-yellow-100 to-amber-100 p-3 rounded-xl">
-                    <Award className="h-8 w-8 text-yellow-700" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 text-lg">ISO Certified</div>
-                    <div className="text-xs text-gray-600">Quality Assured</div>
-                  </div>
-                </div>
+              {/* Vision Text Below Hero Image - Within Image Column */}
+              <div className="text-center mt-8">
+                <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                  Collective Endeavour, Brighter Future: <span className="font-semibold text-amber-700">LSMECO drives KSA's Vision 2030 forward!</span>
+                </p>
               </div>
 
               {/* Removed Railway Systems floating badge as requested */}
@@ -213,54 +240,7 @@ export default function HomePage() {
         </div>
       </motion.section>
 
-      {/* Vision 2030 Spotlight */}
-      <motion.section
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-        className="relative py-20 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 overflow-hidden"
-      >
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-24 -left-24 w-72 h-72 bg-gradient-to-br from-amber-200/30 to-orange-200/30 rounded-full blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-gradient-to-br from-yellow-200/30 to-amber-200/30 rounded-full blur-3xl" />
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center max-w-5xl mx-auto space-y-6">
-            <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 inline-flex items-center gap-1">
-              <Star className="w-3 h-3" /> Vision 2030
-            </Badge>
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight text-gray-900">
-              Collective Endeavour, Brighter Future: <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">LSMECO drives KSA's Vision 2030 forward!</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-              Proudly enabling sustainable transformation across the Kingdom with world-class engineering in power, electronics, mechanics, and railway systems.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-              <Link href="/projects">
-                <Button size="lg" className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                  Explore Our Projects
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Button size="lg" variant="outline" className="hover:bg-amber-50 hover:border-amber-300">
-                Our Commitment
-              </Button>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
-              {[
-                { icon: Settings, label: 'Infrastructure Excellence' },
-                { icon: Shield, label: 'Safety & Standards' },
-                { icon: Globe, label: 'National Impact' },
-              ].map((item, index) => (
-                <div key={index} className="flex items-center justify-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl px-4 py-3 shadow-md hover:shadow-lg transition-all">
-                  <item.icon className="h-5 w-5 text-amber-700" />
-                  <span className="text-sm font-medium text-gray-800">{item.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </motion.section>
+
 
       {/* Engineering Divisions Section */}
       <motion.section
@@ -277,8 +257,10 @@ export default function HomePage() {
               <Settings className="w-3 h-3 mr-1" />
               Engineering Excellence
             </Badge>
-            <h2 className="section-title text-4xl lg:text-5xl font-bold text-gray-900">
-              Our Specialized <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Divisions</span>
+            <h2 className="section-title font-bold text-gray-900 leading-tight">
+              <span className="text-3xl lg:text-4xl">Our Specialized</span>
+              <br />
+              <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Divisions</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Three core engineering divisions delivering comprehensive solutions across electrical systems, electronics, and mechanical engineering for infrastructure and industry.
@@ -403,71 +385,62 @@ export default function HomePage() {
           <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-br from-yellow-200/20 to-amber-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="feature-grid grid lg:grid-cols-2 gap-20 items-center">
-            <div className="relative animate-fade-in-left">
-              <div className="relative group overflow-hidden rounded-3xl">
-                <Image
-                  src="/images/hero/feature-image.jpg"
-                  alt="Engineering Team Excellence"
-                  width={600}
-                  height={500}
-                  className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              
-              {/* Floating Achievement Badge */}
-              <div className="hidden md:block absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl animate-bounce-slow">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-amber-800">15+</div>
-                  <div className="text-xs text-gray-600">Years of Excellence</div>
-                </div>
-              </div>
-            </div>
+                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+           {/* Centered Section Title */}
+           <div className="text-center space-y-6 mb-20 animate-fade-in-up">
+             <Badge className="bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800">
+               <Award className="w-3 h-3 mr-1" />
+               Why Choose LSME
+             </Badge>
+             <h2 className="font-bold text-gray-900 leading-tight">
+               <span className="text-3xl lg:text-4xl">Leading Saudi Arabia's</span>
+               <br />
+               <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Services</span>
+             </h2>
+             <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+               As Saudi Arabia's premier engineering company, we combine cutting-edge technology with deep local expertise across our three specialized divisions.
+             </p>
+           </div>
 
-            <div className="space-y-10 animate-fade-in-right">
-              <div className="space-y-6">
-                <Badge className="bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800">
-                  <Award className="w-3 h-3 mr-1" />
-                  Why Choose LSME
-                </Badge>
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                  Leading Saudi Arabia's 
-                  <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent"> Engineering Services</span>
-                </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  As Saudi Arabia's premier engineering company, we combine cutting-edge technology with deep local expertise across our three specialized divisions.
-                </p>
-              </div>
+           <div className="feature-grid grid lg:grid-cols-2 gap-20 items-center">
+             <div className="relative animate-fade-in-left">
+               <div className="relative group overflow-hidden rounded-3xl">
+                 <Image
+                   src="/images/hero/feature-image.jpg"
+                   alt="Engineering Team Excellence"
+                   width={600}
+                   height={500}
+                   className="rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-3xl group-hover:scale-105 w-full h-full object-cover"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+               </div>
+               
 
-              <div className="space-y-8">
-                {[
-                  {
-                    icon: Clock,
-                    title: "Proven Engineering Excellence",
-                    description: "15+ years of successful project delivery with 99.8% client satisfaction rate across electrical, electronics, and mechanical solutions.",
-                    color: "emerald"
-                  },
-                  {
-                    icon: Shield,
-                    title: "Advanced Safety & Standards",
-                    description: "ISO 9001:2015 certified with comprehensive safety protocols exceeding international engineering standards across all divisions.",
-                    color: "blue"
-                  },
-                  {
-                    icon: Users,
-                    title: "Specialized Expert Teams",
-                    description: "150+ certified engineers across our three divisions with specialized expertise in electrical, electronics, and mechanical systems.",
-                    color: "purple"
-                  },
-                  {
-                    icon: Globe,
-                    title: "Vision 2030 Aligned",
-                    description: "Supporting Saudi Arabia's Vision 2030 with sustainable, innovative engineering solutions for the future.",
-                    color: "teal"
-                  }
-                ].map((feature, index) => (
+             </div>
+
+             <div className="space-y-10 animate-fade-in-right">
+
+                             <div className="space-y-8">
+                 {[
+                   {
+                     icon: Shield,
+                     title: "Advanced Safety & Standards",
+                     description: "ISO 9001:2015 certified with comprehensive safety protocols exceeding international engineering standards across all divisions.",
+                     color: "blue"
+                   },
+                   {
+                     icon: Users,
+                     title: "Specialized Expert Teams",
+                     description: "150+ certified engineers across our three divisions with specialized expertise in electrical, electronics, and mechanical systems.",
+                     color: "purple"
+                   },
+                   {
+                     icon: Globe,
+                     title: "Vision 2030 Aligned",
+                     description: "Supporting Saudi Arabia's Vision 2030 with sustainable, innovative engineering solutions for the future.",
+                     color: "teal"
+                   }
+                 ].map((feature, index) => (
                   <div key={index} className="flex items-start space-x-6 group cursor-pointer animate-fade-in-up" style={{ animationDelay: `${index * 200}ms` }}>
                     <div className="bg-gray-100 p-4 rounded-2xl flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
                       <feature.icon className="h-6 w-6 text-black" />

@@ -45,7 +45,7 @@ export default function TechnicalSolutionsPage() {
           <div className="flex h-28 items-center justify-between">
             {/* Desktop Logo */}
             <div className="hidden md:flex items-center space-x-4 group">
-              <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
+              <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div className="relative">
                   <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={80} height={80} className="h-20 w-20 object-contain animate-pulse" />
                 </div>
@@ -53,7 +53,7 @@ export default function TechnicalSolutionsPage() {
                   <span className="brand-font text-5xl font-normal text-gray-900 tracking-tight leading-none">LSME</span>
                   <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
                 </div>
-              </div>
+              </Link>
             </div>
             
             {/* Mobile Navigation */}
@@ -61,10 +61,49 @@ export default function TechnicalSolutionsPage() {
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
+              <Link 
+                href="/" 
+                className="relative text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 group py-2"
+                style={{ animationDelay: '0ms' }}
+              >
+                Home
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-600 to-cyan-600 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              
+              {/* Services Dropdown - In second position */}
+              <div className="relative group">
+                <button className="relative text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 py-2 flex items-center gap-1">
+                  Services
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-600 to-cyan-600 transition-all duration-300 group-hover:w-full"></span>
+                </button>
+                
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                  <div className="py-2">
+                    {[
+                      { name: 'Electrical', href: '/services/electrical' },
+                      { name: 'Electronics', href: '/services/electronics' },
+                      { name: 'Mechanical', href: '/services/mechanical' },
+                      { name: 'R&D', href: '/rd-services' },
+                      { name: 'Supply Chain', href: '/services/supply-chain' }
+                    ].map((service, index) => (
+                      <Link
+                        key={service.name}
+                        href={service.href}
+                        className="block px-4 py-2 text-gray-700 hover:text-teal-600 hover:bg-teal-50 transition-all duration-200 transform hover:translate-x-1"
+                        style={{ animationDelay: `${index * 50}ms` }}
+                      >
+                        {service.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
               {[
-                { name: 'Home', href: '/' },
-                { name: 'R&D Services', href: '/rd-services' },
-                { name: 'Technical Solutions', href: '/technical-solutions' },
                 { name: 'Projects', href: '/projects' },
                 { name: 'About', href: '/about' },
                 { name: 'Contact', href: '/contact' }
@@ -73,7 +112,7 @@ export default function TechnicalSolutionsPage() {
                   key={item.name}
                   href={item.href} 
                   className="relative text-gray-700 hover:text-teal-600 font-medium transition-all duration-300 group py-2"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  style={{ animationDelay: `${(index + 2) * 100}ms` }}
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-600 to-cyan-600 transition-all duration-300 group-hover:w-full"></span>
