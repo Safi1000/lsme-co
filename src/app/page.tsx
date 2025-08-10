@@ -369,7 +369,7 @@ export default function HomePage() {
                   <ul className="space-y-3 mb-6 sm:mb-8">
                     {division.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center space-x-3 text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
-                        <div className="w-2 h-2 bg-gray-600 rounded-full transition-all duration-300 group-hover:scale-125"></div>
+                        <div className="w-2 h-2 bg-amber-700 rounded-full transition-all duration-300 group-hover:scale-125"></div>
                         <span>{feature}</span>
                       </li>
                     ))}

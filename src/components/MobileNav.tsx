@@ -134,10 +134,10 @@ export default function MobileNav({ theme }: MobileNavProps) {
         {/* Mobile Logo */}
         <Link href="/" className="flex items-center space-x-2 group">
           <div className="relative">
-            <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={56} height={56} className="h-14 w-14 object-contain animate-pulse" />
+            <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className="h-16 w-16 object-contain animate-pulse" />
           </div>
           <div>
-            <span className="brand-font text-lg font-normal text-gray-900 tracking-tight leading-none">LSME</span>
+            <span className="brand-font text-xl font-normal text-gray-900 tracking-tight leading-none">LSME</span>
             <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
           </div>
         </Link>

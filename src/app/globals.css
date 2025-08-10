@@ -356,6 +356,11 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  /* Reduce spinner size on mobile by ~20% (160px -> 128px) */
+  .logo-spinner {
+    width: 128px;
+    height: 128px;
+  }
 }
 
 /* Custom Scrollbar - Default (Green Theme) */

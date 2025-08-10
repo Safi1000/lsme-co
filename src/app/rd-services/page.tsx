@@ -110,26 +110,29 @@ export default function RDServicesPage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-        className="py-16 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden"
+        className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-24 lg:py-32 overflow-hidden"
       >
+        {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-amber-200/20 to-orange-200/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-yellow-200/20 to-amber-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-amber-200/30 to-orange-200/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-yellow-200/30 to-amber-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center space-y-6 animate-fade-in-up">
+          <div className="text-center space-y-8 animate-fade-in-up">
+            <div className="space-y-6">
             <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md">
               <Brain className="w-3 h-3 mr-1" />
               Comprehensive R&D Services
             </Badge>
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className="hero-text text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
               Advanced <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Research & Development</span>
               <br />Services
             </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="hero-subtitle text-xl lg:text-2xl text-gray-600 leading-relaxed">
               Comprehensive engineering and innovation services driving breakthrough solutions from concept to implementation across electrical, electronics, and mechanical disciplines.
             </p>
+            </div>
           </div>
         </div>
       </motion.section>
@@ -141,8 +144,10 @@ export default function RDServicesPage() {
         transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
         className="py-24 bg-white relative overflow-hidden"
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+           <div className="space-y-20">
             {[
               {
                 icon: Lightbulb,
@@ -320,19 +325,19 @@ export default function RDServicesPage() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: parseInt(service.delay) / 1000 + 0.8, duration: 0.8, ease: "easeOut" }}
-                className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-cols-2' : ''}`}
+                className={`feature-grid grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-cols-2' : ''}`}
               >
                 {/* Content Section */}
-                <div className={`space-y-8 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <div className={`space-y-8 ${index % 2 === 1 ? 'lg:order-2' : ''} animate-fade-in-up`}>
                   <div className="space-y-6">
                     <div className="flex items-center space-x-4">
                       <div className="bg-amber-100 p-4 rounded-2xl">
                         <service.icon className="h-10 w-10 text-amber-700" />
                       </div>
                       <div>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                        <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
                           {service.title}
-                        </h2>
+                        </h3>
                         <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 mt-2">
                           Service #{index + 1}
                         </Badge>
@@ -349,7 +354,7 @@ export default function RDServicesPage() {
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900">Key Capabilities:</h3>
+                    <h4 className="text-xl font-bold text-gray-900">Key Capabilities:</h4>
                     <div className="grid md:grid-cols-2 gap-3">
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center space-x-3 text-gray-700">
@@ -372,7 +377,7 @@ export default function RDServicesPage() {
                 </div>
 
                 {/* Image Section */}
-                <div className={`relative ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div className={`relative ${index % 2 === 1 ? 'lg:order-1' : ''} animate-fade-in-right`}>
                   <div className="relative group overflow-hidden rounded-3xl">
                     <Image
                       src={service.image}
@@ -395,7 +400,7 @@ export default function RDServicesPage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
-        className="py-24 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 relative overflow-hidden"
       >
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-700/90 to-orange-700/90"></div>
@@ -404,41 +409,41 @@ export default function RDServicesPage() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center space-y-10 animate-fade-in-up">
-            <div className="space-y-6">
+          <div className="text-center space-y-6 sm:space-y-8 md:space-y-10 animate-fade-in-up">
+            <div className="space-y-4 md:space-y-6">
               <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
                 <Star className="w-3 h-3 mr-1" />
                 Ready to Innovate?
               </Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight px-2">
                 Transform Your Projects with
                 <br />
                 <span className="text-amber-200">Advanced R&D Services</span>
               </h2>
-              <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed break-words px-3">
                 Partner with LSME's R&D team to bring innovative solutions to life. From concept to implementation, we provide comprehensive engineering services that drive technological advancement.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+            <div className="flex flex-col sm:flex-row gap-3 xs:gap-4 sm:gap-6 justify-center px-3">
+              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group text-xs xs:text-sm sm:text-base px-4 py-2">
                 Start Your R&D Project
                 <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
+              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105 text-xs xs:text-sm sm:text-base px-4 py-2">
                 Schedule Technical Consultation
               </Button>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 pt-12">
+            <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-3 gap-4 xs:gap-6 md:gap-8 pt-6 sm:pt-8 md:pt-12 px-3">
               {[
                 { icon: Brain, text: "10 Specialized R&D Services" },
                 { icon: Users, text: "Expert Engineering Team" },
                 { icon: Award, text: "Innovation Excellence" }
               ].map((item, index) => (
-                <div key={index} className="flex items-center justify-center space-x-3 text-white/90 hover:text-white transition-colors duration-300 group cursor-pointer">
+                <div key={index} className="flex items-center justify-center space-x-2 sm:space-x-3 text-white/90 hover:text-white transition-colors duration-300 group cursor-pointer">
                   <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="font-medium">{item.text}</span>
+                  <span className="font-medium text-xs xs:text-sm sm:text-base text-center">{item.text}</span>
                 </div>
               ))}
             </div>
@@ -460,11 +465,11 @@ export default function RDServicesPage() {
             <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Cog className="h-10 w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
+                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={40} height={40} className="h-10 w-10 object-contain" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
-                  <span className="text-2xl font-bold">LSME</span>
+                  <span className="brand-font text-2xl font-normal">LSME</span>
                   <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
@@ -518,7 +523,7 @@ export default function RDServicesPage() {
 
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-400 text-center md:text-left">
+              <div className="text-gray-400">
                 <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
