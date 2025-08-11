@@ -177,7 +177,7 @@ export default function OurPartnersPage() {
               <h1 className="hero-text font-bold text-gray-900 leading-tight">
                 <span className="text-3xl lg:text-4xl">Our Trusted</span>
                 <br />
-                <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-600 bg-clip-text text-transparent">Partners</span>
+                <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Partners</span>
               </h1>
               <p className="hero-subtitle text-base lg:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mt-6">
                 Building excellence through strategic partnerships. We collaborate with industry-leading companies to deliver comprehensive solutions and drive innovation across engineering disciplines.
