@@ -10,9 +10,17 @@ interface MobileNavProps {
   theme: 'green' | 'blue' | 'cream' | 'lightbrown' | 'purple' | 'teal'
 }
 
+interface NavigationItem {
+  name: string
+  href: string
+  isDropdown?: boolean
+  submenu?: { name: string; href: string }[]
+}
+
 export default function MobileNav({ theme }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [animationStage, setAnimationStage] = useState(0)
+  const [expandedService, setExpandedService] = useState(false)
 
   const themeColors = {
     green: {
@@ -73,12 +81,24 @@ export default function MobileNav({ theme }: MobileNavProps) {
 
   const colors = themeColors[theme]
 
-  const navigationItems = [
+  const navigationItems: NavigationItem[] = [
     { name: 'Home', href: '/' },
-    { name: 'R&D Services', href: '/rd-services' },
-    { name: 'Technical Solutions', href: '/technical-solutions' },
+    { 
+      name: 'Services', 
+      href: '#',
+      isDropdown: true,
+      submenu: [
+        { name: 'Electrical', href: '/services/electrical' },
+        { name: 'Electronics', href: '/services/electronics' },
+        { name: 'Mechanical', href: '/services/mechanical' },
+        { name: 'R&D Services', href: '/rd-services' },
+        { name: 'Supply Chain', href: '/services/supply-chain' }
+      ]
+    },
     { name: 'Projects', href: '/projects' },
     { name: 'About', href: '/about' },
+    { name: 'Our Partners', href: '/our-partners' },
+    { name: 'Our Team', href: '/our-team' },
     { name: 'Contact', href: '/contact' }
   ]
 
@@ -358,40 +378,117 @@ export default function MobileNav({ theme }: MobileNavProps) {
                       transitionDelay: animationStage >= 4 ? `${index * 80}ms` : '0ms'
                     }}
                   >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`block text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-5 rounded-xl relative group ${
-                        theme === 'green' 
-                          ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
-                          : theme === 'blue'
-                          ? 'hover:text-blue-600 hover:bg-blue-50/80'
-                          : theme === 'cream'
-                          ? 'hover:text-amber-700 hover:bg-amber-50/80'
-                          : theme === 'lightbrown'
-                          ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
-                          : theme === 'purple'
-                          ? 'hover:text-purple-600 hover:bg-purple-50/80'
-                          : 'hover:text-teal-600 hover:bg-teal-50/80'
-                      }`}
-                    >
-                      {item.name}
-                      <span 
-                        className={`absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-3/4 ${
-                          theme === 'green'
-                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                    {item.isDropdown ? (
+                      <div>
+                        <button
+                          onClick={() => setExpandedService(!expandedService)}
+                          className={`w-full text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-5 rounded-xl relative group flex items-center justify-center ${
+                            theme === 'green' 
+                              ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
+                              : theme === 'blue'
+                              ? 'hover:text-blue-600 hover:bg-blue-50/80'
+                              : theme === 'cream'
+                              ? 'hover:text-amber-700 hover:bg-amber-50/80'
+                              : theme === 'lightbrown'
+                              ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
+                              : theme === 'purple'
+                              ? 'hover:text-purple-600 hover:bg-purple-50/80'
+                              : 'hover:text-teal-600 hover:bg-teal-50/80'
+                          }`}
+                        >
+                          {item.name}
+                          <svg 
+                            className={`w-4 h-4 ml-2 transition-transform duration-300 ${expandedService ? 'rotate-180' : ''}`} 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                          <span 
+                            className={`absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-3/4 ${
+                              theme === 'green'
+                                ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                                : theme === 'blue'
+                                ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                                : theme === 'cream'
+                                ? 'bg-gradient-to-r from-amber-600 to-orange-600'
+                                : theme === 'lightbrown'
+                                ? 'bg-gradient-to-r from-yellow-700 to-amber-700'
+                                : theme === 'purple'
+                                ? 'bg-gradient-to-r from-purple-600 to-violet-600'
+                                : 'bg-gradient-to-r from-teal-600 to-cyan-600'
+                            }`}
+                          ></span>
+                        </button>
+                        
+                        {/* Services Submenu */}
+                        <div className={`overflow-hidden transition-all duration-300 ${
+                          expandedService ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                        }`}>
+                          <ul className="mt-2 space-y-1 bg-white/50 rounded-lg p-2 backdrop-blur-sm">
+                            {item.submenu?.map((subItem, subIndex) => (
+                              <li key={subItem.name}>
+                                <Link
+                                  href={subItem.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className={`block text-sm font-medium text-gray-700 transition-all duration-300 transform hover:scale-105 py-2 px-4 rounded-lg relative group ${
+                                    theme === 'green' 
+                                      ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
+                                      : theme === 'blue'
+                                      ? 'hover:text-blue-600 hover:bg-blue-50/80'
+                                      : theme === 'cream'
+                                      ? 'hover:text-amber-700 hover:bg-amber-50/80'
+                                      : theme === 'lightbrown'
+                                      ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
+                                      : theme === 'purple'
+                                      ? 'hover:text-purple-600 hover:bg-purple-50/80'
+                                      : 'hover:text-teal-600 hover:bg-teal-50/80'
+                                  }`}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`block text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-5 rounded-xl relative group ${
+                          theme === 'green' 
+                            ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
                             : theme === 'blue'
-                            ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                            ? 'hover:text-blue-600 hover:bg-blue-50/80'
                             : theme === 'cream'
-                            ? 'bg-gradient-to-r from-amber-600 to-orange-600'
+                            ? 'hover:text-amber-700 hover:bg-amber-50/80'
                             : theme === 'lightbrown'
-                            ? 'bg-gradient-to-r from-yellow-700 to-amber-700'
+                            ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
                             : theme === 'purple'
-                            ? 'bg-gradient-to-r from-purple-600 to-violet-600'
-                            : 'bg-gradient-to-r from-teal-600 to-cyan-600'
+                            ? 'hover:text-purple-600 hover:bg-purple-50/80'
+                            : 'hover:text-teal-600 hover:bg-teal-50/80'
                         }`}
-                      ></span>
-                    </Link>
+                      >
+                        {item.name}
+                        <span 
+                          className={`absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-3/4 ${
+                            theme === 'green'
+                              ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                              : theme === 'blue'
+                              ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                              : theme === 'cream'
+                              ? 'bg-gradient-to-r from-amber-600 to-orange-600'
+                              : theme === 'lightbrown'
+                              ? 'bg-gradient-to-r from-yellow-700 to-amber-700'
+                              : theme === 'purple'
+                              ? 'bg-gradient-to-r from-purple-600 to-violet-600'
+                              : 'bg-gradient-to-r from-teal-600 to-cyan-600'
+                          }`}
+                        ></span>
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

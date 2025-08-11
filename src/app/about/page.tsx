@@ -8,6 +8,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect } from "react"
 import MobileNav from "@/components/MobileNav"
+import { motion } from "framer-motion"
 
 export default function AboutPage() {
   useEffect(() => {
@@ -500,15 +501,13 @@ export default function AboutPage() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center space-y-10 animate-fade-in-up">
-            <div className="space-y-6">
+            <div className="space-y-6 sm:space-y-8">
               <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
                 <Star className="w-3 h-3 mr-1" />
-                Ready to Innovate?
+                Ready to Engineer the Future?
               </Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Partner with Saudi Arabia's
-                <br />
-                <span className="text-blue-200">Railway Innovation Leaders</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold px-4 sm:px-0">
+                Ready to Start Your Project?
               </h2>
               <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
                 Join us in revolutionizing railway technology. From research collaboration to technical consulting, let's build the future of transportation together.
@@ -581,7 +580,7 @@ export default function AboutPage() {
                 delay: "200ms"
               },
               {
-                title: "Technical Solutions",
+                title: "Technical Services",
                 links: ["Engineering Consulting", "Project Management", "System Integration", "Quality Assurance", "Training Programs"],
                 delay: "400ms"
               },

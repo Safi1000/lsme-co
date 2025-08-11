@@ -420,6 +420,107 @@
     width: 128px;
     height: 128px;
   }
+
+  /* Our Partners page mobile fixes */
+  .partners-hero-title {
+    font-size: 1.875rem !important;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .partners-hero-subtitle {
+    font-size: 0.875rem !important;
+    line-height: 1.4;
+  }
+
+  .partner-card {
+    border-radius: 1rem !important;
+  }
+
+  .partner-name {
+    font-size: 1.25rem !important;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .partner-description {
+    font-size: 0.875rem !important;
+    line-height: 1.5;
+  }
+
+  .partner-location {
+    font-size: 0.75rem !important;
+  }
+
+  .partner-stats {
+    font-size: 0.75rem !important;
+  }
+
+  /* Contact page mobile fixes */
+  .contact-hero-title {
+    font-size: 1.875rem !important;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .contact-hero-subtitle {
+    font-size: 0.875rem !important;
+    line-height: 1.4;
+  }
+
+  .contact-method-card {
+    border-radius: 1rem !important;
+    padding: 1rem !important;
+  }
+
+  .contact-method-title {
+    font-size: 1rem !important;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .contact-method-description {
+    font-size: 0.75rem !important;
+    line-height: 1.4;
+  }
+
+  .contact-form-input {
+    font-size: 1rem !important;
+    padding: 0.75rem !important;
+  }
+
+  .contact-form-label {
+    font-size: 0.875rem !important;
+    font-weight: 500;
+  }
+
+  .contact-office-card {
+    border-radius: 1rem !important;
+  }
+
+  .contact-office-title {
+    font-size: 1.125rem !important;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .contact-office-description {
+    font-size: 0.75rem !important;
+    line-height: 1.4;
+  }
+
+  .contact-stat-number {
+    font-size: 1.25rem !important;
+  }
+
+  .contact-stat-label {
+    font-size: 0.75rem !important;
+  }
 }
 
 /* Custom Scrollbar - Default (Green Theme) */

@@ -6,7 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Star, Users, Award, Globe, ArrowRight, CheckCircle, Train, Phone, Mail } from 'lucide-react';
+import { Star, Users, Award, Globe, ArrowRight, CheckCircle, Train, Phone, Mail, ChevronRight, Clock, Zap } from 'lucide-react';
+import MobileNav from '@/components/MobileNav';
 
 export default function OurPartnersPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,17 +75,24 @@ export default function OurPartnersPage() {
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105 cursor-pointer">
-              <div className="relative">
-                <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={80} height={80} className="h-20 w-20 object-contain animate-pulse" />
-              </div>
-              <div>
-                <span className="brand-font text-5xl font-normal text-gray-900 tracking-tight leading-none">LSME</span>
-                <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
-              </div>
-            </Link>
+          <div className={`flex items-center justify-between transition-all duration-300 ${
+            isScrolled ? 'h-20 md:h-28' : 'h-20 md:h-24'
+          }`}>
+            {/* Desktop Logo */}
+            <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
+              <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+                <div className="relative">
+                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={80} height={80} className="h-20 w-20 object-contain animate-pulse" />
+                </div>
+                <div>
+                  <span className="brand-font text-5xl font-normal text-gray-900 tracking-tight leading-none">LSME</span>
+                  <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
+                </div>
+              </Link>
+            </div>
+
+            {/* Mobile Navigation */}
+            <MobileNav theme="cream" />
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
@@ -155,7 +163,7 @@ export default function OurPartnersPage() {
       <div className="h-20" />
 
       {/* Hero Section */}
-      <section className="relative py-12 lg:py-16 overflow-hidden">
+      <section className="relative py-8 sm:py-12 lg:py-16 overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-amber-200/30 to-orange-200/30 rounded-full blur-3xl animate-pulse"></div>
@@ -164,22 +172,22 @@ export default function OurPartnersPage() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center space-y-8">
+          <div className="text-center space-y-6 sm:space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md mb-6">
+              <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md mb-4 sm:mb-6">
                 <Users className="w-3 h-3 mr-1" />
                 Strategic Partnerships
               </Badge>
               <h1 className="hero-text font-bold text-gray-900 leading-tight">
-                <span className="text-3xl lg:text-4xl">Our Trusted</span>
+                <span className="text-2xl sm:text-3xl lg:text-4xl">Our Trusted</span>
                 <br />
-                <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Partners</span>
+                <span className="partners-hero-title text-3xl sm:text-4xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Partners</span>
               </h1>
-              <p className="hero-subtitle text-base lg:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mt-6">
+              <p className="partners-hero-subtitle hero-subtitle text-sm sm:text-base lg:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mt-4 sm:mt-6 px-4 sm:px-0">
                 Building excellence through strategic partnerships. We collaborate with industry-leading companies to deliver comprehensive solutions and drive innovation across engineering disciplines.
               </p>
             </motion.div>
@@ -188,32 +196,32 @@ export default function OurPartnersPage() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-8 lg:py-12">
+      <section className="py-6 sm:py-8 lg:py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+          <div className="space-y-8 sm:space-y-12 lg:space-y-16">
             {partners.map((partner, index) => (
               <motion.div
                 key={partner.id}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
-                className={`bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
+                className={`partner-card bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
                   index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                 }`}
               >
                 <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-cols-2' : ''}`}>
                   {/* Logo Section */}
-                  <div className={`p-8 lg:p-12 flex items-center justify-center ${
+                  <div className={`p-6 sm:p-8 lg:p-12 flex items-center justify-center ${
                     index % 2 === 1 ? 'lg:order-2' : ''
                   }`}>
-                    <div className="text-center space-y-6">
+                    <div className="text-center space-y-4 sm:space-y-6">
                       {/* Partner Logo */}
                       <Image
                         src={partner.logoPlaceholder}
                         alt={`${partner.name} logo`}
                         width={256}
                         height={256}
-                        className="w-48 h-48 lg:w-64 lg:h-64 mx-auto object-contain"
+                        className="partner-logo w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 mx-auto object-contain"
                       />
                       
                       {/* Company Info */}
@@ -226,38 +234,38 @@ export default function OurPartnersPage() {
                   </div>
 
                   {/* Content Section */}
-                  <div className={`p-8 lg:p-12 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="space-y-6">
+                  <div className={`p-6 sm:p-8 lg:p-12 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                    <div className="space-y-4 sm:space-y-6">
                       {/* Partner Name */}
                       <div>
-                        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+                        <h2 className="partner-name text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 leading-tight">
                           {partner.name}
                         </h2>
-                        <div className="w-16 h-1 bg-gradient-to-r from-amber-700 to-orange-600 rounded-full"></div>
+                        <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-amber-700 to-orange-600 rounded-full"></div>
                       </div>
 
                       {/* Introduction */}
-                      <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-gray-800 flex items-center">
-                          <Star className="w-5 h-5 mr-2 text-amber-700" />
+                      <div className="space-y-3 sm:space-y-4">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-800 flex items-center">
+                          <Star className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-amber-700 flex-shrink-0" />
                           About Our Partner
                         </h3>
-                        <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
+                        <p className="partner-description text-gray-600 leading-relaxed text-sm sm:text-base">
                           {partner.introduction}
                         </p>
                       </div>
 
                       {/* Key Features */}
-                      <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-gray-800 flex items-center">
-                          <Award className="w-5 h-5 mr-2 text-amber-700" />
+                      <div className="space-y-3 sm:space-y-4">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-800 flex items-center">
+                          <Award className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-amber-700 flex-shrink-0" />
                           Key Capabilities
                         </h3>
-                        <div className="grid gap-3">
+                        <div className="grid gap-2 sm:gap-3">
                           {partner.keyFeatures.map((feature, featureIndex) => (
-                            <div key={featureIndex} className="flex items-start space-x-3">
-                              <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                              <p className="text-gray-600 text-sm lg:text-base leading-relaxed">
+                            <div key={featureIndex} className="flex items-start space-x-2 sm:space-x-3">
+                              <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                                 {feature}
                               </p>
                             </div>
@@ -266,9 +274,10 @@ export default function OurPartnersPage() {
                       </div>
 
                       {/* CTA */}
-                      <div className="pt-4">
-                        <Button size="lg" className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
-                          Learn More About Partnership
+                      <div className="pt-2 sm:pt-4">
+                        <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group text-sm sm:text-base">
+                          <span className="hidden sm:inline">Learn More About Partnership</span>
+                          <span className="sm:hidden">Learn More</span>
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </Button>
                       </div>
@@ -282,35 +291,35 @@ export default function OurPartnersPage() {
       </section>
 
       {/* Partnership Benefits Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-amber-700 to-orange-600 text-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center space-y-8"
+            className="text-center space-y-6 sm:space-y-8"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold">
+            <h2 className="partnership-benefits-title text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 px-4 sm:px-0">
               Why We Choose Strategic Partnerships
             </h2>
-            <p className="text-lg lg:text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+            <p className="partnership-benefits-description text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
               Our partnerships enable us to deliver comprehensive solutions, leverage cutting-edge technologies, and provide unmatched value to our clients across the Kingdom of Saudi Arabia.
             </p>
             
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
               {[
                 {
-                  icon: <Globe className="w-8 h-8" />,
+                  icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
                   title: "Global Expertise",
                   description: "Access to international best practices and advanced technologies"
                 },
                 {
-                  icon: <Award className="w-8 h-8" />,
+                  icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
                   title: "Quality Excellence",
                   description: "Combined expertise ensures the highest standards of delivery"
                 },
                 {
-                  icon: <Users className="w-8 h-8" />,
+                  icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
                   title: "Collaborative Innovation",
                   description: "Joint research and development for breakthrough solutions"
                 }
@@ -320,14 +329,60 @@ export default function OurPartnersPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-                  className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-300"
+                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl border border-gray-100 hover:border-amber-200 transition-all duration-300"
                 >
-                  <div className="text-amber-200 mb-4">
+                  <div className="text-amber-700 mb-3 sm:mb-4">
                     {benefit.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                  <p className="text-amber-100 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">{benefit.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{benefit.description}</p>
                 </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-r from-amber-700 to-orange-700 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center space-y-6 sm:space-y-8"
+          >
+            <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
+              <Star className="w-3 h-3 mr-1" />
+              Ready to Engineer the Future?
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold px-4 sm:px-0">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-white max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
+              Partner with Saudi Arabia's leading engineering experts to build the future of technology together.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+                Start Your Engineering Project
+                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
+                Schedule Technical Consultation
+              </Button>
+            </div>
+
+            <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
+              {[
+                { icon: Clock, text: "24/7 Support Available" },
+                { icon: Zap, text: "Rapid Response Team" },
+                { icon: Globe, text: "Nationwide Coverage" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center justify-center space-x-3 text-white hover:text-gray-200 transition-colors duration-300 group cursor-pointer">
+                  <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="font-medium text-sm sm:text-base">{item.text}</span>
+                </div>
               ))}
             </div>
           </motion.div>
@@ -339,35 +394,35 @@ export default function OurPartnersPage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8, ease: "easeOut" }}
-        className="bg-gray-900 text-white py-20 relative overflow-hidden"
+        className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div className="space-y-6 animate-fade-in-up">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+            <div className="space-y-4 sm:space-y-6 animate-fade-in-up sm:col-span-2 lg:col-span-1">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Train className="h-10 w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
+                  <Train className="h-8 w-8 sm:h-10 sm:w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
-                  <span className="text-2xl font-bold">LSME</span>
+                  <span className="text-xl sm:text-2xl font-bold">LSME</span>
                   <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
                 Delivering electrical, electronics, and mechanical engineering excellence across Saudi Arabia.
               </p>
-              <div className="flex space-x-6 pt-4">
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Phone className="h-5 w-5 text-amber-400" />
+              <div className="flex space-x-4 sm:space-x-6 pt-2 sm:pt-4">
+                <div className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                  <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
                 </div>
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Mail className="h-5 w-5 text-amber-400" />
+                <div className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                  <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
                 </div>
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Globe className="h-5 w-5 text-amber-400" />
+                <div className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                  <Globe className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
                 </div>
               </div>
             </div>
@@ -389,12 +444,12 @@ export default function OurPartnersPage() {
                 delay: "600ms"
               }
             ].map((section, index) => (
-              <div key={index} className="space-y-6 animate-fade-in-up" style={{ animationDelay: section.delay }}>
-                <h3 className="text-lg font-bold text-white">{section.title}</h3>
-                <ul className="space-y-3">
+              <div key={index} className="space-y-4 sm:space-y-6 animate-fade-in-up" style={{ animationDelay: section.delay }}>
+                <h3 className="text-base sm:text-lg font-bold text-white">{section.title}</h3>
+                <ul className="space-y-2 sm:space-y-3">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                      <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block text-sm sm:text-base">
                         {link}
                       </Link>
                     </li>
@@ -404,13 +459,13 @@ export default function OurPartnersPage() {
             ))}
           </div>
 
-          <div className="border-t border-gray-800 mt-16 pt-8">
+          <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-6 sm:pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
-                <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
+                <p className="text-sm sm:text-base">&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
+                <p className="text-xs sm:text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
-              <div className="flex space-x-6 text-sm text-gray-400">
+              <div className="flex flex-wrap justify-center md:justify-end space-x-4 sm:space-x-6 text-xs sm:text-sm text-gray-400">
                 <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>
                 <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Terms of Service</Link>
                 <Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>

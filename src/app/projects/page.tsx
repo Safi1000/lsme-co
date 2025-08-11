@@ -548,45 +548,46 @@ export default function ProjectsPage() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center space-y-10 animate-fade-in-up">
-            <div className="space-y-6">
-              <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
-                <Star className="w-3 h-3 mr-1" />
-                Start Your Project
-              </Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Ready for Your
-                <br />
-                <span className="text-amber-200">Next Engineering Project?</span>
-              </h2>
-              <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
-                Partner with us from concept to delivery. We provide comprehensive project management and technical expertise to bring your vision to life.
-              </p>
-            </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center space-y-6 sm:space-y-8"
+          >
+            <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
+              <Star className="w-3 h-3 mr-1" />
+              Ready to Engineer the Future?
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold px-4 sm:px-0">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-white max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
+              Partner with Saudi Arabia's leading engineering experts to build the future of technology together.
+            </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
-                Discuss Your Project
+                Start Your Engineering Project
                 <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
-                Request Proposal
+                Schedule Technical Consultation
               </Button>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 pt-12">
+            <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
               {[
-                { icon: Phone, text: "Project Consultation" },
-                { icon: Mail, text: "Custom Solutions" },
-                { icon: Globe, text: "Global Standards" }
+                { icon: Clock, text: "24/7 Support Available" },
+                { icon: Zap, text: "Rapid Response Team" },
+                { icon: Globe, text: "Nationwide Coverage" }
               ].map((item, index) => (
-                <div key={index} className="flex items-center justify-center space-x-3 text-white/90 hover:text-white transition-colors duration-300 group cursor-pointer">
+                <div key={index} className="flex items-center justify-center space-x-3 text-white hover:text-gray-200 transition-colors duration-300 group cursor-pointer">
                   <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="font-medium">{item.text}</span>
+                  <span className="font-medium text-sm sm:text-base">{item.text}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
