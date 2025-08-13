@@ -1,36 +1,38 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ChevronRight, Clock, Zap, Globe, Train, Phone, Mail, Star } from 'lucide-react';
-import MobileNav from '@/components/MobileNav';
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Truck, Package, Clipboard, Calendar, TrendingUp, Globe, ChevronRight, Clock, Phone, Mail, Star } from 'lucide-react'
+import MobileNav from '@/components/MobileNav'
 
 export default function SupplyChainPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleScroll = () => setIsScrolled(window.scrollY > 8)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50">
-      {/* Navigation Header */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="min-h-screen bg-white overflow-x-hidden"
+    >
+      {/* Header */}
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
-            : 'bg-transparent'
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1, boxShadow: isScrolled ? '0 8px 30px rgba(0,0,0,0.06)' : '0 0 0 rgba(0,0,0,0)' }}
+        transition={{ delay: 0.1, duration: 0.6, ease: 'easeOut' }}
+        className={`fixed top-0 inset-x-0 z-50 border-b border-white/20 transition-all duration-300 ${
+          isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-xl border-amber-200/30' : 'bg-white/70 backdrop-blur-md shadow-lg'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,16 +57,9 @@ export default function SupplyChainPage() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <Link 
-                href="/" 
-                className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
-                style={{ animationDelay: '0ms' }}
-              >
-                Home
+              <Link href="/" className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2">Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              
-              {/* Services Dropdown */}
               <div className="relative group">
                 <button className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 py-2 flex items-center gap-1">
                   Services
@@ -73,7 +68,6 @@ export default function SupplyChainPage() {
                   </svg>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
                 </button>
-                
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                   <div className="py-2">
                     {[
@@ -82,239 +76,273 @@ export default function SupplyChainPage() {
                       { name: 'Mechanical', href: '/services/mechanical' },
                       { name: 'R&D', href: '/rd-services' },
                       { name: 'Supply Chain', href: '/services/supply-chain' }
-                    ].map((service, index) => (
-                      <Link
-                        key={service.name}
-                        href={service.href}
-                        className="block px-4 py-2 text-gray-700 hover:text-amber-700 hover:bg-amber-50 transition-all duration-200 transform hover:translate-x-1"
-                        style={{ animationDelay: `${index * 50}ms` }}
-                      >
+                    ].map((service) => (
+                      <Link key={service.name} href={service.href} className="block px-4 py-2 text-gray-700 hover:text-amber-700 hover:bg-amber-50 transition-all duration-200 transform hover:translate-x-1">
                         {service.name}
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
-              
               {[
                 { name: 'Projects', href: '/projects' },
                 { name: 'About', href: '/about' },
                 { name: 'Our Partners', href: '/our-partners' },
                 { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
-              ].map((item, index) => (
-                <Link 
-                  key={item.name}
-                  href={item.href} 
-                  className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
-                  style={{ animationDelay: `${(index + 2) * 100}ms` }}
-                >
+              ].map((item) => (
+                <Link key={item.name} href={item.href} className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2">
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </nav>
-
-
           </div>
         </div>
       </motion.header>
 
-      {/* Spacer under fixed header */}
-      <div className="h-20" />
+      {/* Spacer */}
+      <div className="h-20 md:h-24" />
 
-      {/* Main Content */}
-      <div className="min-h-screen flex items-center justify-center relative">
-        {/* Animated Background Elements */}
+      {/* Hero */}
+      <section className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-amber-200/30 to-orange-200/30 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-amber-200/30 to-orange-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-amber-300/20 to-orange-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
-
-        {/* Content */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-center relative z-10 space-y-12"
-        >
-          {/* In Progress Text - Above Image */}
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent leading-tight animate-pulse"
-            style={{
-              filter: 'drop-shadow(0 0 15px rgba(217, 119, 6, 0.4))',
-            }}
-          >
-            In Progress...
-          </motion.h1>
-
-          {/* In Progress Images - Side by Side */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-            className="flex justify-center gap-8 flex-wrap"
-          >
-            <Image
-              src="/images/misc/in-progress.jpeg"
-              alt="In Progress 1"
-              width={400}
-              height={400}
-              className="w-56 h-56 lg:w-80 lg:h-80 object-contain animate-pulse rounded-2xl shadow-2xl"
-              style={{
-                filter: 'drop-shadow(0 0 30px rgba(217, 119, 6, 0.4))',
-              }}
-            />
-            <Image
-              src="/images/misc/in-progress-2.jpeg"
-              alt="In Progress 2"
-              width={400}
-              height={400}
-              className="w-56 h-56 lg:w-80 lg:h-80 object-contain animate-pulse rounded-2xl shadow-2xl"
-              style={{
-                filter: 'drop-shadow(0 0 30px rgba(217, 119, 6, 0.4))',
-                animationDelay: '0.5s'
-              }}
-            />
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-r from-amber-700 to-orange-700 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center space-y-6 sm:space-y-8"
-          >
-            <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
-              <Star className="w-3 h-3 mr-1" />
-              Ready to Engineer the Future?
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold px-4 sm:px-0">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-white max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
-              Partner with Saudi Arabia's leading engineering experts to build the future of technology together.
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center space-y-6">
+            <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 transition-all duration-300 transform hover:scale-105 hover:shadow-md">Supply Chain</Badge>
+            <h1 className="hero-text font-bold text-gray-900 leading-tight">
+              <span className="text-3xl lg:text-4xl">From Source to Success</span>
+              <br />
+              <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Supply Chain Services</span>
+            </h1>
+            <p className="hero-subtitle text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
+              Procurement, logistics, vendor management, and inventory control to keep your projects on time and on budget.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
-                Start Your Engineering Project
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
-                Schedule Technical Consultation
-              </Button>
-            </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
-              {[
-                { icon: Clock, text: "24/7 Support Available" },
-                { icon: Zap, text: "Rapid Response Team" },
-                { icon: Globe, text: "Nationwide Coverage" }
-              ].map((item, index) => (
-                <div key={index} className="flex items-center justify-center space-x-3 text-white hover:text-gray-200 transition-colors duration-300 group cursor-pointer">
-                  <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="font-medium text-sm sm:text-base">{item.text}</span>
+      {/* Features Grid */}
+      <section className="py-20 bg-white relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              { icon: Package, title: 'Procurement', desc: 'Sourcing, RFQs, cost analysis, and contract negotiation with approved vendors.' },
+              { icon: Clipboard, title: 'Vendor Management', desc: 'Qualification, audits, performance tracking, and continuous improvement.' },
+              { icon: Truck, title: 'Logistics & Delivery', desc: 'In-bound/out-bound logistics planning, shipping, and last-mile coordination.' },
+              { icon: Calendar, title: 'Scheduling', desc: 'Lead-time planning, buffer strategies, and expediting to hit milestones.' },
+              { icon: TrendingUp, title: 'Inventory & Cost', desc: 'Inventory control, ABC analysis, and cost optimization for sustained value.' },
+              { icon: Globe, title: 'Global Sourcing', desc: 'International supply, compliance, and documentation for smooth imports.' },
+            ].map((f, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="group p-6 rounded-2xl border border-amber-100 bg-amber-50/40 hover:bg-amber-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <f.icon className="w-6 h-6 text-amber-700 transition-colors duration-300 group-hover:text-amber-800" />
+                  <h3 className="text-lg font-bold text-gray-900">{f.title}</h3>
                 </div>
+                <p className="text-gray-700 text-sm">{f.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Showcase Gallery */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Warehouses & Deliveries</h2>
+            <p className="text-gray-600 mt-2">Replace these with your logistics and delivery photos</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { src: '/images/services/supply-1.jpg', alt: 'Inbound Logistics' },
+              { src: '/images/services/supply-2.jpg', alt: 'Warehouse Operations' },
+              { src: '/images/services/supply-3.jpg', alt: 'Last-mile Delivery' }
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                className="relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300"
+              >
+                <Image src={img.src} alt={img.alt} width={800} height={500} className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-3 left-3 text-white text-sm font-medium drop-shadow">{img.alt}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise */}
+      <section className="py-16 bg-amber-50/40">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10">
+            <div>
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Core Expertise</h3>
+              <div className="space-y-3">
+                {[
+                  'Approved vendor list build-out and audits',
+                  'Strategic sourcing and cost optimization',
+                  'Incoterms, customs, and documentation handling',
+                  'Inventory planning and buffer strategies',
+                  'Kitting, labeling, and outbound QC'
+                ].map((t, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="mt-2 w-2 h-2 rounded-full bg-amber-700" />
+                    <p className="text-gray-700">{t}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Deliverables</h3>
+              <div className="space-y-3">
+                {[
+                  'Sourcing reports and supplier scorecards',
+                  'Shipping plans, HS codes, and packing lists',
+                  'Inventory dashboards and reorder policies',
+                  'Receiving inspection and NCR workflows',
+                  'On-time delivery and cost KPIs'
+                ].map((t, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="mt-2 w-2 h-2 rounded-full bg-amber-700" />
+                    <p className="text-gray-700">{t}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries & Process */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div>
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Industries We Serve</h3>
+            <div className="flex flex-wrap gap-3">
+              {['Industrial', 'Energy', 'Transportation', 'Aerospace', 'Healthcare', 'Construction'].map((tag) => (
+                <span key={tag} className="px-3 py-1 rounded-full text-sm bg-amber-100 text-amber-800 border border-amber-200 transition-all duration-300 hover:scale-105 hover:shadow-sm">{tag}</span>
               ))}
             </div>
-          </motion.div>
+          </div>
+          <div>
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-6">Our Delivery Process</h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                { step: '01', title: 'Source', text: 'Supplier scouting and RFQs.' },
+                { step: '02', title: 'Plan', text: 'Lead times, buffers, and logistics.' },
+                { step: '03', title: 'Move', text: 'Shipping, customs, and warehousing.' },
+                { step: '04', title: 'Deliver', text: 'Kitting, QA, and on-time delivery.' }
+              ].map((s, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
+                  className="p-5 rounded-2xl border border-amber-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                >
+                  <div className="text-amber-700 font-bold">{s.step}</div>
+                  <div className="text-gray-900 font-semibold mt-1">{s.title}</div>
+                  <p className="text-gray-600 text-sm mt-2">{s.text}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-md"><Star className="w-3 h-3 mr-1" />Partner With Experts</Badge>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Need a reliable supply chain?</h2>
+          <p className="text-white/90 max-w-3xl mx-auto">We secure parts, manage logistics, and maintain quality so your teams can focus on delivery.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100">Start Your Project<ChevronRight className="ml-2 h-4 w-4" /></Button>
+            <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-6 mt-8">
+            {[
+              { icon: Clock, text: 'On-time Delivery' },
+              { icon: TrendingUp, text: 'Cost Efficiency' },
+              { icon: Globe, text: 'Nationwide Coverage' }
+            ].map((i, idx) => (
+              <div key={idx} className="flex items-center justify-center gap-2 text-white/90">
+                <i.icon className="w-5 h-5" />
+                <span className="text-sm font-medium">{i.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Footer */}
       <motion.footer
-        initial={{ y: 50, opacity: 0 }}
+        initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.8, ease: "easeOut" }}
-        className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden"
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="bg-gray-900 text-white py-16 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
-        
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-            <div className="space-y-4 sm:space-y-6 animate-fade-in-up sm:col-span-2 lg:col-span-1">
-              <div className="flex items-center space-x-3 group">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
                 <div className="relative">
-                  <Train className="h-8 w-8 sm:h-10 sm:w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
+                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={40} height={40} className="h-10 w-10 object-contain" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
-                  <span className="text-xl sm:text-2xl font-bold">LSME</span>
+                  <span className="brand-font text-2xl font-normal">LSME</span>
                   <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
-                Delivering electrical, electronics, and mechanical engineering excellence across Saudi Arabia.
-              </p>
-              <div className="flex space-x-4 sm:space-x-6 pt-2 sm:pt-4">
-                <div className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
-                </div>
-                <div className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
-                </div>
-                <div className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Globe className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
-                </div>
+              <p className="text-gray-400">Procurement and logistics that keep projects moving efficiently.</p>
+              <div className="flex gap-4">
+                <div className="bg-gray-800 p-3 rounded-xl"><Phone className="h-5 w-5 text-amber-400" /></div>
+                <div className="bg-gray-800 p-3 rounded-xl"><Mail className="h-5 w-5 text-amber-400" /></div>
               </div>
             </div>
-
             {[
-              {
-                title: "Engineering Divisions",
-                links: ["Electrical Division", "Electronics Division", "Mechanical Division", "Integrated Solutions", "Technical Support"],
-                delay: "200ms"
-              },
-              {
-                title: "Services",
-                links: ["Power Systems Design", "Corrosion Protection", "Systems Engineering", "Asset Engineering", "System Integration", "Project Management"],
-                delay: "400ms"
-              },
-              {
-                title: "Company",
-                links: ["About LSME", "Engineering Team", "Careers", "Quality Standards", "Contact Us"],
-                delay: "600ms"
-              }
-            ].map((section, index) => (
-              <div key={index} className="space-y-4 sm:space-y-6 animate-fade-in-up" style={{ animationDelay: section.delay }}>
-                <h3 className="text-base sm:text-lg font-bold text-white">{section.title}</h3>
-                <ul className="space-y-2 sm:space-y-3">
-                  {section.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block text-sm sm:text-base">
-                        {link}
-                      </Link>
-                    </li>
+              { title: 'Divisions', links: ['Electrical', 'Electronics', 'Mechanical', 'R&D'] },
+              { title: 'Services', links: ['Procurement', 'Logistics', 'Inventory', 'Vendor Management'] },
+              { title: 'Company', links: ['About', 'Team', 'Quality', 'Contact'] }
+            ].map((s, i) => (
+              <div key={i} className="space-y-4">
+                <h3 className="text-lg font-bold text-white">{s.title}</h3>
+                <ul className="space-y-2">
+                  {s.links.map((l) => (
+                    <li key={l}><Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors">{l}</Link></li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
-
-          <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-6 sm:pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-400 text-center md:text-left">
-                <p className="text-sm sm:text-base">&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
-                <p className="text-xs sm:text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
-              </div>
-              <div className="flex flex-wrap justify-center md:justify-end space-x-4 sm:space-x-6 text-xs sm:text-sm text-gray-400">
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Terms of Service</Link>
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>
-              </div>
+          <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between text-gray-400 text-sm">
+            <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
+            <div className="flex gap-6 mt-3 md:mt-0">
+              <Link href="#" className="hover:text-amber-400">Privacy Policy</Link>
+              <Link href="#" className="hover:text-amber-400">Terms of Service</Link>
+              <Link href="#" className="hover:text-amber-400">ISO Certifications</Link>
             </div>
           </div>
         </div>
       </motion.footer>
-    </div>
-  );
+    </motion.div>
+  )
 }
