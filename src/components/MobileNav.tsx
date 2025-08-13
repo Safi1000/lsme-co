@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { X, Menu } from 'lucide-react'
+import { X, Menu, ChevronLeft } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 
@@ -20,7 +20,7 @@ interface NavigationItem {
 export default function MobileNav({ theme }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [animationStage, setAnimationStage] = useState(0)
-  const [expandedService, setExpandedService] = useState(false)
+  const [activeMenu, setActiveMenu] = useState<'root' | 'services'>('root')
 
   const themeColors = {
     green: {
@@ -102,6 +102,8 @@ export default function MobileNav({ theme }: MobileNavProps) {
     { name: 'Contact', href: '/contact' }
   ]
 
+  const servicesItem = navigationItems.find(item => item.isDropdown)
+  
   // Handle opening animation sequence
   useEffect(() => {
     if (isOpen) {
@@ -112,6 +114,8 @@ export default function MobileNav({ theme }: MobileNavProps) {
       
       // Reset animation stage
       setAnimationStage(0)
+      // Always start from root when opening
+      setActiveMenu('root')
       
       // Start animation sequence
       const timers = [
@@ -366,132 +370,168 @@ export default function MobileNav({ theme }: MobileNavProps) {
             </div>
 
             {/* Navigation Links - Stage 4 */}
-            <nav className="mb-6">
-              <ul className="space-y-1 text-center">
-                {navigationItems.map((item, index) => (
-                  <li
-                    key={item.name}
-                    className={`transition-all duration-600 ${
-                      animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                    }`}
-                    style={{
-                      transitionDelay: animationStage >= 4 ? `${index * 80}ms` : '0ms'
-                    }}
-                  >
-                    {item.isDropdown ? (
-                      <div>
-                        <button
-                          onClick={() => setExpandedService(!expandedService)}
-                          className={`w-full text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-10 rounded-xl relative group text-center ${
-                            theme === 'green' 
-                              ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
-                              : theme === 'blue'
-                              ? 'hover:text-blue-600 hover:bg-blue-50/80'
-                              : theme === 'cream'
-                              ? 'hover:text-amber-700 hover:bg-amber-50/80'
-                              : theme === 'lightbrown'
-                              ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
-                              : theme === 'purple'
-                              ? 'hover:text-purple-600 hover:bg-purple-50/80'
-                              : 'hover:text-teal-600 hover:bg-teal-50/80'
-                          }`}
-                        >
-                          <span className="block w-full text-center">{item.name}</span>
-                          <svg 
-                            className={`w-4 h-4 transition-transform duration-300 ${expandedService ? 'rotate-180' : ''} absolute right-5 top-1/2 -translate-y-1/2`} 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox=" 0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                          <span 
-                            className={`absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-3/4 ${
-                              theme === 'green'
-                                ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
-                                : theme === 'blue'
-                                ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
-                                : theme === 'cream'
-                                ? 'bg-gradient-to-r from-amber-600 to-orange-600'
-                                : theme === 'lightbrown'
-                                ? 'bg-gradient-to-r from-yellow-700 to-amber-700'
-                                : theme === 'purple'
-                                ? 'bg-gradient-to-r from-purple-600 to-violet-600'
-                                : 'bg-gradient-to-r from-teal-600 to-cyan-600'
-                            }`}
-                          ></span>
-                        </button>
-                        
-                        {/* Services Submenu */}
-                        <div className={`overflow-hidden transition-all duration-300 ${
-                          expandedService ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                        }`}>
-                          <ul className="mt-2 space-y-1 bg-white/50 rounded-lg p-2 backdrop-blur-sm">
-                            {item.submenu?.map((subItem, subIndex) => (
-                              <li key={subItem.name}>
-                                <Link
-                                  href={subItem.href}
-                                  onClick={() => setIsOpen(false)}
-                                  className={`block text-sm font-medium text-gray-700 transition-all duration-300 transform hover:scale-105 py-2 px-4 rounded-lg relative group ${
-                                    theme === 'green' 
-                                      ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
-                                      : theme === 'blue'
-                                      ? 'hover:text-blue-600 hover:bg-blue-50/80'
-                                      : theme === 'cream'
-                                      ? 'hover:text-amber-700 hover:bg-amber-50/80'
-                                      : theme === 'lightbrown'
-                                      ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
-                                      : theme === 'purple'
-                                      ? 'hover:text-purple-600 hover:bg-purple-50/80'
-                                      : 'hover:text-teal-600 hover:bg-teal-50/80'
-                                  }`}
-                                >
-                                  {subItem.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className={`block text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-5 rounded-xl relative group ${
-                          theme === 'green' 
-                            ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
-                            : theme === 'blue'
-                            ? 'hover:text-blue-600 hover:bg-blue-50/80'
-                            : theme === 'cream'
-                            ? 'hover:text-amber-700 hover:bg-amber-50/80'
-                            : theme === 'lightbrown'
-                            ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
-                            : theme === 'purple'
-                            ? 'hover:text-purple-600 hover:bg-purple-50/80'
-                            : 'hover:text-teal-600 hover:bg-teal-50/80'
+            <nav className="mb-6 w-full">
+              <div className="relative w-full overflow-hidden min-h-[260px]">
+                {/* Root view */}
+                <div className={`absolute inset-0 transition-all duration-500 ease-out ${activeMenu === 'root' ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
+                  <ul className="space-y-1 text-center">
+                    {navigationItems.map((item, index) => (
+                      <li
+                        key={item.name}
+                        className={`transition-all duration-600 ${
+                          animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                         }`}
+                        style={{
+                          transitionDelay: animationStage >= 4 ? `${index * 80}ms` : '0ms'
+                        }}
                       >
-                        {item.name}
-                        <span 
-                          className={`absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-3/4 ${
-                            theme === 'green'
-                              ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
-                              : theme === 'blue'
-                              ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
-                              : theme === 'cream'
-                              ? 'bg-gradient-to-r from-amber-600 to-orange-600'
-                              : theme === 'lightbrown'
-                              ? 'bg-gradient-to-r from-yellow-700 to-amber-700'
-                              : theme === 'purple'
-                              ? 'bg-gradient-to-r from-purple-600 to-violet-600'
-                              : 'bg-gradient-to-r from-teal-600 to-cyan-600'
-                          }`}
-                        ></span>
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
+                        {item.isDropdown ? (
+                          <button
+                            onClick={() => setActiveMenu('services')}
+                            className={`w-full text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-10 rounded-xl relative group ${
+                              theme === 'green' 
+                                ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
+                                : theme === 'blue'
+                                ? 'hover:text-blue-600 hover:bg-blue-50/80'
+                                : theme === 'cream'
+                                ? 'hover:text-amber-700 hover:bg-amber-50/80'
+                                : theme === 'lightbrown'
+                                ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
+                                : theme === 'purple'
+                                ? 'hover:text-purple-600 hover:bg-purple-50/80'
+                                : 'hover:text-teal-600 hover:bg-teal-50/80'
+                            }`}
+                          >
+                            <span className="flex items-center justify-center w-full">
+                              <span className="inline-block w-4 ml-2" />
+                              <span className="mx-2 text-center">{item.name}</span>
+                              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox=" 0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </span>
+                            <span 
+                              className={`absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-3/4 ${
+                                theme === 'green'
+                                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                                  : theme === 'blue'
+                                  ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                                  : theme === 'cream'
+                                  ? 'bg-gradient-to-r from-amber-600 to-orange-600'
+                                  : theme === 'lightbrown'
+                                  ? 'bg-gradient-to-r from-yellow-700 to-amber-700'
+                                  : theme === 'purple'
+                                  ? 'bg-gradient-to-r from-purple-600 to-violet-600'
+                                  : 'bg-gradient-to-r from-teal-600 to-cyan-600'
+                              }`}
+                            ></span>
+                          </button>
+                        ) : (
+                          <Link
+                            href={item.href}
+                            onClick={() => setIsOpen(false)}
+                            className={`block text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-5 rounded-xl relative group ${
+                              theme === 'green' 
+                                ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
+                                : theme === 'blue'
+                                ? 'hover:text-blue-600 hover:bg-blue-50/80'
+                                : theme === 'cream'
+                                ? 'hover:text-amber-700 hover:bg-amber-50/80'
+                                : theme === 'lightbrown'
+                                ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
+                                : theme === 'purple'
+                                ? 'hover:text-purple-600 hover:bg-purple-50/80'
+                                : 'hover:text-teal-600 hover:bg-teal-50/80'
+                            }`}
+                          >
+                            {item.name}
+                            <span 
+                              className={`absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-3/4 ${
+                                theme === 'green'
+                                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                                  : theme === 'blue'
+                                  ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                                  : theme === 'cream'
+                                  ? 'bg-gradient-to-r from-amber-600 to-orange-600'
+                                  : theme === 'lightbrown'
+                                  ? 'bg-gradient-to-r from-yellow-700 to-amber-700'
+                                  : theme === 'purple'
+                                  ? 'bg-gradient-to-r from-purple-600 to-violet-600'
+                                  : 'bg-gradient-to-r from-teal-600 to-cyan-600'
+                              }`}
+                            ></span>
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Services view */}
+                <div className={`absolute inset-0 transition-all duration-500 ease-out ${activeMenu === 'services' ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
+                  <div className="text-center">
+                    <button
+                      onClick={() => setActiveMenu('root')}
+                      className={`mb-4 inline-flex items-center justify-center text-sm font-medium rounded-lg px-3 py-2 border transition-all duration-300 ${
+                        theme === 'green'
+                          ? 'text-emerald-700 border-emerald-200 hover:bg-emerald-50'
+                          : theme === 'blue'
+                          ? 'text-blue-700 border-blue-200 hover:bg-blue-50'
+                          : theme === 'cream'
+                          ? 'text-amber-800 border-amber-200 hover:bg-amber-50'
+                          : theme === 'lightbrown'
+                          ? 'text-yellow-900 border-yellow-200 hover:bg-yellow-50'
+                          : theme === 'purple'
+                          ? 'text-purple-700 border-purple-200 hover:bg-purple-50'
+                          : 'text-teal-700 border-teal-200 hover:bg-teal-50'
+                      }`}
+                      aria-label="Back"
+                    >
+                      <ChevronLeft className="w-4 h-4 mr-1" />
+                      Back
+                    </button>
+                    <ul className="space-y-1">
+                      {servicesItem?.submenu?.map((sub) => (
+                        <li key={sub.name}>
+                          <Link
+                            href={sub.href}
+                            onClick={() => setIsOpen(false)}
+                            className={`block text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-5 rounded-xl relative group ${
+                              theme === 'green' 
+                                ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
+                                : theme === 'blue'
+                                ? 'hover:text-blue-600 hover:bg-blue-50/80'
+                                : theme === 'cream'
+                                ? 'hover:text-amber-700 hover:bg-amber-50/80'
+                                : theme === 'lightbrown'
+                                ? 'hover:text-yellow-800 hover:bg-yellow-50/80'
+                                : theme === 'purple'
+                                ? 'hover:text-purple-600 hover:bg-purple-50/80'
+                                : 'hover:text-teal-600 hover:bg-teal-50/80'
+                            }`}
+                          >
+                            {sub.name}
+                            <span 
+                              className={`absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-3/4 ${
+                                theme === 'green'
+                                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                                  : theme === 'blue'
+                                  ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
+                                  : theme === 'cream'
+                                  ? 'bg-gradient-to-r from-amber-600 to-orange-600'
+                                  : theme === 'lightbrown'
+                                  ? 'bg-gradient-to-r from-yellow-700 to-amber-700'
+                                  : theme === 'purple'
+                                  ? 'bg-gradient-to-r from-purple-600 to-violet-600'
+                                  : 'bg-gradient-to-r from-teal-600 to-cyan-600'
+                              }`}
+                            ></span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </nav>
             
             {/* Footer Text - Stage 6 */}
