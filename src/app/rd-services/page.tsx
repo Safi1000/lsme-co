@@ -345,18 +345,18 @@ export default function RDServicesPage() {
               },
               {
                 icon: Award,
-                title: "Innovation Consulting and IP Support",
-                description: "Strategic innovation consulting and intellectual property support services for technology development and commercialization.",
+                title: "Innovation Consulting and IT Support",
+                description: "Strategic innovation consulting with end-to-end IT support for technology development, deployment, and operations.",
                 features: [
                   "Technology Innovation Strategy",
-                  "Patent Research & Filing",
-                  "IP Portfolio Management",
-                  "Technology Transfer Support",
-                  "Innovation Process Optimization",
-                  "Commercialization Consulting"
+                  "Digital Transformation Roadmaps",
+                  "Cloud & Infrastructure Support",
+                  "Cybersecurity & Compliance",
+                  "DevOps and CI/CD Enablement",
+                  "IT Service Management & Helpdesk"
                 ],
-                details: "Our innovation consulting services help organizations maximize their R&D investment and protect their intellectual property. We provide strategic guidance on technology development, patent filing, IP management, and commercialization strategies. Our expertise ensures that innovations are properly protected and successfully brought to market.",
-                imagePlaceholder: "Innovation Consulting Center",
+                details: "We help organizations turn ideas into impact while keeping IT systems resilient and secure. Our team supports technology strategy and execution across cloud infrastructure, networks, security, and platform operations—covering monitoring, incident response, governance, and automation—so R&D initiatives are delivered reliably from prototype to production.",
+                imagePlaceholder: "Innovation & IT Support Center",
                 delay: "900ms",
                 image: "/images/rd-services/innovation-consulting.jpg"
               }
@@ -539,7 +539,7 @@ export default function RDServicesPage() {
               },
               {
                 title: "Advanced Services",
-                links: ["IoT Integration", "Material Innovation", "Testing & Validation", "Custom Equipment", "IP Support"],
+                links: ["IoT Integration", "Material Innovation", "Testing & Validation", "Custom Equipment", "IT Support"],
                 delay: "400ms"
               },
               {

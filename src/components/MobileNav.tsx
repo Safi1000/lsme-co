@@ -382,7 +382,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
                       <div>
                         <button
                           onClick={() => setExpandedService(!expandedService)}
-                          className={`w-full text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-5 rounded-xl relative group flex items-center justify-center ${
+                          className={`w-full text-base font-semibold text-gray-800 transition-all duration-300 transform hover:scale-105 py-2 px-10 rounded-xl relative group text-center ${
                             theme === 'green' 
                               ? 'hover:text-emerald-600 hover:bg-emerald-50/80' 
                               : theme === 'blue'
@@ -396,12 +396,12 @@ export default function MobileNav({ theme }: MobileNavProps) {
                               : 'hover:text-teal-600 hover:bg-teal-50/80'
                           }`}
                         >
-                          {item.name}
+                          <span className="block w-full text-center">{item.name}</span>
                           <svg 
-                            className={`w-4 h-4 ml-2 transition-transform duration-300 ${expandedService ? 'rotate-180' : ''}`} 
+                            className={`w-4 h-4 transition-transform duration-300 ${expandedService ? 'rotate-180' : ''} absolute right-5 top-1/2 -translate-y-1/2`} 
                             fill="none" 
                             stroke="currentColor" 
-                            viewBox="0 0 24 24"
+                            viewBox=" 0 0 24 24"
                           >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                           </svg>
@@ -493,54 +493,7 @@ export default function MobileNav({ theme }: MobileNavProps) {
                 ))}
               </ul>
             </nav>
-
-            {/* Action Buttons - Stage 5 */}
-            <div 
-              className={`space-y-2.5 w-full max-w-xs transition-all duration-700 ${
-                animationStage >= 5 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
-              }`}
-            >
-              <Button
-                variant="outline"
-                size="sm"
-                className={`w-full border-2 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg text-sm py-3 ${
-                  theme === 'green'
-                    ? 'border-emerald-300 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-400 focus:ring-emerald-500'
-                    : theme === 'blue'
-                    ? 'border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 focus:ring-blue-500'
-                    : theme === 'cream'
-                    ? 'border-amber-300 text-amber-800 hover:bg-amber-50 hover:border-amber-400 focus:ring-amber-500'
-                    : theme === 'lightbrown'
-                    ? 'border-yellow-300 text-yellow-900 hover:bg-yellow-50 hover:border-yellow-400 focus:ring-yellow-500'
-                    : theme === 'purple'
-                    ? 'border-purple-300 text-purple-700 hover:bg-purple-50 hover:border-purple-400 focus:ring-purple-500'
-                    : 'border-teal-300 text-teal-700 hover:bg-teal-50 hover:border-teal-400 focus:ring-teal-500'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                Get Quote
-              </Button>
-              <Button
-                size="sm"
-                className={`w-full text-white transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg text-sm py-3 ${
-                  theme === 'green'
-                    ? 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700'
-                    : theme === 'blue'
-                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700'
-                    : theme === 'cream'
-                    ? 'bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800'
-                    : theme === 'lightbrown'
-                    ? 'bg-gradient-to-r from-yellow-800 to-amber-800 hover:from-yellow-900 hover:to-amber-900'
-                    : theme === 'purple'
-                    ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700'
-                    : 'bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                Portal Login
-              </Button>
-            </div>
-
+            
             {/* Footer Text - Stage 6 */}
             <div 
               className={`mt-4 text-center transition-all duration-600 ${

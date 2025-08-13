@@ -105,20 +105,20 @@ export default function ContactPage() {
                 </div>
               </Link>
             </div>
-
+            
             {/* Mobile Navigation */}
             <MobileNav theme="cream" />
-
+            
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <Link
-                href="/"
+              <Link 
+                href="/" 
                 className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
               >
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-
+              
               {/* Services Dropdown */}
               <div className="relative group">
                 <button className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 py-2 flex items-center gap-1">
@@ -128,7 +128,7 @@ export default function ContactPage() {
                   </svg>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
                 </button>
-
+                
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                   <div className="py-2">
                     {[
@@ -149,7 +149,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-
+              
               {[
                 { name: 'Projects', href: '/projects' },
                 { name: 'About', href: '/about' },
@@ -157,9 +157,9 @@ export default function ContactPage() {
                 { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
               ].map((item, index) => (
-                <Link
+                <Link 
                   key={item.name}
-                  href={item.href}
+                  href={item.href} 
                   className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
                 >
                   {item.name}
@@ -191,14 +191,14 @@ export default function ContactPage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md mb-4 sm:mb-6">
-                <MessageSquare className="w-3 h-3 mr-1" />
+                  <MessageSquare className="w-3 h-3 mr-1" />
                 Get in Touch
-              </Badge>
+                </Badge>
               <h1 className="hero-text font-bold text-gray-900 leading-tight">
                 <span className="text-2xl sm:text-3xl lg:text-4xl">Connect with Our</span>
                 <br />
                 <span className="contact-hero-title text-3xl sm:text-4xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Experts</span>
-              </h1>
+                </h1>
               <p className="contact-hero-subtitle hero-subtitle text-sm sm:text-base lg:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mt-4 sm:mt-6 px-4 sm:px-0">
                 Ready to transform your infrastructure projects? Our team of experts is here to provide consultation, support, and innovative solutions tailored to your needs.
               </p>
@@ -216,14 +216,14 @@ export default function ContactPage() {
                 { number: '<2h', label: 'Response Time', icon: Clock },
                 { number: '15+', label: 'Offices Nationwide', icon: Building },
                 { number: '500+', label: 'Projects Delivered', icon: CheckCircle }
-              ].map((stat, index) => (
+                ].map((stat, index) => (
                 <div
                   key={index}
                   className="text-center group cursor-pointer bg-white/50 backdrop-blur-sm rounded-xl p-3 sm:p-4 hover:bg-white/80 transition-all duration-300"
                 >
                   <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-amber-700 mx-auto mb-2 transition-transform duration-300 group-hover:scale-110" />
                   <div className="contact-stat-number text-xl sm:text-2xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-amber-700">
-                    {stat.number}
+                      {stat.number}
                   </div>
                   <div className="contact-stat-label text-xs sm:text-sm text-gray-600 transition-colors duration-300 group-hover:text-gray-800">
                     {stat.label}
@@ -300,23 +300,23 @@ export default function ContactPage() {
                         : 'bg-orange-100 text-orange-800 group-hover:bg-orange-200'
                     }`}>
                       <method.icon className="w-6 h-6 sm:w-8 sm:h-8" />
-                    </div>
+                  </div>
                     <CardTitle className="contact-method-title text-lg sm:text-xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors duration-300">
                       {method.title}
-                    </CardTitle>
+                  </CardTitle>
                     <CardDescription className="contact-method-description text-sm text-gray-600">
                       {method.description}
-                    </CardDescription>
-                  </CardHeader>
+                  </CardDescription>
+                </CardHeader>
                   <CardContent className="text-center">
                     <div className="font-semibold text-gray-900 mb-1">{method.contact}</div>
                     <div className="text-xs text-gray-500">{method.subtext}</div>
                     <Button variant="ghost" className="w-full mt-3 group-hover:bg-amber-50 group-hover:text-amber-800 transition-all duration-300">
                       Contact Now
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Button>
-                  </CardContent>
-                </Card>
+                  </Button>
+                </CardContent>
+              </Card>
               </motion.div>
             ))}
           </div>
@@ -476,14 +476,14 @@ export default function ContactPage() {
                       icon: Zap,
                       title: "Rapid Response",
                       description: "Get expert consultation within 24 hours of your inquiry."
-                    },
-                    {
-                      icon: Users,
+                  },
+                  {
+                    icon: Users,
                       title: "Expert Team",
                       description: "Access to specialized engineers and technical consultants."
-                    },
-                    {
-                      icon: Globe,
+                  },
+                  {
+                    icon: Globe,
                       title: "Nationwide Coverage",
                       description: "Local support across all major cities in Saudi Arabia."
                     },
@@ -491,23 +491,23 @@ export default function ContactPage() {
                       icon: CheckCircle,
                       title: "Proven Track Record",
                       description: "Successfully delivered 500+ infrastructure projects."
-                    }
-                  ].map((feature, index) => (
+                  }
+                ].map((feature, index) => (
                     <div key={index} className="flex items-start space-x-4 group">
                       <div className="bg-amber-100 p-3 rounded-lg flex-shrink-0 transition-all duration-300 group-hover:bg-amber-200 group-hover:scale-110">
                         <feature.icon className="w-5 h-5 text-amber-800" />
-                      </div>
+                    </div>
                       <div>
                         <h4 className="font-semibold text-gray-900 group-hover:text-amber-700 transition-colors duration-300">
-                          {feature.title}
+                        {feature.title}
                         </h4>
                         <p className="text-sm text-gray-600 leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </div>
+                        {feature.description}
+                      </p>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
               </div>
 
               <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-2xl border border-amber-200">
@@ -524,8 +524,8 @@ export default function ContactPage() {
                     <Mail className="w-4 h-4 text-amber-800" />
                     <span className="font-semibold text-gray-900">emergency@lsme.sa</span>
                   </div>
-                </div>
               </div>
+            </div>
             </motion.div>
           </div>
         </div>
@@ -581,29 +581,29 @@ export default function ContactPage() {
                 transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
               >
                 <Card className="contact-office-card group h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white overflow-hidden">
-                  <div className="relative overflow-hidden">
-                    <Image
+                <div className="relative overflow-hidden">
+                  <Image
                       src={office.image}
                       alt={`LSME ${office.city} Office`}
-                      width={400}
+                    width={400}
                       height={250}
                       className="w-full h-48 sm:h-56 object-cover transition-all duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-amber-100 text-amber-800">
                         {office.city}
-                      </Badge>
-                    </div>
+                    </Badge>
                   </div>
+                </div>
                   <CardHeader className="pb-2">
                     <CardTitle className="contact-office-title text-lg sm:text-xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors duration-300">
-                      {office.title}
-                    </CardTitle>
+                    {office.title}
+                  </CardTitle>
                     <CardDescription className="contact-office-description text-sm text-gray-600">
                       {office.address}
-                    </CardDescription>
-                  </CardHeader>
+                  </CardDescription>
+                </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex items-center space-x-2 text-sm text-gray-700">
                       <Phone className="w-4 h-4 text-amber-800" />
@@ -624,8 +624,8 @@ export default function ContactPage() {
                       Get Directions
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
-                  </CardContent>
-                </Card>
+                </CardContent>
+              </Card>
               </motion.div>
             ))}
           </div>
@@ -641,16 +641,16 @@ export default function ContactPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center space-y-6 sm:space-y-8"
           >
-            <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
-              <Star className="w-3 h-3 mr-1" />
+              <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
+                <Star className="w-3 h-3 mr-1" />
               Ready to Engineer the Future?
-            </Badge>
+              </Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold px-4 sm:px-0">
               Ready to Start Your Project?
-            </h2>
+              </h2>
             <p className="text-base sm:text-lg lg:text-xl text-white max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
               Join hundreds of satisfied clients who trust LSME for their infrastructure needs. Let's build the future together.
-            </p>
+              </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
