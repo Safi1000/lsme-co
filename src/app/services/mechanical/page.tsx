@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import { Cog, Wrench, Hammer, Thermometer, Gauge, Settings2, ChevronRight, Clock, Globe, Phone, Mail, Star } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 import MobileNav from '@/components/MobileNav'
 
 export default function MechanicalPage() {
@@ -39,7 +39,6 @@ export default function MechanicalPage() {
           <div className={`flex items-center justify-between transition-all duration-300 ${
             isScrolled ? 'h-20 md:h-28' : 'h-20 md:h-24'
           }`}>
-            {/* Desktop Logo */}
             <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
               <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div className="relative">
@@ -52,10 +51,8 @@ export default function MechanicalPage() {
               </Link>
             </div>
 
-            {/* Mobile Navigation */}
             <MobileNav theme="cream" />
 
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/" className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2">Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
@@ -114,28 +111,26 @@ export default function MechanicalPage() {
           <div className="text-center space-y-6">
             <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 transition-all duration-300 transform hover:scale-105 hover:shadow-md">Mechanical Engineering</Badge>
             <h1 className="hero-text font-bold text-gray-900 leading-tight">
-              <span className="text-3xl lg:text-4xl">Precision in Motion</span>
-              <br />
               <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Mechanical Services</span>
             </h1>
             <p className="hero-subtitle text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
-              Design, analysis, and validation of mechanical systems for durability, safety, and performance.
+              CAD/CAM design, retrofitted design and development of new products, reverse engineering, fabrication of plant mechanical structures, and repair of steel tanks, boilers, and freight trains.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-20 bg-white relative">
+      {/* Features */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { icon: Cog, title: 'Mechanical Design', desc: 'CAD modeling, mechanism design, tolerance analysis, and drafting.' },
-              { icon: Gauge, title: 'Stress & Vibration', desc: 'Structural analysis, fatigue life evaluations, and vibration optimization.' },
-              { icon: Thermometer, title: 'Thermal & CFD', desc: 'Heat transfer analysis and airflow/fluid simulation for cooling efficiency.' },
-              { icon: Settings2, title: 'Simulation & FEA', desc: 'Finite element simulations to validate designs before fabrication.' },
-              { icon: Hammer, title: 'Prototyping & Build', desc: 'Rapid prototyping, fixtures, and pilot builds for concept validation.' },
-              { icon: Wrench, title: 'Retrofit & Maintenance', desc: 'Upgrades, reliability improvements, and lifecycle support.' },
+              { icon: Cog, title: 'CAD/CAM Engineering', desc: 'Parametric modeling, toolpaths, and manufacturing‑ready documentation.' },
+              { icon: Wrench, title: 'Retrofit & New Product Dev', desc: 'Upgrades and new designs aligned with current standards and interfaces.' },
+              { icon: Hammer, title: 'Reverse Engineering', desc: 'Digitization, tolerancing, and process/material re‑specification.' },
+              { icon: Settings2, title: 'Plant Structure Fabrication', desc: 'Frames, skids, platforms, and heavy‑duty assemblies.' },
+              { icon: Thermometer, title: 'Steel Tanks & Boilers', desc: 'Inspection, repair procedures, welding, and integrity validation.' },
+              { icon: Gauge, title: 'Freight Train Repair', desc: 'Overhauls, alignments, and reliability enhancements.' }
             ].map((f, i) => (
               <motion.div
                 key={i}
@@ -156,18 +151,22 @@ export default function MechanicalPage() {
         </div>
       </section>
 
-      {/* Showcase Gallery */}
+      {/* Gallery (8 images) */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Prototypes & Fabrication</h2>
-            <p className="text-gray-600 mt-2">Replace these with your workshop and prototype images</p>
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Fabrication & Repair</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { src: '/images/services/mechanical-1.jpg', alt: 'FEA & Simulation' },
-              { src: '/images/services/mechanical-2.jpg', alt: 'CNC & Fixtures' },
-              { src: '/images/services/mechanical-3.jpg', alt: 'Prototype Assembly' }
+              { src: '/images/mechanical/CAD.jpg', alt: 'CAD/CAM Toolpaths' },
+              { src: '/images/mechanical/retrofit-assembly.jpg', alt: 'Retrofit Assembly' },
+              { src: '/images/mechanical/3D-scan.jpg', alt: 'Reverse Engineering (3D Scan/CMM)' },
+              { src: '/images/mechanical/welding.jpg', alt: 'Plant Structure Fabrication (Welding)' },
+              { src: '/images/mechanical/steel-tank-repair.jpg', alt: 'Steel Tank/Boiler Repair' },
+              { src: '/images/mechanical/brake-system-repair.jpg', alt: 'Freight Brake System Repair' },
+              { src: '/images/mechanical/precision-inspection.jpg', alt: 'Precision Inspection & GD&T' },
+              { src: '/images/mechanical/lifting-lugs.jpg', alt: 'Heavy Assembly & Rigging (Lifting Lugs)' }
             ].map((img, i) => (
               <motion.div
                 key={i}
@@ -177,91 +176,15 @@ export default function MechanicalPage() {
                 transition={{ duration: 0.5, delay: i * 0.07 }}
                 className="relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300"
               >
-                <Image src={img.src} alt={img.alt} width={800} height={500} className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image src={img.src} alt={img.alt} width={800} height={500} className="w-full h-48 lg:h-56 object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-3 left-3 text-white text-sm font-medium drop-shadow">{img.alt}</div>
+                <div className="absolute bottom-2 left-2">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-black/60 text-white text-xs font-semibold tracking-wide backdrop-blur-sm ring-1 ring-white/10 shadow-sm">
+                    {img.alt}
+                  </span>
+                </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Expertise */}
-      <section className="py-16 bg-amber-50/40">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10">
-            <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Core Expertise</h3>
-              <div className="space-y-3">
-                {[
-                  'Parametric CAD, design-for-manufacture, and GD&T',
-                  'Linear/nonlinear FEA and modal/vibration analysis',
-                  'Thermal simulation and ventilation/cooling strategies',
-                  'Material selection, coatings, and corrosion control',
-                  'Fixture design, jigs, and assembly planning'
-                ].map((t, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className="mt-2 w-2 h-2 rounded-full bg-amber-700" />
-                    <p className="text-gray-700">{t}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Deliverables</h3>
-              <div className="space-y-3">
-                {[
-                  'Manufacturing drawings and BoMs',
-                  'Simulation reports and design sign-offs',
-                  'Prototype plans and test procedures',
-                  'Assembly instructions and QA checklists',
-                  'Maintenance manuals and retrofit kits'
-                ].map((t, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className="mt-2 w-2 h-2 rounded-full bg-amber-700" />
-                    <p className="text-gray-700">{t}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries & Process */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div>
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Industries We Serve</h3>
-            <div className="flex flex-wrap gap-3">
-              {['Industrial', 'Transportation', 'Energy', 'HVAC', 'Consumer', 'Infrastructure'].map((tag) => (
-                <span key={tag} className="px-3 py-1 rounded-full text-sm bg-amber-100 text-amber-800 border border-amber-200 transition-all duration-300 hover:scale-105 hover:shadow-sm">{tag}</span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-6">Our Delivery Process</h3>
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { step: '01', title: 'Discovery', text: 'Requirements, constraints, and KPIs.' },
-                { step: '02', title: 'Design', text: 'CAD, simulation, and design reviews.' },
-                { step: '03', title: 'Prototype', text: 'Build, test, and iterate quickly.' },
-                { step: '04', title: 'Deploy', text: 'Handover, training, and support.' }
-              ].map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="p-5 rounded-2xl border border-amber-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                >
-                  <div className="text-amber-700 font-bold">{s.step}</div>
-                  <div className="text-gray-900 font-semibold mt-1">{s.title}</div>
-                  <p className="text-gray-600 text-sm mt-2">{s.text}</p>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -271,7 +194,7 @@ export default function MechanicalPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-md"><Star className="w-3 h-3 mr-1" />Partner With Experts</Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Ready to optimize your systems?</h2>
-          <p className="text-white/90 max-w-3xl mx-auto">We combine advanced simulation and practical engineering to deliver robust mechanical solutions.</p>
+          <p className="text-white/90 max-w-3xl mx-auto">From CAD/CAM to heavy-duty repairs, we deliver reliable mechanical solutions.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100">Start Your Project<ChevronRight className="ml-2 h-4 w-4" /></Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
@@ -312,7 +235,7 @@ export default function MechanicalPage() {
                   <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
-              <p className="text-gray-400">Mechanical design, simulation, and prototyping for reliable performance.</p>
+              <p className="text-gray-400">Mechanical engineering and fabrication services for demanding operations.</p>
               <div className="flex gap-4">
                 <div className="bg-gray-800 p-3 rounded-xl"><Phone className="h-5 w-5 text-amber-400" /></div>
                 <div className="bg-gray-800 p-3 rounded-xl"><Mail className="h-5 w-5 text-amber-400" /></div>
@@ -320,7 +243,7 @@ export default function MechanicalPage() {
             </div>
             {[
               { title: 'Divisions', links: ['Electrical', 'Electronics', 'Mechanical', 'R&D'] },
-              { title: 'Services', links: ['Design & Simulation', 'Prototyping', 'Testing', 'Deployment'] },
+              { title: 'Services', links: ['CAD/CAM', 'Retrofits', 'Reverse Engineering', 'Fabrication'] },
               { title: 'Company', links: ['About', 'Team', 'Quality', 'Contact'] }
             ].map((s, i) => (
               <div key={i} className="space-y-4">

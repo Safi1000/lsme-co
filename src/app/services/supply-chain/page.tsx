@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
-import { Truck, Package, Clipboard, Calendar, TrendingUp, Globe, ChevronRight, Clock, Phone, Mail, Star } from 'lucide-react'
+import { Globe, Package, Clipboard, TrendingUp, Calendar, Truck, ChevronRight, Clock, Phone, Mail, Star } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 import MobileNav from '@/components/MobileNav'
 
 export default function SupplyChainPage() {
@@ -39,7 +39,6 @@ export default function SupplyChainPage() {
           <div className={`flex items-center justify-between transition-all duration-300 ${
             isScrolled ? 'h-20 md:h-28' : 'h-20 md:h-24'
           }`}>
-            {/* Desktop Logo */}
             <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
               <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div className="relative">
@@ -52,10 +51,8 @@ export default function SupplyChainPage() {
               </Link>
             </div>
 
-            {/* Mobile Navigation */}
             <MobileNav theme="cream" />
 
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/" className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2">Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
@@ -114,28 +111,26 @@ export default function SupplyChainPage() {
           <div className="text-center space-y-6">
             <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 transition-all duration-300 transform hover:scale-105 hover:shadow-md">Supply Chain</Badge>
             <h1 className="hero-text font-bold text-gray-900 leading-tight">
-              <span className="text-3xl lg:text-4xl">From Source to Success</span>
-              <br />
               <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Supply Chain Services</span>
             </h1>
             <p className="hero-subtitle text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
-              Procurement, logistics, vendor management, and inventory control to keep your projects on time and on budget.
+              Principals across Asia, Europe, and America enable dependable supply of electrical and industrial categories, including power distribution and motion, connectivity and wiring, protection and enclosures, instrumentation, sensing and actuation, and mechanical drive components.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-20 bg-white relative">
+      {/* Features */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { icon: Package, title: 'Procurement', desc: 'Sourcing, RFQs, cost analysis, and contract negotiation with approved vendors.' },
-              { icon: Clipboard, title: 'Vendor Management', desc: 'Qualification, audits, performance tracking, and continuous improvement.' },
-              { icon: Truck, title: 'Logistics & Delivery', desc: 'In-bound/out-bound logistics planning, shipping, and last-mile coordination.' },
-              { icon: Calendar, title: 'Scheduling', desc: 'Lead-time planning, buffer strategies, and expediting to hit milestones.' },
-              { icon: TrendingUp, title: 'Inventory & Cost', desc: 'Inventory control, ABC analysis, and cost optimization for sustained value.' },
-              { icon: Globe, title: 'Global Sourcing', desc: 'International supply, compliance, and documentation for smooth imports.' },
+              { icon: Globe, title: 'Global Principals', desc: 'OEM partnerships across Asia, Europe, and America for prioritized supply.' },
+              { icon: Package, title: 'Multi‑Category Supply', desc: 'Motors, drives, power distribution, cables, lighting, and connectors.' },
+              { icon: Clipboard, title: 'Safety & Enclosures', desc: 'Protection devices, enclosures, terminals, switches, indicators, solenoids.' },
+              { icon: TrendingUp, title: 'Instrumentation & Control', desc: 'Test instruments, actuators, sensors, feedback devices, and diagnostics.' },
+              { icon: Calendar, title: 'Mechanical & Drive Components', desc: 'Couplings, mounts, braking systems, drive components, and hardware.' },
+              { icon: Truck, title: 'Logistics & Assurance', desc: 'On‑time shipping, customs, last‑mile delivery, and quality checks.' }
             ].map((f, i) => (
               <motion.div
                 key={i}
@@ -156,18 +151,22 @@ export default function SupplyChainPage() {
         </div>
       </section>
 
-      {/* Showcase Gallery */}
+      {/* Gallery (8 images) */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Warehouses & Deliveries</h2>
-            <p className="text-gray-600 mt-2">Replace these with your logistics and delivery photos</p>
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Warehousing & Supply</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { src: '/images/services/supply-1.jpg', alt: 'Inbound Logistics' },
-              { src: '/images/services/supply-2.jpg', alt: 'Warehouse Operations' },
-              { src: '/images/services/supply-3.jpg', alt: 'Last-mile Delivery' }
+              { src: '/images/supplychain/relief-valve.jpg', alt: 'Relief Valves' },
+              { src: '/images/supplychain/industrial-connectors.jpg', alt: 'Industrial Connectors' },
+              { src: '/images/supplychain/sensor.jpg', alt: 'Sensors & Feedback Devices' },
+              { src: '/images/supplychain/motors.jpg', alt: 'Motors & Drives' },
+              { src: '/images/supplychain/drive-motion-control.jpg', alt: 'Motion Control' },
+              { src: '/images/supplychain/switches-indicators.jpg', alt: 'Switches & Indicators' },
+              { src: '/images/supplychain/signal-conditioners.jpg', alt: 'Signal Conditioners' },
+              { src: '/images/supplychain/coupling-mounts.jpg', alt: 'Coupling Mounts' }
             ].map((img, i) => (
               <motion.div
                 key={i}
@@ -177,91 +176,15 @@ export default function SupplyChainPage() {
                 transition={{ duration: 0.5, delay: i * 0.07 }}
                 className="relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300"
               >
-                <Image src={img.src} alt={img.alt} width={800} height={500} className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image src={img.src} alt={img.alt} width={800} height={500} className="w-full h-48 lg:h-56 object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-3 left-3 text-white text-sm font-medium drop-shadow">{img.alt}</div>
+                <div className="absolute bottom-2 left-2">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-black/60 text-white text-xs font-semibold tracking-wide backdrop-blur-sm ring-1 ring-white/10 shadow-sm">
+                    {img.alt}
+                  </span>
+                </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Expertise */}
-      <section className="py-16 bg-amber-50/40">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10">
-            <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Core Expertise</h3>
-              <div className="space-y-3">
-                {[
-                  'Approved vendor list build-out and audits',
-                  'Strategic sourcing and cost optimization',
-                  'Incoterms, customs, and documentation handling',
-                  'Inventory planning and buffer strategies',
-                  'Kitting, labeling, and outbound QC'
-                ].map((t, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className="mt-2 w-2 h-2 rounded-full bg-amber-700" />
-                    <p className="text-gray-700">{t}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Deliverables</h3>
-              <div className="space-y-3">
-                {[
-                  'Sourcing reports and supplier scorecards',
-                  'Shipping plans, HS codes, and packing lists',
-                  'Inventory dashboards and reorder policies',
-                  'Receiving inspection and NCR workflows',
-                  'On-time delivery and cost KPIs'
-                ].map((t, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className="mt-2 w-2 h-2 rounded-full bg-amber-700" />
-                    <p className="text-gray-700">{t}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries & Process */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div>
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Industries We Serve</h3>
-            <div className="flex flex-wrap gap-3">
-              {['Industrial', 'Energy', 'Transportation', 'Aerospace', 'Healthcare', 'Construction'].map((tag) => (
-                <span key={tag} className="px-3 py-1 rounded-full text-sm bg-amber-100 text-amber-800 border border-amber-200 transition-all duration-300 hover:scale-105 hover:shadow-sm">{tag}</span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-6">Our Delivery Process</h3>
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { step: '01', title: 'Source', text: 'Supplier scouting and RFQs.' },
-                { step: '02', title: 'Plan', text: 'Lead times, buffers, and logistics.' },
-                { step: '03', title: 'Move', text: 'Shipping, customs, and warehousing.' },
-                { step: '04', title: 'Deliver', text: 'Kitting, QA, and on-time delivery.' }
-              ].map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="p-5 rounded-2xl border border-amber-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                >
-                  <div className="text-amber-700 font-bold">{s.step}</div>
-                  <div className="text-gray-900 font-semibold mt-1">{s.title}</div>
-                  <p className="text-gray-600 text-sm mt-2">{s.text}</p>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -273,7 +196,7 @@ export default function SupplyChainPage() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Need a reliable supply chain?</h2>
           <p className="text-white/90 max-w-3xl mx-auto">We secure parts, manage logistics, and maintain quality so your teams can focus on delivery.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100">Start Your Project<ChevronRight className="ml-2 h-4 w-4" /></Button>
+            <Button size="lg" className="bg.white text-amber-700 hover:bg-gray-100">Start Your Project<ChevronRight className="ml-2 h-4 w-4" /></Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
           </div>
           <div className="grid sm:grid-cols-3 gap-6 mt-8">

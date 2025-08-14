@@ -492,43 +492,50 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 via-indigo-600 to-sky-600 relative overflow-hidden">
+      <motion.section
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+        className="py-24 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 relative overflow-hidden"
+      >
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600/90 to-indigo-600/90"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-700/90 to-orange-700/90"></div>
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center space-y-10 animate-fade-in-up">
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-6">
               <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
                 <Star className="w-3 h-3 mr-1" />
                 Ready to Engineer the Future?
               </Badge>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold px-4 sm:px-0">
-                Ready to Start Your Project?
+              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Partner with Saudi Arabia's
+                <br />
+                <span className="text-amber-200">Engineering Leaders</span>
               </h2>
-              <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-                Join us in revolutionizing railway technology. From research collaboration to technical consulting, let's build the future of transportation together.
+              <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+                Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
-                Start Your Project
+              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+                Start Your Engineering Project
                 <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">
-                Schedule Consultation
+              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
+                Schedule Technical Consultation
               </Button>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 pt-12">
               {[
-                { icon: Phone, text: "24/7 Technical Support" },
-                { icon: Mail, text: "Expert Consultation" },
-                { icon: Globe, text: "Global Standards" }
+                { icon: Phone, text: "24/7 Engineering Support" },
+                { icon: Mail, text: "Expert Technical Consultation" },
+                { icon: Globe, text: "International Standards" }
               ].map((item, index) => (
                 <div key={index} className="flex items-center justify-center space-x-3 text-white/90 hover:text-white transition-colors duration-300 group cursor-pointer">
                   <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
@@ -538,7 +545,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-20 relative overflow-hidden">

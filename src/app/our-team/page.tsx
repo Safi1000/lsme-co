@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Users, LinkedinIcon, Mail, Phone, Award, Briefcase } from 'lucide-react';
+import { Users, LinkedinIcon, Mail, Phone, Award, Briefcase, Star, ChevronRight, Globe } from 'lucide-react';
 import MobileNav from '@/components/MobileNav';
 
 export default function OurTeamPage() {
@@ -325,6 +325,109 @@ export default function OurTeamPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <motion.section
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+        className="py-24 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 relative overflow-hidden"
+      >
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-700/90 to-orange-700/90"></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center space-y-10 animate-fade-in-up">
+            <div className="space-y-6">
+              <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
+                <Star className="w-3 h-3 mr-1" />
+                Ready to Engineer the Future?
+              </Badge>
+              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Partner with Saudi Arabia's
+                <br />
+                <span className="text-amber-200">Engineering Leaders</span>
+              </h2>
+              <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+                Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
+                Start Your Engineering Project
+                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
+                Schedule Technical Consultation
+              </Button>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 pt-12">
+              {[
+                { icon: Phone, text: "24/7 Engineering Support" },
+                { icon: Mail, text: "Expert Technical Consultation" },
+                { icon: Globe, text: "International Standards" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center justify-center space-x-3 text-white/90 hover:text-white transition-colors duration-300 group cursor-pointer">
+                  <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="font-medium">{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Footer */}
+      <motion.footer
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
+        className="bg-gray-900 text-gray-300 py-16"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div>
+            <h3 className="text-white text-lg font-bold mb-4">About LSME</h3>
+            <p className="text-gray-400 leading-relaxed">
+              LSME is a leading engineering solutions provider, specializing in electrical, electronics, and mechanical engineering.
+              We are committed to delivering excellence and innovation in Saudi Arabia's Vision 2030.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-white text-lg font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-3">
+              <li><Link href="/" className="text-gray-400 hover:text-white transition-colors duration-300">Home</Link></li>
+              <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors duration-300">Services</Link></li>
+              <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors duration-300">Projects</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-300">About Us</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-300">Contact</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-white text-lg font-bold mb-4">Contact Us</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start"><Phone className="w-5 h-5 text-gray-500 mr-3" /> +966 123 456 7890</li>
+              <li className="flex items-start"><Mail className="w-5 h-5 text-gray-500 mr-3" /> info@lsme.sa</li>
+              <li className="flex items-start"><Globe className="w-5 h-5 text-gray-500 mr-3" /> www.lsme.sa</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-white text-lg font-bold mb-4">Follow Us</h3>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><LinkedinIcon className="w-6 h-6" /></a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div className="mt-16 text-center text-gray-500 text-sm">
+          &copy; {new Date().getFullYear()} LSME. All rights reserved.
+        </div>
+      </motion.footer>
     </div>
   );
 } 

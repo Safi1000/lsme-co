@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
-import { Cpu, CircuitBoard, Wifi, Smartphone, Settings2, Shield, ChevronRight, Clock, Globe, Phone, Mail, Star } from 'lucide-react'
+import { Cpu, CircuitBoard, Settings2, Wifi, Smartphone, ChevronRight, Clock, Globe, Phone, Mail, Star } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 import MobileNav from '@/components/MobileNav'
 
 export default function ElectronicsPage() {
@@ -39,7 +39,6 @@ export default function ElectronicsPage() {
           <div className={`flex items-center justify-between transition-all duration-300 ${
             isScrolled ? 'h-20 md:h-28' : 'h-20 md:h-24'
           }`}>
-            {/* Desktop Logo */}
             <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
               <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105 cursor-pointer">
                 <div className="relative">
@@ -52,10 +51,8 @@ export default function ElectronicsPage() {
               </Link>
             </div>
 
-            {/* Mobile Navigation */}
             <MobileNav theme="cream" />
 
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/" className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2">Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
@@ -114,28 +111,26 @@ export default function ElectronicsPage() {
           <div className="text-center space-y-6">
             <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 transition-all duration-300 transform hover:scale-105 hover:shadow-md">Electronics Engineering</Badge>
             <h1 className="hero-text font-bold text-gray-900 leading-tight">
-              <span className="text-3xl lg:text-4xl">Connected Intelligence</span>
-              <br />
               <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Electronics Services</span>
             </h1>
             <p className="hero-subtitle text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
-              PCB design, embedded firmware, wireless connectivity, and validation for high-reliability electronic systems.
+              Embedded designing with RTOS and modern interfaces, including replacement of obsolete electronic boards and systems for long-term reliability.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-20 bg-white relative">
+      {/* Features */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { icon: CircuitBoard, title: 'PCB Design', desc: 'High-speed, multilayer PCB layout, DFM/DFA, and manufacturing documentation.' },
-              { icon: Cpu, title: 'Embedded Firmware', desc: 'Bare-metal and RTOS development for MCUs and SoCs with robust drivers.' },
-              { icon: Wifi, title: 'Wireless & IoT', desc: 'BLE, Wi‑Fi, cellular integration, device provisioning, and secure updates.' },
-              { icon: Smartphone, title: 'HMI & UX', desc: 'Displays, touch interfaces, and device companion apps for seamless control.' },
-              { icon: Settings2, title: 'Hardware Validation', desc: 'Bring-up, test automation, and design verification for production readiness.' },
-              { icon: Shield, title: 'Compliance & EMC', desc: 'EMC/EMI risk reduction and guidance toward global compliance.' },
+              { icon: CircuitBoard, title: 'Embedded Hardware Design', desc: 'Robust PCB design for controllers and interfaces, optimized for manufacturability.' },
+              { icon: Cpu, title: 'RTOS & Firmware', desc: 'Real-time firmware with deterministic scheduling, drivers, and peripherals.' },
+              { icon: Settings2, title: 'Obsolescence Replacement', desc: 'Form-fit-function redesign of legacy boards and systems to modern standards.' },
+              { icon: Wifi, title: 'Connectivity & Buses', desc: 'Industrial protocols and connectivity for dependable system integration.' },
+              { icon: Smartphone, title: 'Modern Interfaces', desc: 'Upgraded HMIs, displays, and I/O to enhance usability and longevity.' },
+              { icon: Settings2, title: 'Validation & Bring-up', desc: 'Board bring-up, verification, and release-ready documentation.' }
             ].map((f, i) => (
               <motion.div
                 key={i}
@@ -156,18 +151,22 @@ export default function ElectronicsPage() {
         </div>
       </section>
 
-      {/* Showcase Gallery */}
+      {/* Gallery (8 images) */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Prototypes & Boards</h2>
-            <p className="text-gray-600 mt-2">Replace these with your lab and product images</p>
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Boards & Interfaces</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { src: '/images/services/electronics-1.jpg', alt: 'Multilayer PCB Assembly' },
-              { src: '/images/services/electronics-2.jpg', alt: 'Firmware Bring-up' },
-              { src: '/images/services/electronics-3.jpg', alt: 'Wireless Testing' }
+              { src: '/images/electronics/pcb.jpg', alt: 'Embedded Controller PCB' },
+              { src: '/images/electronics/rtos.jpg', alt: 'RTOS Debug Session' },
+              { src: '/images/electronics/replacement.jpg', alt: 'Obsolescence Replacement (FFF)' },
+              { src: '/images/electronics/industrial-connector.jpg', alt: 'Industrial Connectors & Buses' },
+              { src: '/images/electronics/test-bench.jpg', alt: 'Validation & Bring-up Test Bench' },
+              { src: '/images/electronics/bench-testing.jpg', alt: 'Oscilloscope & Bench Testing' },
+              { src: '/images/electronics/EMI-chamber.jpg', alt: 'EMC Pre-Compliance (Chamber/Probe)' },
+              { src: '/images/electronics/production-jig.jpg', alt: 'Production Test Jig' }
             ].map((img, i) => (
               <motion.div
                 key={i}
@@ -177,92 +176,15 @@ export default function ElectronicsPage() {
                 transition={{ duration: 0.5, delay: i * 0.07 }}
                 className="relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300"
               >
-                <Image src={img.src} alt={img.alt} width={800} height={500} className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image src={img.src} alt={img.alt} width={800} height={500} className="w-full h-48 lg:h-56 object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-3 left-3 text-white text-sm font-medium drop-shadow">{img.alt}</div>
+                <div className="absolute bottom-2 left-2">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-black/60 text-white text-xs font-semibold tracking-wide backdrop-blur-sm ring-1 ring-white/10 shadow-sm">
+                    {img.alt}
+                  </span>
+                </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Expertise */}
-      <section className="py-16 bg-amber-50/40">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10">
-            <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Core Expertise</h3>
-              <div className="space-y-3">
-                {[
-                  'High-speed DDR, RF layout, and impedance control',
-                  'C/C++ firmware with drivers, bootloaders, and OTA',
-                  'BLE, Wi‑Fi, LTE-M/NB-IoT provisioning and security',
-                  'Test automation, continuous integration for firmware',
-                  'Design for EMC, pre-compliance risk mitigation'
-                ].map((t, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className="mt-2 w-2 h-2 rounded-full bg-amber-700" />
-                    <p className="text-gray-700">{t}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Deliverables</h3>
-              <div className="space-y-3">
-                {[
-                  'Schematics, BOM, stackups, and Gerber/IPC outputs',
-                  'Board bring-up notes and production test procedures',
-                  'Firmware release notes and DFU packages',
-                  'Test reports, coverage metrics, and quality gates',
-                  'Compliance guidance and certification support'
-                ].map((t, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className="mt-2 w-2 h-2 rounded-full bg-amber-700" />
-                    <p className="text-gray-700">{t}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries & Process */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div>
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Industries We Serve</h3>
-            <div className="flex flex-wrap gap-3">
-              {['Industrial IoT', 'Smart Buildings', 'Medical Devices', 'Consumer', 'Automotive', 'Energy']
-                .map((tag) => (
-                  <span key={tag} className="px-3 py-1 rounded-full text-sm bg-amber-100 text-amber-800 border border-amber-200 transition-all duration-300 hover:scale-105 hover:shadow-sm">{tag}</span>
-                ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-6">Our Delivery Process</h3>
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { step: '01', title: 'Concept', text: 'Requirements capture and architecture.' },
-                { step: '02', title: 'Design', text: 'Schematics, layout, and firmware plan.' },
-                { step: '03', title: 'Prototype', text: 'Bring-up, validation, and iteration.' },
-                { step: '04', title: 'Scale', text: 'DFM/DFA, compliance, and release.' }
-              ].map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="p-5 rounded-2xl border border-amber-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                >
-                  <div className="text-amber-700 font-bold">{s.step}</div>
-                  <div className="text-gray-900 font-semibold mt-1">{s.title}</div>
-                  <p className="text-gray-600 text-sm mt-2">{s.text}</p>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -270,18 +192,24 @@ export default function ElectronicsPage() {
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-md"><Star className="w-3 h-3 mr-1" />Partner With Experts</Badge>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Ready to launch your next device?</h2>
-          <p className="text-white/90 max-w-3xl mx-auto">From schematics to certification, we accelerate electronics development with quality and speed.</p>
+          <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-md"><Star className="w-3 h-3 mr-1" />Ready to Engineer the Future?</Badge>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Partner with Saudi Arabia's
+            <br />
+            <span className="text-amber-200">Engineering Leaders</span>
+          </h2>
+          <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+            Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100">Start Your Project<ChevronRight className="ml-2 h-4 w-4" /></Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
           </div>
-          <div className="grid sm:grid-cols-3 gap-6 mt-8">
+          <div className="grid md:grid-cols-3 gap-8 pt-12">
             {[
-              { icon: Clock, text: '24/7 Support Available' },
-              { icon: Wifi, text: 'Connected Solutions' },
-              { icon: Globe, text: 'Nationwide Coverage' }
+              { icon: Phone, text: '24/7 Engineering Support' },
+              { icon: Mail, text: 'Expert Technical Consultation' },
+              { icon: Globe, text: 'International Standards' }
             ].map((i, idx) => (
               <div key={idx} className="flex items-center justify-center gap-2 text-white/90">
                 <i.icon className="w-5 h-5" />
@@ -313,7 +241,7 @@ export default function ElectronicsPage() {
                   <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
-              <p className="text-gray-400">Electronics design and validation for reliable, connected products.</p>
+              <p className="text-gray-400">Electronics engineered for reliability and longevity.</p>
               <div className="flex gap-4">
                 <div className="bg-gray-800 p-3 rounded-xl"><Phone className="h-5 w-5 text-amber-400" /></div>
                 <div className="bg-gray-800 p-3 rounded-xl"><Mail className="h-5 w-5 text-amber-400" /></div>
@@ -321,7 +249,7 @@ export default function ElectronicsPage() {
             </div>
             {[
               { title: 'Divisions', links: ['Electrical', 'Electronics', 'Mechanical', 'R&D'] },
-              { title: 'Services', links: ['PCB & Firmware', 'Connectivity', 'Validation', 'Compliance'] },
+              { title: 'Services', links: ['Embedded Hardware', 'RTOS & Firmware', 'Legacy Replacement', 'Validation'] },
               { title: 'Company', links: ['About', 'Team', 'Quality', 'Contact'] }
             ].map((s, i) => (
               <div key={i} className="space-y-4">
