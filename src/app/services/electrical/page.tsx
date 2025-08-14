@@ -96,6 +96,20 @@ export default function ElectricalPage() {
 						</nav>
 					</div>
 				</div>
+				{/* Animated bottom runner line */}
+				<div className="absolute bottom-0 left-0 right-0 h-[3.2px] bg-black/10 overflow-hidden">
+					<span
+						className="runner-line"
+						style={{
+							background: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.95) 88%, transparent 100%)',
+							clipPath: 'polygon(0% 50%, 2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%)'
+						}}
+					/>
+				</div>
+				<style jsx>{`
+					.runner-line { position: absolute; top: 0; left: -35%; height: 3.2px; width: 35%; animation: navrunner 2.8s linear infinite; }
+					@keyframes navrunner { from { left: -35%; } to { left: 100%; } }
+				`}</style>
 			</motion.header>
 
 			{/* Spacer */}

@@ -135,10 +135,32 @@ export default function RDServicesPage() {
                 </Link>
               ))}
             </nav>
-
-
           </div>
         </div>
+        {/* Animated bottom runner line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3.2px] bg-black/10 overflow-hidden">
+          <span
+            className="runner-line"
+            style={{
+              background: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.95) 88%, transparent 100%)',
+              clipPath: 'polygon(0% 50%, 2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%)'
+            }}
+          />
+        </div>
+        <style jsx>{`
+          .runner-line {
+            position: absolute;
+            top: 0;
+            left: -35%;
+            height: 3.2px;
+            width: 35%;
+            animation: navrunner 2.8s linear infinite;
+          }
+          @keyframes navrunner {
+            from { left: -35%; }
+            to { left: 100%; }
+          }
+        `}</style>
       </motion.header>
 
       {/* Spacer under fixed header */}
@@ -393,7 +415,7 @@ export default function RDServicesPage() {
                       {service.details}
                     </p>
                   </div>
-
+ 
                   <div className="space-y-4">
                     <h4 className="text-lg lg:text-xl font-bold text-gray-900">Key Capabilities:</h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -405,7 +427,7 @@ export default function RDServicesPage() {
                       ))}
                     </div>
                   </div>
-
+ 
                   <div className="flex flex-col gap-3 sm:gap-4">
                     <Button className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group text-sm sm:text-base w-full sm:w-auto">
                       <span className="truncate">Learn More</span>
@@ -416,7 +438,7 @@ export default function RDServicesPage() {
                     </Button>
                   </div>
                 </div>
-
+ 
                 {/* Image Section */}
                 <div className={`relative ${index % 2 === 1 ? 'lg:order-1' : ''} animate-fade-in-right`}>
                   <div className="relative group overflow-hidden rounded-3xl">
@@ -530,7 +552,7 @@ export default function RDServicesPage() {
                 </div>
               </div>
             </div>
-
+ 
             {[
               {
                 title: "R&D Services",
@@ -562,7 +584,7 @@ export default function RDServicesPage() {
               </div>
             ))}
           </div>
-
+ 
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400">
@@ -580,4 +602,4 @@ export default function RDServicesPage() {
       </motion.footer>
     </motion.div>
   )
-} 
+}

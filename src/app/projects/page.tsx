@@ -125,6 +125,25 @@ export default function ProjectsPage() {
 
           </div>
         </div>
+        {/* Animated bottom runner line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3.2px] bg-black/10 overflow-hidden">
+          <span
+            className="block h-[3.2px] w-[35%] animate-navrunner"
+            style={{
+              background: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.95) 88%, transparent 100%)',
+              clipPath: 'polygon(0% 50%, 2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%)'
+            }}
+          />
+        </div>
+        <style jsx>{`
+          @keyframes navrunner {
+            0% { transform: translateX(-30%); }
+            100% { transform: translateX(110%); }
+          }
+          :global(.animate-navrunner) {
+            animation: navrunner 2.8s linear infinite;
+          }
+        `}</style>
       </motion.header>
 
       {/* Hero Section */}

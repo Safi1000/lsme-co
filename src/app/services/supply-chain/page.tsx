@@ -96,6 +96,20 @@ export default function SupplyChainPage() {
             </nav>
           </div>
         </div>
+        {/* Animated bottom runner line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3.2px] bg-black/10 overflow-hidden">
+          <span
+            className="runner-line"
+            style={{
+              background: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.95) 88%, transparent 100%)',
+              clipPath: 'polygon(0% 50%, 2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%)'
+            }}
+          />
+        </div>
+        <style jsx>{`
+          .runner-line { position: absolute; top: 0; left: -35%; height: 3.2px; width: 35%; animation: navrunner 2.8s linear infinite; }
+          @keyframes navrunner { from { left: -35%; } to { left: 100%; } }
+        `}</style>
       </motion.header>
 
       {/* Spacer */}
@@ -196,7 +210,7 @@ export default function SupplyChainPage() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Need a reliable supply chain?</h2>
           <p className="text-white/90 max-w-3xl mx-auto">We secure parts, manage logistics, and maintain quality so your teams can focus on delivery.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg.white text-amber-700 hover:bg-gray-100">Start Your Project<ChevronRight className="ml-2 h-4 w-4" /></Button>
+            <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100">Start Your Project<ChevronRight className="ml-2 h-4 w-4" /></Button>
             <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
           </div>
           <div className="grid sm:grid-cols-3 gap-6 mt-8">
