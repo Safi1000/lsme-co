@@ -6,19 +6,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Users, LinkedinIcon, Mail, Phone, Award, Briefcase, Star, ChevronRight, Globe } from 'lucide-react';
+import { Users, Mail, Phone, Star, ChevronRight, Globe, Building } from 'lucide-react';
 import MobileNav from '@/components/MobileNav';
 
 export default function OurTeamPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
+  // Set theme on component mount
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Force remove any existing theme classes
+    document.documentElement.classList.remove('page-blue', 'page-green')
+    document.body.classList.remove('page-blue', 'page-green')
+    
+    // Add cream theme (same as other pages)
+    document.documentElement.classList.add('page-cream')
+    document.body.classList.add('page-cream')
+    
+    return () => {
+      document.documentElement.classList.remove('page-cream')
+      document.body.classList.remove('page-cream')
+    }
+  }, [])
+
+  const [isScrolled, setIsScrolled] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 8)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const teamMembers = [
     {
@@ -29,7 +43,6 @@ export default function OurTeamPage() {
       image: "/images/team/ceo.jpg",
       bio: "Leading LSME with over 15 years of experience in engineering solutions and strategic partnerships across the Kingdom of Saudi Arabia.",
       specialties: ["Strategic Planning", "Business Development", "Railway Engineering"],
-      linkedin: "#",
       email: "ahmed@lsme.sa"
     },
     {
@@ -40,7 +53,6 @@ export default function OurTeamPage() {
       image: "/images/team/cto.jpg",
       bio: "Driving innovation in electrical and electronic systems with a Ph.D. in Electrical Engineering and expertise in locomotive technology.",
       specialties: ["Electrical Systems", "Innovation", "Research"],
-      linkedin: "#",
       email: "sarah@lsme.sa"
     },
     {
@@ -51,7 +63,6 @@ export default function OurTeamPage() {
       image: "/images/team/director.jpg",
       bio: "Overseeing all engineering projects with extensive experience in mechanical and electrical systems integration.",
       specialties: ["Project Management", "Systems Integration", "Quality Assurance"],
-      linkedin: "#",
       email: "mohammed@lsme.sa"
     },
     {
@@ -62,22 +73,46 @@ export default function OurTeamPage() {
       image: "/images/team/electrical.jpg",
       bio: "Specialist in power systems and electrical design with focus on railway infrastructure and locomotive systems.",
       specialties: ["Power Systems", "Electrical Design", "Railway Systems"],
-      linkedin: "#",
       email: "fatima@lsme.sa"
+    },
+    {
+      id: 5,
+      name: "Omar Al-Qahtani",
+      position: "Senior Mechanical Engineer",
+      department: "Mechanical",
+      image: "/images/team/mechanical.jpg",
+      bio: "Expert in mechanical system design and optimization with focus on locomotive components and infrastructure mechanical systems.",
+      specialties: ["Mechanical Design", "System Optimization", "CAD/CAM"],
+      email: "omar@lsme.sa"
+    },
+    {
+      id: 6,
+      name: "Nora Al-Harbi",
+      position: "Project Manager",
+      department: "Operations",
+      image: "/images/team/pm.jpg",
+      bio: "Experienced project manager coordinating complex engineering projects with expertise in agile methodologies and stakeholder management.",
+      specialties: ["Project Management", "Agile Methodologies", "Risk Management"],
+      email: "nora@lsme.sa"
     }
-  ];
+  ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-50">
-      {/* Navigation Header */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="min-h-screen bg-white overflow-x-hidden page-cream"
+    >
+      {/* Header */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={{ y: 0, opacity: 1, boxShadow: isScrolled ? '0 8px 30px rgba(0,0,0,0.06)' : '0 0 0 rgba(0,0,0,0)' }}
         transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100'
-            : 'bg-transparent'
+        className={`fixed top-0 inset-x-0 z-50 border-b border-white/20 transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-white/80 backdrop-blur-lg shadow-xl border-amber-200/30' 
+            : 'bg-white/70 backdrop-blur-md shadow-lg'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,9 +122,19 @@ export default function OurTeamPage() {
             {/* Desktop Logo */}
             <div className={`hidden md:flex items-center space-x-4 group transition-transform duration-300 ${isScrolled ? 'scale-[0.975]' : 'scale-100'} origin-left`}>
               <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105 cursor-pointer">
-                <div className="relative">
+                <motion.div 
+                  className="relative"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
                   <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={80} height={80} className="h-20 w-20 object-contain animate-pulse" />
-                </div>
+                  <motion.div 
+                    className="absolute inset-0 rounded-full bg-amber-500/20"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1.2, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
                 <div>
                   <span className="brand-font text-5xl font-normal text-gray-900 tracking-tight leading-none">LSME</span>
                   <div className="text-xs text-gray-500 font-medium">Engineering Services</div>
@@ -98,26 +143,27 @@ export default function OurTeamPage() {
             </div>
 
             {/* Mobile Navigation */}
-            <MobileNav theme="blue" />
+            <MobileNav theme="cream" />
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 href="/"
-                className="relative text-gray-700 hover:text-blue-700 font-medium transition-all duration-300 group py-2"
+                className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 group py-2"
+                style={{ animationDelay: '0ms' }}
               >
                 Home
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-700 to-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
 
               {/* Services Dropdown */}
               <div className="relative group">
-                <button className="relative text-gray-700 hover:text-blue-700 font-medium transition-all duration-300 py-2 flex items-center gap-1">
+                <button className="relative text-gray-700 hover:text-amber-700 font-medium transition-all duration-300 py-2 flex items-center gap-1">
                   Services
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-700 to-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 group-hover:w-full"></span>
                 </button>
 
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
@@ -132,7 +178,8 @@ export default function OurTeamPage() {
                       <Link
                         key={service.name}
                         href={service.href}
-                        className="block px-4 py-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 transition-all duration-200 transform hover:translate-x-1"
+                        className="block px-4 py-2 text-gray-700 hover:text-amber-700 hover:bg-amber-50 transition-all duration-200 transform hover:translate-x-1"
+                        style={{ animationDelay: `${index * 50}ms` }}
                       >
                         {service.name}
                       </Link>
@@ -151,10 +198,19 @@ export default function OurTeamPage() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="relative text-gray-700 hover:text-blue-700 font-medium transition-all duration-300 group py-2"
+                  className={`relative font-medium transition-all duration-300 group py-2 ${
+                    item.name === 'Our Team' 
+                      ? 'text-amber-700' 
+                      : 'text-gray-700 hover:text-amber-700'
+                  }`}
+                  style={{ animationDelay: `${(index + 2) * 100}ms` }}
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-700 to-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 ${
+                    item.name === 'Our Team' 
+                      ? 'w-full' 
+                      : 'w-0 group-hover:w-full'
+                  }`}></span>
                 </Link>
               ))}
             </nav>
@@ -171,181 +227,147 @@ export default function OurTeamPage() {
           />
         </div>
         <style jsx>{`
-          .runner-line { position: absolute; top: 0; left: -35%; height: 3.2px; width: 35%; animation: navrunner 2.8s linear infinite; }
-          @keyframes navrunner { from { left: -35%; } to { left: 100%; } }
+          .runner-line {
+            position: absolute;
+            top: 0;
+            left: -35%;
+            height: 3.2px;
+            width: 35%;
+            animation: navrunner 2.8s linear infinite;
+          }
+          @keyframes navrunner {
+            from { left: -35%; }
+            to { left: 100%; }
+          }
         `}</style>
       </motion.header>
 
       {/* Spacer under fixed header */}
-      <div className="h-20" />
+      <div className="h-20 md:h-24" />
 
       {/* Hero Section */}
-      <section className="relative py-8 sm:py-12 lg:py-16 overflow-hidden">
+      <motion.section 
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+        className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-12 lg:py-20 overflow-hidden"
+      >
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-amber-200/30 to-orange-200/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-yellow-200/30 to-amber-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center space-y-6 sm:space-y-8">
+          <div className="text-center space-y-6 lg:space-y-8">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
             >
-              <Badge className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 hover:from-blue-200 hover:to-indigo-200 transition-all duration-300 transform hover:scale-105 shadow-md mb-4 sm:mb-6">
+              <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md">
                 <Users className="w-3 h-3 mr-1" />
                 Leadership & Expertise
               </Badge>
-              <h1 className="hero-text font-bold text-gray-900 leading-tight">
-                <span className="text-2xl sm:text-3xl lg:text-4xl">Meet Our Expert</span>
-                <br />
-                <span className="text-3xl sm:text-4xl lg:text-6xl bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Team</span>
-              </h1>
-              <p className="hero-subtitle text-sm sm:text-base lg:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mt-4 sm:mt-6 px-4 sm:px-0">
-                Our dedicated team of engineering professionals brings decades of combined experience in electrical, electronics, and mechanical engineering to deliver exceptional solutions.
-              </p>
             </motion.div>
+            
+            <motion.h1 
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+              className="hero-text font-bold text-gray-900 leading-tight max-w-5xl mx-auto"
+            >
+              <span className="text-2xl sm:text-3xl lg:text-4xl">Meet Our Expert</span>
+              <br />
+              <span className="text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Team</span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
+              className="hero-subtitle text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto"
+            >
+              Our dedicated team of engineering professionals brings decades of combined experience in electrical, electronics, and mechanical engineering to deliver exceptional solutions.
+            </motion.p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Team Members Section */}
-      <section className="py-6 sm:py-8 lg:py-12">
+      <motion.section 
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="py-16 sm:py-20 lg:py-24 bg-white"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.id}
                 initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-                className="bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02]"
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-white rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-500 group relative"
               >
-                <div className="p-6 sm:p-8">
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                <div className="p-4 sm:p-6 lg:p-8 pb-16 sm:pb-18 lg:pb-20">
+                  <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4 lg:space-y-6">
                     {/* Member Photo */}
                     <div className="flex-shrink-0">
-                      <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
-                        <Users className="w-12 h-12 sm:w-16 sm:h-16 text-blue-600" />
-                      </div>
+                      <motion.div 
+                        className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center transition-all duration-300 group-hover:from-amber-200 group-hover:to-orange-200"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                      >
+                        <Users className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-amber-700" />
+                      </motion.div>
                     </div>
 
                     {/* Member Info */}
-                    <div className="flex-1 text-center sm:text-left">
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                      <p className="text-blue-600 font-semibold mb-1">{member.position}</p>
-                      <p className="text-gray-500 text-sm mb-3">{member.department} Department</p>
+                    <div className="flex-1 space-y-2 sm:space-y-3">
+                      <h3 className="text-lg sm:text-lg lg:text-xl font-bold text-gray-900 mb-1 group-hover:text-amber-700 transition-colors duration-300 leading-tight">{member.name}</h3>
+                      <p className="text-amber-600 font-semibold text-sm sm:text-sm lg:text-base">{member.position}</p>
+                      <p className="text-gray-500 text-sm sm:text-sm mb-2 sm:mb-3">{member.department} Department</p>
                       
-                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                      <p className="text-gray-600 text-sm sm:text-sm lg:text-base leading-relaxed px-2 sm:px-4 lg:px-6">
                         {member.bio}
                       </p>
-
-                      {/* Specialties */}
-                      <div className="mb-4">
-                        <p className="text-sm font-semibold text-gray-700 mb-2">Specialties:</p>
-                        <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                          {member.specialties.map((specialty, idx) => (
-                            <span
-                              key={idx}
-                              className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-lg font-medium"
-                            >
-                              {specialty}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Contact */}
-                      <div className="flex justify-center sm:justify-start space-x-3">
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="p-2 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors duration-300"
-                        >
-                          <Mail className="w-4 h-4 text-blue-600" />
-                        </a>
-                        <a
-                          href={member.linkedin}
-                          className="p-2 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors duration-300"
-                        >
-                          <LinkedinIcon className="w-4 h-4 text-blue-600" />
-                        </a>
-                      </div>
                     </div>
                   </div>
+                </div>
+                
+                {/* Contact - Email in bottom center */}
+                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 sm:bottom-4">
+                  <motion.div
+                    className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-amber-600 transition-transform duration-300 group-hover:scale-110" />
+                    </motion.div>
+                    <span className="text-xs sm:text-xs lg:text-sm text-gray-600 font-medium transition-colors duration-300 group-hover:text-amber-700">
+                      {member.email}
+                    </span>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Join Our Team Section */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-r from-blue-700 to-indigo-600 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center space-y-6 sm:space-y-8"
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-              Join Our Team of Experts
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              We're always looking for talented engineers and professionals to join our growing team and contribute to Saudi Arabia's Vision 2030.
-            </p>
-            
-            <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
-              {[
-                {
-                  icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
-                  title: "Excellence",
-                  description: "Commitment to engineering excellence and innovation"
-                },
-                {
-                  icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
-                  title: "Growth",
-                  description: "Professional development and career advancement opportunities"
-                },
-                {
-                  icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
-                  title: "Collaboration",
-                  description: "Work with industry experts and leading partners"
-                }
-              ].map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-                  className="bg-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 backdrop-blur-sm border border-white/20"
-                >
-                  <div className="text-blue-200 mb-3 sm:mb-4">
-                    {benefit.icon}
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{benefit.title}</h3>
-                  <p className="text-blue-100 leading-relaxed text-sm sm:text-base">{benefit.description}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <Button size="lg" className="bg-white text-blue-700 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                View Open Positions
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
+      {/* CTA Section - EXACT SAME AS OTHER PAGES */}
       <motion.section
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
-        className="py-24 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 relative overflow-hidden"
+        className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 relative overflow-hidden"
       >
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-700/90 to-orange-700/90"></div>
@@ -354,23 +376,23 @@ export default function OurTeamPage() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center space-y-10 animate-fade-in-up">
-            <div className="space-y-6">
+          <div className="text-center space-y-6 sm:space-y-8 lg:space-y-10 animate-fade-in-up">
+            <div className="space-y-4 sm:space-y-6">
               <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300">
                 <Star className="w-3 h-3 mr-1" />
                 Ready to Engineer the Future?
               </Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Partner with Saudi Arabia's
                 <br />
                 <span className="text-amber-200">Engineering Leaders</span>
               </h2>
-              <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
                 Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
               <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
                 Start Your Engineering Project
                 <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -380,15 +402,15 @@ export default function OurTeamPage() {
               </Button>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 pt-12">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8 pt-8 sm:pt-12">
               {[
                 { icon: Phone, text: "24/7 Engineering Support" },
                 { icon: Mail, text: "Expert Technical Consultation" },
                 { icon: Globe, text: "International Standards" }
               ].map((item, index) => (
                 <div key={index} className="flex items-center justify-center space-x-3 text-white/90 hover:text-white transition-colors duration-300 group cursor-pointer">
-                  <item.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-                  <span className="font-medium">{item.text}</span>
+                  <item.icon className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="font-medium text-sm sm:text-base">{item.text}</span>
                 </div>
               ))}
             </div>
@@ -397,51 +419,78 @@ export default function OurTeamPage() {
       </motion.section>
 
       {/* Footer */}
-      <motion.footer
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
-        className="bg-gray-900 text-gray-300 py-16"
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div>
-            <h3 className="text-white text-lg font-bold mb-4">About LSME</h3>
-            <p className="text-gray-400 leading-relaxed">
-              LSME is a leading engineering solutions provider, specializing in electrical, electronics, and mechanical engineering.
-              We are committed to delivering excellence and innovation in Saudi Arabia's Vision 2030.
-            </p>
+      <footer className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="flex items-center space-x-3 group">
+                <div className="relative">
+                  <Building className="h-8 w-8 sm:h-10 sm:w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
+                </div>
+                <div>
+                  <span className="text-xl sm:text-2xl font-bold">LSME</span>
+                  <div className="text-xs sm:text-sm text-gray-400">Engineering Solutions</div>
+                </div>
+              </div>
+              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+                Leading Saudi Arabia's engineering innovation through advanced research, development, and technical excellence.
+              </p>
+              <div className="flex space-x-4 sm:space-x-6 pt-4">
+                {[Phone, Mail, Globe].map((Icon, index) => (
+                  <div key={index} className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {[
+              {
+                title: "Company",
+                links: ["About Us", "Our Team", "Careers", "News & Updates", "Contact"],
+              },
+              {
+                title: "Services",
+                links: ["Engineering Consulting", "R&D Services", "Project Management", "Technical Training", "Quality Assurance"],
+              },
+              {
+                title: "Resources",
+                links: ["Case Studies", "White Papers", "Industry Reports", "Certifications", "Support"],
+              }
+            ].map((section, index) => (
+              <div key={index} className="space-y-4 sm:space-y-6">
+                <h3 className="text-base sm:text-lg font-bold text-white">{section.title}</h3>
+                <ul className="space-y-2 sm:space-y-3">
+                  {section.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <Link href="#" className="text-sm sm:text-base text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                        {link}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-          <div>
-            <h3 className="text-white text-lg font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-3">
-              <li><Link href="/" className="text-gray-400 hover:text-white transition-colors duration-300">Home</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors duration-300">Services</Link></li>
-              <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors duration-300">Projects</Link></li>
-              <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-300">About Us</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-300">Contact</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white text-lg font-bold mb-4">Contact Us</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start"><Phone className="w-5 h-5 text-gray-500 mr-3" /> +966 123 456 7890</li>
-              <li className="flex items-start"><Mail className="w-5 h-5 text-gray-500 mr-3" /> info@lsme.sa</li>
-              <li className="flex items-start"><Globe className="w-5 h-5 text-gray-500 mr-3" /> www.lsme.sa</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white text-lg font-bold mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><LinkedinIcon className="w-6 h-6" /></a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+
+          <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-6 sm:pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-gray-400 text-center md:text-left">
+                <p className="text-sm sm:text-base">&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
+                <p className="text-xs sm:text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400">
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Terms of Service</Link>
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>
+              </div>
             </div>
           </div>
         </div>
-        <div className="mt-16 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} LSME. All rights reserved.
-        </div>
-      </motion.footer>
-    </div>
+      </footer>
+    </motion.div>
   );
 } 
