@@ -198,21 +198,21 @@ export default function ElectronicsPage() {
           <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
             Partner with Saudi Arabia's
             <br />
-            <span className="text-amber-200">Engineering Leaders</span>
+            <span className="text-amber-200">Electronics Engineering Leaders</span>
           </h2>
           <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
-            Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
+            Connect with our electronics division to build cutting-edge embedded systems, IoT solutions, and advanced electronic technologies for the future.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
+              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Electronics Consultation</Button>
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-8 pt-12">
             {[
-              { icon: Phone, text: '24/7 Engineering Support' },
-              { icon: Mail, text: 'Expert Technical Consultation' },
-              { icon: Globe, text: 'International Standards' }
+              { icon: Phone, text: '24/7 Electronics Support' },
+              { icon: Mail, text: 'Expert Electronics Consultation' },
+              { icon: Globe, text: 'Advanced Technology Standards' }
             ].map((i, idx) => (
               <div key={idx} className="flex items-center justify-center gap-2 text-white/90">
                 <i.icon className="w-5 h-5" />
