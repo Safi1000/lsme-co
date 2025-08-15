@@ -138,29 +138,7 @@ export default function RDServicesPage() {
           </div>
         </div>
         {/* Animated bottom runner line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3.2px] bg-black/10 overflow-hidden">
-          <span
-            className="runner-line"
-            style={{
-              background: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.95) 88%, transparent 100%)',
-              clipPath: 'polygon(0% 50%, 2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%)'
-            }}
-          />
-        </div>
-        <style jsx>{`
-          .runner-line {
-            position: absolute;
-            top: 0;
-            left: -35%;
-            height: 3.2px;
-            width: 35%;
-            animation: navrunner 2.8s linear infinite;
-          }
-          @keyframes navrunner {
-            from { left: -35%; }
-            to { left: 100%; }
-          }
-        `}</style>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-black border-black border-b-2 shadow-[0_0_10px_rgba(0,0,0,0.5)] animate-pulse"></div>
       </motion.header>
 
       {/* Spacer under fixed header */}
@@ -429,13 +407,7 @@ export default function RDServicesPage() {
                   </div>
  
                   <div className="flex flex-col gap-3 sm:gap-4">
-                    <Button className="bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-800 hover:to-orange-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group text-sm sm:text-base w-full sm:w-auto">
-                      <span className="truncate">Learn More</span>
-                      <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
-                    </Button>
-                    <Button variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto">
-                      Request Consultation
-                    </Button>
+                    {/* Buttons removed as requested */}
                   </div>
                 </div>
  
@@ -490,13 +462,11 @@ export default function RDServicesPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
-                Start Your Engineering Project
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
-                Schedule Technical Consultation
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
+                  Schedule Technical Consultation
+                </Button>
+              </Link>
             </div>
 
             <div className="grid sm:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
@@ -530,70 +500,99 @@ export default function RDServicesPage() {
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
                   <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={40} height={40} className="h-10 w-10 object-contain" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
-                  <span className="brand-font text-2xl font-normal">LSME</span>
+                  <span className="text-2xl font-bold">LSME</span>
                   <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Leading innovation through comprehensive R&D services and advanced engineering solutions across disciplines.
+                Delivering electrical, electronics, and mechanical engineering excellence across Saudi Arabia.
               </p>
-              <div className="flex space-x-6 pt-4">
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Phone className="h-5 w-5 text-amber-400" />
+              
+              {/* Contact Information */}
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-4 w-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Building 2148-8267, Daba Street, King Faisal District, 13215, Riyadh, Saudi Arabia
+                  </p>
                 </div>
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Mail className="h-5 w-5 text-amber-400" />
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-4 w-4 text-amber-400 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm">+966 13 8060977</p>
                 </div>
-                <div className="bg-gray-800 p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Globe className="h-5 w-5 text-amber-400" />
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm">info@lsmeco.com</p>
                 </div>
               </div>
             </div>
- 
+
             {[
               {
-                title: "R&D Services",
-                links: ["Product Design", "Embedded Systems", "Industrial Automation", "Mechanical Design", "Electrical Systems"],
+                title: "Engineering Divisions",
+                links: [
+                  { text: "Electrical Division", href: "/services/electrical" },
+                  { text: "Electronics Division", href: "/services/electronics" },
+                  { text: "Mechanical Division", href: "/services/mechanical" }
+                ],
                 delay: "200ms"
               },
               {
-                title: "Advanced Services",
-                links: ["IoT Integration", "Material Innovation", "Testing & Validation", "Custom Equipment", "IT Support"],
+                title: "Company",
+                links: [
+                  { text: "About LSME", href: "/about" },
+                  { text: "Engineering Team", href: "/our-team" },
+                  { text: "Projects", href: "/projects" },
+                  { text: "Our Partners", href: "/our-partners" },
+                  { text: "Contact Us", href: "/contact" }
+                ],
                 delay: "400ms"
-              },
-              {
-                title: "Resources",
-                links: ["Technical Documentation", "R&D Portfolio", "Innovation Lab", "Engineering Team", "Contact Support"],
-                delay: "600ms"
               }
             ].map((section, index) => (
-              <div key={index} className="space-y-6 animate-fade-in-up" style={{ animationDelay: section.delay }}>
+              <div key={index} className={`space-y-6 animate-fade-in-up ${index === 0 ? 'ml-4' : ''}`} style={{ animationDelay: section.delay }}>
                 <h3 className="text-lg font-bold text-white">{section.title}</h3>
                 <ul className="space-y-3">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
-                        {link}
-                      </Link>
+                      {typeof link === 'string' ? (
+                        <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                          {link}
+                        </Link>
+                      ) : (
+                        <Link href={link.href} className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                          {link.text}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+
+            {/* ISO Certification Section */}
+            <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: "600ms" }}>
+              <h3 className="text-lg font-bold text-white">Certifications</h3>
+              <div className="flex justify-start">
+                <Image 
+                  src="/images/iso/iso.png" 
+                  alt="ISO Certification" 
+                  width={240} 
+                  height={240} 
+                  className="h-48 w-48 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300 -ml-4"
+                />
+              </div>
+            </div>
           </div>
- 
+
           <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-400">
+              <div className="text-gray-400 text-center md:text-left">
                 <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
                 <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
               <div className="flex space-x-6 text-sm text-gray-400">
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Terms of Service</Link>
                 <Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>
               </div>
             </div>

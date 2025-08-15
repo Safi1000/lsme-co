@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Users, Mail, Phone, Star, ChevronRight, Globe, Building } from 'lucide-react';
+import { Users, Mail, Phone, Star, ChevronRight, Globe, Building, MapPin } from 'lucide-react';
 import MobileNav from '@/components/MobileNav';
 
 export default function OurTeamPage() {
@@ -37,63 +37,48 @@ export default function OurTeamPage() {
   const teamMembers = [
     {
       id: 1,
-      name: "Ahmed Al-Mansouri",
-      position: "Chief Executive Officer",
+      name: "Mohammad Al-Otaibi",
+      position: "Chairman",
       department: "Leadership",
-      image: "/images/team/ceo.jpg",
       bio: "Leading LSME with over 15 years of experience in engineering solutions and strategic partnerships across the Kingdom of Saudi Arabia.",
       specialties: ["Strategic Planning", "Business Development", "Railway Engineering"],
-      email: "ahmed@lsme.sa"
+      email: "m.otaibi@lsmeco.com"
     },
     {
       id: 2,
-      name: "Dr. Sarah Abdullah",
-      position: "Chief Technology Officer",
+      name: "Yousuf Khan",
+      position: "Chief Executive Officer",
       department: "R&D",
-      image: "/images/team/cto.jpg",
       bio: "Driving innovation in electrical and electronic systems with a Ph.D. in Electrical Engineering and expertise in locomotive technology.",
       specialties: ["Electrical Systems", "Innovation", "Research"],
-      email: "sarah@lsme.sa"
+      email: "yousuf@lsmeco.com"
     },
     {
       id: 3,
-      name: "Mohammed Al-Zahrani",
-      position: "Director of Engineering",
+      name: "Syed Waqar",
+      position: "Technical Director",
       department: "Engineering",
-      image: "/images/team/director.jpg",
       bio: "Overseeing all engineering projects with extensive experience in mechanical and electrical systems integration.",
       specialties: ["Project Management", "Systems Integration", "Quality Assurance"],
-      email: "mohammed@lsme.sa"
+      email: "syedwaqar@lsmeco.com"
     },
     {
       id: 4,
-      name: "Fatima Al-Rashid",
-      position: "Senior Electrical Engineer",
+      name: "Nasser Al-Rashidi",
+      position: "Director",
       department: "Electrical",
-      image: "/images/team/electrical.jpg",
       bio: "Specialist in power systems and electrical design with focus on railway infrastructure and locomotive systems.",
       specialties: ["Power Systems", "Electrical Design", "Railway Systems"],
-      email: "fatima@lsme.sa"
+      email: "nasser@lsmeco.com"
     },
     {
       id: 5,
-      name: "Omar Al-Qahtani",
-      position: "Senior Mechanical Engineer",
+      name: "Emad Wasif Hamadan",
+      position: "General Manager",
       department: "Mechanical",
-      image: "/images/team/mechanical.jpg",
       bio: "Expert in mechanical system design and optimization with focus on locomotive components and infrastructure mechanical systems.",
       specialties: ["Mechanical Design", "System Optimization", "CAD/CAM"],
-      email: "omar@lsme.sa"
-    },
-    {
-      id: 6,
-      name: "Nora Al-Harbi",
-      position: "Project Manager",
-      department: "Operations",
-      image: "/images/team/pm.jpg",
-      bio: "Experienced project manager coordinating complex engineering projects with expertise in agile methodologies and stakeholder management.",
-      specialties: ["Project Management", "Agile Methodologies", "Risk Management"],
-      email: "nora@lsme.sa"
+      email: "emad@lsmeco.com"
     }
   ]
 
@@ -217,29 +202,7 @@ export default function OurTeamPage() {
           </div>
         </div>
         {/* Animated bottom runner line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3.2px] bg-black/10 overflow-hidden">
-          <span
-            className="runner-line"
-            style={{
-              background: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.95) 88%, transparent 100%)',
-              clipPath: 'polygon(0% 50%, 2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%)'
-            }}
-          />
-        </div>
-        <style jsx>{`
-          .runner-line {
-            position: absolute;
-            top: 0;
-            left: -35%;
-            height: 3.2px;
-            width: 35%;
-            animation: navrunner 2.8s linear infinite;
-          }
-          @keyframes navrunner {
-            from { left: -35%; }
-            to { left: 100%; }
-          }
-        `}</style>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-black border-black border-b-2 shadow-[0_0_10px_rgba(0,0,0,0.5)] animate-pulse"></div>
       </motion.header>
 
       {/* Spacer under fixed header */}
@@ -303,62 +266,95 @@ export default function OurTeamPage() {
         className="py-16 sm:py-20 lg:py-24 bg-white"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-500 group relative"
-              >
-                <div className="p-4 sm:p-6 lg:p-8 pb-16 sm:pb-18 lg:pb-20">
-                  <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4 lg:space-y-6">
-                    {/* Member Photo */}
-                    <div className="flex-shrink-0">
-                      <motion.div 
-                        className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center transition-all duration-300 group-hover:from-amber-200 group-hover:to-orange-200"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                      >
-                        <Users className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-amber-700" />
-                      </motion.div>
-                    </div>
-
-                    {/* Member Info */}
-                    <div className="flex-1 space-y-2 sm:space-y-3">
-                      <h3 className="text-lg sm:text-lg lg:text-xl font-bold text-gray-900 mb-1 group-hover:text-amber-700 transition-colors duration-300 leading-tight">{member.name}</h3>
-                      <p className="text-amber-600 font-semibold text-sm sm:text-sm lg:text-base">{member.position}</p>
-                      <p className="text-gray-500 text-sm sm:text-sm mb-2 sm:mb-3">{member.department} Department</p>
-                      
-                      <p className="text-gray-600 text-sm sm:text-sm lg:text-base leading-relaxed px-2 sm:px-4 lg:px-6">
-                        {member.bio}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Contact - Email in bottom center */}
-                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 sm:bottom-4">
-                  <motion.div
-                    className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg"
-                    whileHover={{ scale: 1.05 }}
+                                <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+             {/* First Row - 3 Cards */}
+             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-8">
+               {teamMembers.slice(0, 3).map((member, index) => (
+                                   <motion.div
+                    key={member.id}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                                          className="bg-white rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-500 group relative h-[160px] sm:h-[180px] lg:h-[200px] w-full"
                   >
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-amber-600 transition-transform duration-300 group-hover:scale-110" />
-                    </motion.div>
-                    <span className="text-xs sm:text-xs lg:text-sm text-gray-600 font-medium transition-colors duration-300 group-hover:text-amber-700">
-                      {member.email}
-                    </span>
+                                          <div className="p-4 sm:p-5 lg:p-6 h-full flex flex-col">
+                        <div className="flex flex-col items-center text-center space-y-1 sm:space-y-1 lg:space-y-1">
+                          {/* Member Info */}
+                          <div className="flex-1 space-y-0.5 sm:space-y-1 lg:space-y-1">
+                            <h3 className="text-lg sm:text-base lg:text-lg font-bold text-gray-900 group-hover:text-amber-700 transition-colors duration-300 leading-tight">{member.name}</h3>
+                            <p className="text-amber-600 font-semibold text-sm sm:text-sm lg:text-base">{member.position}</p>
+                          </div>
+                        </div>
+                        
+                        {/* Contact - Email with reduced spacing */}
+                        <div className="flex justify-center mt-2 sm:mt-3 lg:mt-4">
+                        <motion.div
+                          className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-600 transition-transform duration-300 group-hover:scale-110" />
+                          </motion.div>
+                                                      <span className="text-sm sm:text-xs lg:text-sm text-gray-600 font-medium transition-colors duration-300 group-hover:text-amber-700">
+                              {member.email}
+                            </span>
+                        </motion.div>
+                      </div>
+                    </div>
                   </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+               ))}
+             </div>
+             
+                           {/* Second Row - 2 Cards Centered */}
+              <div className="flex justify-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-8 w-full max-w-4xl">
+                  {teamMembers.slice(3, 5).map((member, index) => (
+                   <motion.div
+                     key={member.id}
+                     initial={{ opacity: 0, y: 40 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.8, delay: (index + 3) * 0.1, ease: "easeOut" }}
+                     whileHover={{ y: -8, scale: 1.02 }}
+                     className="bg-white rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-500 group relative h-[160px] sm:h-[180px] lg:h-[200px] w-full"
+                   >
+                     <div className="p-4 sm:p-5 lg:p-6 h-full flex flex-col">
+                       <div className="flex flex-col items-center text-center space-y-1 sm:space-y-1 lg:space-y-1">
+                         {/* Member Info */}
+                         <div className="flex-1 space-y-0.5 sm:space-y-1 lg:space-y-1">
+                           <h3 className="text-lg sm:text-base lg:text-lg font-bold text-gray-900 group-hover:text-amber-700 transition-colors duration-300 leading-tight">{member.name}</h3>
+                           <p className="text-amber-600 font-semibold text-sm sm:text-sm lg:text-base">{member.position}</p>
+                         </div>
+                       </div>
+                       
+                       {/* Contact - Email with reduced spacing */}
+                       <div className="flex justify-center mt-2 sm:mt-3 lg:mt-4">
+                         <motion.div
+                           className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg"
+                           whileHover={{ scale: 1.05 }}
+                         >
+                           <motion.div
+                             whileHover={{ scale: 1.1 }}
+                             whileTap={{ scale: 0.95 }}
+                           >
+                             <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-600 transition-transform duration-300 group-hover:scale-110" />
+                           </motion.div>
+                           <span className="text-sm sm:text-xs lg:text-sm text-gray-600 font-medium transition-colors duration-300 group-hover:text-amber-700">
+                             {member.email}
+                           </span>
+                         </motion.div>
+                       </div>
+                     </div>
+                   </motion.div>
+                 ))}
+               </div>
+             </div>
+           </div>
         </div>
       </motion.section>
 
@@ -393,13 +389,11 @@ export default function OurTeamPage() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
-                Start Your Engineering Project
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
-                Schedule Technical Consultation
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
+                  Schedule Technical Consultation
+                </Button>
+              </Link>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8 pt-8 sm:pt-12">
@@ -419,78 +413,119 @@ export default function OurTeamPage() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+      <motion.footer
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8, ease: "easeOut" }}
+        className="bg-gray-900 text-white py-20 relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-            <div className="space-y-4 sm:space-y-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Building className="h-8 w-8 sm:h-10 sm:w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
+                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={40} height={40} className="h-10 w-10 object-contain" />
                 </div>
                 <div>
-                  <span className="text-xl sm:text-2xl font-bold">LSME</span>
-                  <div className="text-xs sm:text-sm text-gray-400">Engineering Solutions</div>
+                  <span className="text-2xl font-bold">LSME</span>
+                  <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                Leading Saudi Arabia's engineering innovation through advanced research, development, and technical excellence.
+              <p className="text-gray-400 leading-relaxed">
+                Delivering electrical, electronics, and mechanical engineering excellence across Saudi Arabia.
               </p>
-              <div className="flex space-x-4 sm:space-x-6 pt-4">
-                {[Phone, Mail, Globe].map((Icon, index) => (
-                  <div key={index} className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
-                  </div>
-                ))}
+              
+              {/* Contact Information */}
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-4 w-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Building 2148-8267, Daba Street, King Faisal District, 13215, Riyadh, Saudi Arabia
+                  </p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-4 w-4 text-amber-400 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm">+966 13 8060977</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm">info@lsmeco.com</p>
+                </div>
               </div>
             </div>
 
             {[
               {
+                title: "Engineering Divisions",
+                links: [
+                  { text: "Electrical Division", href: "/services/electrical" },
+                  { text: "Electronics Division", href: "/services/electronics" },
+                  { text: "Mechanical Division", href: "/services/mechanical" }
+                ],
+                delay: "200ms"
+              },
+              {
                 title: "Company",
-                links: ["About Us", "Our Team", "Careers", "News & Updates", "Contact"],
-              },
-              {
-                title: "Services",
-                links: ["Engineering Consulting", "R&D Services", "Project Management", "Technical Training", "Quality Assurance"],
-              },
-              {
-                title: "Resources",
-                links: ["Case Studies", "White Papers", "Industry Reports", "Certifications", "Support"],
+                links: [
+                  { text: "About LSME", href: "/about" },
+                  { text: "Engineering Team", href: "/our-team" },
+                  { text: "Projects", href: "/projects" },
+                  { text: "Our Partners", href: "/our-partners" },
+                  { text: "Contact Us", href: "/contact" }
+                ],
+                delay: "400ms"
               }
             ].map((section, index) => (
-              <div key={index} className="space-y-4 sm:space-y-6">
-                <h3 className="text-base sm:text-lg font-bold text-white">{section.title}</h3>
-                <ul className="space-y-2 sm:space-y-3">
+              <div key={index} className={`space-y-6 animate-fade-in-up ${index === 0 ? 'ml-4' : ''}`} style={{ animationDelay: section.delay }}>
+                <h3 className="text-lg font-bold text-white">{section.title}</h3>
+                <ul className="space-y-3">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <Link href="#" className="text-sm sm:text-base text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
-                        {link}
-                      </Link>
+                      {typeof link === 'string' ? (
+                        <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                          {link}
+                        </Link>
+                      ) : (
+                        <Link href={link.href} className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                          {link.text}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+
+            {/* ISO Certification Section */}
+            <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: "600ms" }}>
+              <h3 className="text-lg font-bold text-white">Certifications</h3>
+              <div className="flex justify-start">
+                <Image 
+                  src="/images/iso/iso.png" 
+                  alt="ISO Certification" 
+                  width={240} 
+                  height={240} 
+                  className="h-48 w-48 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300 -ml-4"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-6 sm:pt-8">
+          <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p className="text-sm sm:text-base">&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
-                <p className="text-xs sm:text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
+                <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
+                <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400">
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Terms of Service</Link>
+              <div className="flex space-x-6 text-sm text-gray-400">
                 <Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>
               </div>
             </div>
           </div>
         </div>
-      </footer>
+      </motion.footer>
     </motion.div>
   );
 } 

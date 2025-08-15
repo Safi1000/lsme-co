@@ -241,29 +241,7 @@ export default function ProjectsPage() {
           </div>
         </div>
         {/* Animated bottom runner line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3.2px] bg-black/10 overflow-hidden">
-          <span
-            className="runner-line"
-            style={{
-              background: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.95) 88%, transparent 100%)',
-              clipPath: 'polygon(0% 50%, 2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%)'
-            }}
-          />
-        </div>
-        <style jsx>{`
-          .runner-line {
-            position: absolute;
-            top: 0;
-            left: -35%;
-            height: 3.2px;
-            width: 35%;
-            animation: navrunner 2.8s linear infinite;
-          }
-          @keyframes navrunner {
-            from { left: -35%; }
-            to { left: 100%; }
-          }
-        `}</style>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-black border-black border-b-2 shadow-[0_0_10px_rgba(0,0,0,0.5)] animate-pulse"></div>
       </motion.header>
 
       {/* Spacer under fixed header */}
@@ -312,41 +290,12 @@ export default function ProjectsPage() {
             <motion.p 
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
-              className="hero-subtitle text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto"
+              transition={{ delay: 1.0, duration: 0.8, ease: "easeOut" }}
+              className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto
+"
             >
               Explore our comprehensive portfolio of successful engineering projects that showcase our technical expertise, innovation, and commitment to delivering world-class solutions across Saudi Arabia.
             </motion.p>
-
-            <motion.div 
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 pt-6 lg:pt-8 max-w-4xl mx-auto"
-            >
-              {[
-                { number: '47', label: 'Completed Projects' },
-                { number: '15+', label: 'Years Experience' },
-                { number: '12', label: 'Active Projects' },
-                { number: '100%', label: 'Success Rate' }
-              ].map((stat, index) => (
-                <motion.div 
-                  key={index} 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 1.4 + index * 0.1, duration: 0.5, ease: "easeOut" }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="text-center group cursor-pointer"
-                >
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 transition-all duration-300 group-hover:text-amber-700">
-                    {stat.number}
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600 transition-colors duration-300 group-hover:text-gray-800">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -619,13 +568,11 @@ export default function ProjectsPage() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
-                Start Your Engineering Project
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
-                Schedule Technical Consultation
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
+                  Schedule Technical Consultation
+                </Button>
+              </Link>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8 pt-8 sm:pt-12">
@@ -645,76 +592,119 @@ export default function ProjectsPage() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+      <motion.footer
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8, ease: "easeOut" }}
+        className="bg-gray-900 text-white py-20 relative overflow-hidden"
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-            <div className="space-y-4 sm:space-y-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Cog className="h-8 w-8 sm:h-10 sm:w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
+                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={40} height={40} className="h-10 w-10 object-contain" />
                 </div>
                 <div>
-                  <span className="text-xl sm:text-2xl font-bold">LSME</span>
-                  <div className="text-xs sm:text-sm text-gray-400">Engineering Services</div>
+                  <span className="text-2xl font-bold">LSME</span>
+                  <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">Delivering world-class engineering projects through innovation, expertise, and commitment to excellence.</p>
-              <div className="flex space-x-4 sm:space-x-6 pt-4">
-                {[Phone, Mail, Globe].map((Icon, index) => (
-                  <div key={index} className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-700 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
-                  </div>
-                ))}
+              <p className="text-gray-400 leading-relaxed">
+                Delivering electrical, electronics, and mechanical engineering excellence across Saudi Arabia.
+              </p>
+              
+              {/* Contact Information */}
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-4 w-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Building 2148-8267, Daba Street, King Faisal District, 13215, Riyadh, Saudi Arabia
+                  </p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-4 w-4 text-amber-400 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm">+966 13 8060977</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm">info@lsmeco.com</p>
+                </div>
               </div>
             </div>
 
             {[
               {
-                title: "Projects",
-                links: ["Infrastructure Projects", "R&D Initiatives", "Smart Systems", "Safety Solutions", "Project Archive"],
-              },
-              {
-                title: "Services",
-                links: ["Project Management", "Technical Consulting", "Engineering Design", "Quality Assurance", "Training & Support"],
+                title: "Engineering Divisions",
+                links: [
+                  { text: "Electrical Division", href: "/services/electrical" },
+                  { text: "Electronics Division", href: "/services/electronics" },
+                  { text: "Mechanical Division", href: "/services/mechanical" }
+                ],
+                delay: "200ms"
               },
               {
                 title: "Company",
-                links: ["About LSME", "Our Team", "Careers", "Case Studies", "Contact Us"],
+                links: [
+                  { text: "About LSME", href: "/about" },
+                  { text: "Engineering Team", href: "/our-team" },
+                  { text: "Projects", href: "/projects" },
+                  { text: "Our Partners", href: "/our-partners" },
+                  { text: "Contact Us", href: "/contact" }
+                ],
+                delay: "400ms"
               }
             ].map((section, index) => (
-              <div key={index} className="space-y-4 sm:space-y-6">
-                <h3 className="text-base sm:text-lg font-bold text-white">{section.title}</h3>
-                <ul className="space-y-2 sm:space-y-3">
+              <div key={index} className={`space-y-6 animate-fade-in-up ${index === 0 ? 'ml-4' : ''}`} style={{ animationDelay: section.delay }}>
+                <h3 className="text-lg font-bold text-white">{section.title}</h3>
+                <ul className="space-y-3">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <Link href="#" className="text-sm sm:text-base text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
-                        {link}
-                      </Link>
+                      {typeof link === 'string' ? (
+                        <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                          {link}
+                        </Link>
+                      ) : (
+                        <Link href={link.href} className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                          {link.text}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+
+            {/* ISO Certification Section */}
+            <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: "600ms" }}>
+              <h3 className="text-lg font-bold text-white">Certifications</h3>
+              <div className="flex justify-start">
+                <Image 
+                  src="/images/iso/iso.png" 
+                  alt="ISO Certification" 
+                  width={240} 
+                  height={240} 
+                  className="h-48 w-48 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300 -ml-4"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-6 sm:pt-8">
+          <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p className="text-sm sm:text-base">&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
-                <p className="text-xs sm:text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
+                <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
+                <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400">
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Terms of Service</Link>
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Case Studies</Link>
+              <div className="flex space-x-6 text-sm text-gray-400">
+                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>
               </div>
             </div>
           </div>
         </div>
-      </footer>
+      </motion.footer>
     </motion.div>
   )
 } 

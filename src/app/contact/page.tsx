@@ -12,7 +12,6 @@ import {
   Mail, 
   MapPin, 
   Clock, 
-  MessageSquare, 
   Send, 
   Users, 
   Globe, 
@@ -21,9 +20,7 @@ import {
   ChevronRight,
   Calendar,
   Briefcase,
-  CheckCircle,
   Building,
-  Headphones,
   Zap
 } from 'lucide-react';
 import MobileNav from '@/components/MobileNav';
@@ -74,6 +71,16 @@ export default function ContactPage() {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Form submitted:', formData);
+  };
+
+  const scrollToForm = () => {
+    const formSection = document.getElementById('contact-form');
+    if (formSection) {
+      formSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
@@ -170,19 +177,7 @@ export default function ContactPage() {
           </div>
         </div>
         {/* Animated bottom runner line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3.2px] bg-black/10 overflow-hidden">
-          <span
-            className="runner-line"
-            style={{
-              background: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.95) 88%, transparent 100%)',
-              clipPath: 'polygon(0% 50%, 2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%)'
-            }}
-          />
-        </div>
-        <style jsx>{`
-          .runner-line { position: absolute; top: 0; left: -35%; height: 3.2px; width: 35%; animation: navrunner 2.8s linear infinite; }
-          @keyframes navrunner { from { left: -35%; } to { left: 100%; } }
-        `}</style>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-black border-black border-b-2 shadow-[0_0_10px_rgba(0,0,0,0.5)] animate-pulse"></div>
       </motion.header>
 
       {/* Spacer under fixed header */}
@@ -205,7 +200,7 @@ export default function ContactPage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md mb-4 sm:mb-6">
-                  <MessageSquare className="w-3 h-3 mr-1" />
+                  <Phone className="w-3 h-3 mr-1" />
                 Get in Touch
                 </Badge>
               <h1 className="hero-text font-bold text-gray-900 leading-tight">
@@ -218,33 +213,7 @@ export default function ContactPage() {
               </p>
             </motion.div>
 
-            {/* Quick Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mt-8 sm:mt-12"
-            >
-              {[
-                { number: '24/7', label: 'Support Available', icon: Headphones },
-                { number: '<2h', label: 'Response Time', icon: Clock },
-                { number: '15+', label: 'Offices Nationwide', icon: Building },
-                { number: '500+', label: 'Projects Delivered', icon: CheckCircle }
-                ].map((stat, index) => (
-                <div
-                  key={index}
-                  className="text-center group cursor-pointer bg-white/50 backdrop-blur-sm rounded-xl p-3 sm:p-4 hover:bg-white/80 transition-all duration-300"
-                >
-                  <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-amber-700 mx-auto mb-2 transition-transform duration-300 group-hover:scale-110" />
-                  <div className="contact-stat-number text-xl sm:text-2xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-amber-700">
-                      {stat.number}
-                  </div>
-                  <div className="contact-stat-label text-xs sm:text-sm text-gray-600 transition-colors duration-300 group-hover:text-gray-800">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
+
           </div>
         </div>
       </section>
@@ -265,7 +234,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
                 icon: Phone,
@@ -279,18 +248,11 @@ export default function ContactPage() {
                 icon: Mail,
                 title: "Email Support",
                 description: "Detailed inquiries and documentation",
-                contact: "contact@lsme.sa",
+                contact: "info@lsmeco.com",
                 subtext: "Response within 2 hours",
                 color: "amber"
               },
-              {
-                icon: MessageSquare,
-                title: "Live Chat",
-                description: "Instant messaging with our team",
-                contact: "Chat Now",
-                subtext: "Online support available",
-                color: "amber"
-              },
+
               {
                 icon: Calendar,
                 title: "Schedule Meeting",
@@ -325,7 +287,12 @@ export default function ContactPage() {
                   <CardContent className="text-center">
                     <div className="font-semibold text-gray-900 mb-1">{method.contact}</div>
                     <div className="text-xs text-gray-500">{method.subtext}</div>
-                    <Button variant="ghost" className="w-full mt-3 group-hover:bg-amber-50 group-hover:text-amber-800 transition-all duration-300">
+                    <Button 
+                      variant="ghost" 
+                      className="w-full mt-3 group-hover:bg-amber-50 group-hover:text-amber-800 transition-all duration-300"
+                      onClick={scrollToForm}
+                      type="button"
+                    >
                       Contact Now
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
@@ -338,7 +305,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-white">
+      <section id="contact-form" className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             {/* Form */}
@@ -480,7 +447,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="space-y-6 sm:space-y-8"
+              className="mt-10 sm:mt-12 space-y-6 sm:space-y-8"
             >
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Why Choose LSME?</h3>
@@ -501,11 +468,7 @@ export default function ContactPage() {
                       title: "Nationwide Coverage",
                       description: "Local support across all major cities in Saudi Arabia."
                     },
-                    {
-                      icon: CheckCircle,
-                      title: "Proven Track Record",
-                      description: "Successfully delivered 500+ infrastructure projects."
-                  }
+
                 ].map((feature, index) => (
                     <div key={index} className="flex items-start space-x-4 group">
                       <div className="bg-amber-100 p-3 rounded-lg flex-shrink-0 transition-all duration-300 group-hover:bg-amber-200 group-hover:scale-110">
@@ -524,22 +487,7 @@ export default function ContactPage() {
               </div>
               </div>
 
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-2xl border border-amber-200">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Emergency Support</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Need immediate assistance? Our emergency hotline is available 24/7 for critical infrastructure issues.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-4 h-4 text-amber-800" />
-                    <span className="font-semibold text-gray-900">+966 11 EMERGENCY</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-4 h-4 text-amber-800" />
-                    <span className="font-semibold text-gray-900">emergency@lsme.sa</span>
-                  </div>
-              </div>
-            </div>
+
             </motion.div>
           </div>
         </div>
@@ -628,7 +576,7 @@ export default function ContactPage() {
                       <ul className="space-y-1">
                         {office.services.map((service, serviceIndex) => (
                           <li key={serviceIndex} className="flex items-center space-x-2 text-xs text-gray-600">
-                            <CheckCircle className="w-3 h-3 text-green-600" />
+                            <span className="w-3 h-3 text-green-600">•</span>
                             <span>{service}</span>
                           </li>
                         ))}
@@ -667,11 +615,12 @@ export default function ContactPage() {
               </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
-                Start Your Engineering Project
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105"
+                onClick={scrollToForm}
+              >
                 Schedule Technical Consultation
               </Button>
             </div>
@@ -697,80 +646,109 @@ export default function ContactPage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8, ease: "easeOut" }}
-        className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden"
+        className="bg-gray-900 text-white py-20 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-            <div className="space-y-4 sm:space-y-6 animate-fade-in-up sm:col-span-2 lg:col-span-1">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="space-y-6 animate-fade-in-up">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Building className="h-8 w-8 sm:h-10 sm:w-10 text-amber-400 transition-colors duration-300 group-hover:text-amber-300" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
+                  <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={40} height={40} className="h-10 w-10 object-contain" />
                 </div>
                 <div>
-                  <span className="text-xl sm:text-2xl font-bold">LSME</span>
+                  <span className="text-2xl font-bold">LSME</span>
                   <div className="text-sm text-gray-400">Engineering Services</div>
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
-                Your trusted partner for innovative engineering solutions across Saudi Arabia. Building the future, one project at a time.
+              <p className="text-gray-400 leading-relaxed">
+                Delivering electrical, electronics, and mechanical engineering excellence across Saudi Arabia.
               </p>
-              <div className="flex space-x-4 sm:space-x-6 pt-2 sm:pt-4">
-                <div className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-800 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
+              
+              {/* Contact Information */}
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-4 w-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Building 2148-8267, Daba Street, King Faisal District, 13215, Riyadh, Saudi Arabia
+                  </p>
                 </div>
-                <div className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-800 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-4 w-4 text-amber-400 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm">+966 13 8060977</p>
                 </div>
-                <div className="bg-gray-800 p-2 sm:p-3 rounded-xl hover:bg-amber-800 transition-all duration-300 transform hover:scale-110 cursor-pointer">
-                  <Globe className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
+                  <p className="text-gray-400 text-sm">info@lsmeco.com</p>
                 </div>
               </div>
             </div>
 
             {[
               {
-                title: "Contact Information",
-                links: ["24/7 Support Hotline", "Emergency Services", "Project Inquiries", "Partnership Requests", "General Information"],
+                title: "Engineering Divisions",
+                links: [
+                  { text: "Electrical Division", href: "/services/electrical" },
+                  { text: "Electronics Division", href: "/services/electronics" },
+                  { text: "Mechanical Division", href: "/services/mechanical" }
+                ],
                 delay: "200ms"
               },
               {
-                title: "Office Locations",
-                links: ["Riyadh Headquarters", "Jeddah Regional Office", "Dammam Technical Center", "Field Service Centers", "Mobile Support Units"],
+                title: "Company",
+                links: [
+                  { text: "About LSME", href: "/about" },
+                  { text: "Engineering Team", href: "/our-team" },
+                  { text: "Projects", href: "/projects" },
+                  { text: "Our Partners", href: "/our-partners" },
+                  { text: "Contact Us", href: "/contact" }
+                ],
                 delay: "400ms"
-              },
-              {
-                title: "Support Services",
-                links: ["Technical Documentation", "Training Programs", "Maintenance Support", "Consultation Services", "Emergency Response"],
-                delay: "600ms"
               }
             ].map((section, index) => (
-              <div key={index} className="space-y-4 sm:space-y-6 animate-fade-in-up" style={{ animationDelay: section.delay }}>
-                <h3 className="text-base sm:text-lg font-bold text-white">{section.title}</h3>
-                <ul className="space-y-2 sm:space-y-3">
+              <div key={index} className={`space-y-6 animate-fade-in-up ${index === 0 ? 'ml-4' : ''}`} style={{ animationDelay: section.delay }}>
+                <h3 className="text-lg font-bold text-white">{section.title}</h3>
+                <ul className="space-y-3">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block text-sm sm:text-base">
-                        {link}
-                      </Link>
+                      {typeof link === 'string' ? (
+                        <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                          {link}
+                        </Link>
+                      ) : (
+                        <Link href={link.href} className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                          {link.text}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+
+            {/* ISO Certification Section */}
+            <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: "600ms" }}>
+              <h3 className="text-lg font-bold text-white">Certifications</h3>
+              <div className="flex justify-start">
+                <Image 
+                  src="/images/iso/iso.png" 
+                  alt="ISO Certification" 
+                  width={240} 
+                  height={240} 
+                  className="h-48 w-48 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300 -ml-4"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-6 sm:pt-8">
+          <div className="border-t border-gray-800 mt-16 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-center md:text-left">
-                <p className="text-sm sm:text-base">&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
-                <p className="text-xs sm:text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
+                <p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
+                <p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
               </div>
-              <div className="flex flex-wrap justify-center md:justify-end space-x-4 sm:space-x-6 text-xs sm:text-sm text-gray-400">
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</Link>
-                <Link href="#" className="hover:text-amber-400 transition-colors duration-300">Terms of Service</Link>
+              <div className="flex space-x-6 text-sm text-gray-400">
                 <Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>
               </div>
             </div>

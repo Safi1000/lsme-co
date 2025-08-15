@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
-import { ChevronRight, Clock, Globe, Phone, Mail, Star, Zap, Shield, PlugZap, BatteryCharging, Cable, CircuitBoard } from 'lucide-react'
+import { ChevronRight, Clock, Globe, Phone, Mail, Star, Zap, Shield, PlugZap, BatteryCharging, Cable, CircuitBoard, MapPin } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -97,19 +97,7 @@ export default function ElectricalPage() {
 					</div>
 				</div>
 				{/* Animated bottom runner line */}
-				<div className="absolute bottom-0 left-0 right-0 h-[3.2px] bg-black/10 overflow-hidden">
-					<span
-						className="runner-line"
-						style={{
-							background: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.95) 12%, rgba(0,0,0,0.95) 88%, transparent 100%)',
-							clipPath: 'polygon(0% 50%, 2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%)'
-						}}
-					/>
-				</div>
-				<style jsx>{`
-					.runner-line { position: absolute; top: 0; left: -35%; height: 3.2px; width: 35%; animation: navrunner 2.8s linear infinite; }
-					@keyframes navrunner { from { left: -35%; } to { left: 100%; } }
-				`}</style>
+				<div className="absolute bottom-0 left-0 right-0 h-0.5 bg-black border-black border-b-2 shadow-[0_0_10px_rgba(0,0,0,0.5)] animate-pulse"></div>
 			</motion.header>
 
 			{/* Spacer */}
@@ -210,8 +198,9 @@ export default function ElectricalPage() {
 					<h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Ready to power your next project?</h2>
 					<p className="text-white/90 max-w-3xl mx-auto">From concept to commissioning, we deliver compliant, efficient, and future-proof electrical solutions.</p>
 					<div className="flex flex-col sm:flex-row gap-4 justify-center">
-						<Button size="lg" className="bg-white text-amber-700 hover:bg-gray-100">Start Your Project<ChevronRight className="ml-2 h-4 w-4" /></Button>
-						<Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
+						<Link href="/contact">
+							<Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
+						</Link>
 					</div>
 					<div className="grid sm:grid-cols-3 gap-6 mt-8">
 						{[
@@ -230,52 +219,114 @@ export default function ElectricalPage() {
 
 			{/* Footer */}
 			<motion.footer
-				initial={{ y: 40, opacity: 0 }}
+				initial={{ y: 50, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
-				transition={{ duration: 0.6, ease: 'easeOut' }}
-				className="bg-gray-900 text-white py-16 relative overflow-hidden"
+				transition={{ delay: 1.4, duration: 0.8, ease: "easeOut" }}
+				className="bg-gray-900 text-white py-20 relative overflow-hidden"
 			>
 				<div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
+				
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
 					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-						<div className="space-y-6">
-							<div className="flex items-center gap-3">
+						<div className="space-y-6 animate-fade-in-up">
+							<div className="flex items-center space-x-3 group">
 								<div className="relative">
 									<Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={40} height={40} className="h-10 w-10 object-contain" />
-									<div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full animate-pulse"></div>
 								</div>
 								<div>
-									<span className="brand-font text-2xl font-normal">LSME</span>
+									<span className="text-2xl font-bold">LSME</span>
 									<div className="text-sm text-gray-400">Engineering Services</div>
 								</div>
 							</div>
-							<p className="text-gray-400">Electrical engineering solutions for safe, efficient, and resilient operations.</p>
-							<div className="flex gap-4">
-								<div className="bg-gray-800 p-3 rounded-xl"><Phone className="h-5 w-5 text-amber-400" /></div>
-								<div className="bg-gray-800 p-3 rounded-xl"><Mail className="h-5 w-5 text-amber-400" /></div>
+							<p className="text-gray-400 leading-relaxed">
+								Delivering electrical, electronics, and mechanical engineering excellence across Saudi Arabia.
+							</p>
+							
+							{/* Contact Information */}
+							<div className="space-y-3">
+								<div className="flex items-start space-x-3">
+									<MapPin className="h-4 w-4 text-amber-400 mt-0.5 flex-shrink-0" />
+									<p className="text-gray-400 text-sm leading-relaxed">
+										Building 2148-8267, Daba Street, King Faisal District, 13215, Riyadh, Saudi Arabia
+									</p>
+								</div>
+								<div className="flex items-center space-x-3">
+									<Phone className="h-4 w-4 text-amber-400 flex-shrink-0" />
+									<p className="text-gray-400 text-sm">+966 13 8060977</p>
+								</div>
+								<div className="flex items-center space-x-3">
+									<Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
+									<p className="text-gray-400 text-sm">info@lsmeco.com</p>
+								</div>
 							</div>
 						</div>
+
 						{[
-							{ title: 'Divisions', links: ['Electrical', 'Electronics', 'Mechanical', 'R&D'] },
-							{ title: 'Services', links: ['Design & Analysis', 'Protection & Safety', 'Automation', 'Commissioning'] },
-							{ title: 'Company', links: ['About', 'Team', 'Quality', 'Contact'] }
-						].map((s, i) => (
-							<div key={i} className="space-y-4">
-								<h3 className="text-lg font-bold text-white">{s.title}</h3>
-								<ul className="space-y-2">
-									{s.links.map((l) => (
-										<li key={l}><Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors">{l}</Link></li>
+							{
+								title: "Engineering Divisions",
+								links: [
+									{ text: "Electrical Division", href: "/services/electrical" },
+									{ text: "Electronics Division", href: "/services/electronics" },
+									{ text: "Mechanical Division", href: "/services/mechanical" }
+								],
+								delay: "200ms"
+							},
+							{
+								title: "Company",
+								links: [
+									{ text: "About LSME", href: "/about" },
+									{ text: "Engineering Team", href: "/our-team" },
+									{ text: "Projects", href: "/projects" },
+									{ text: "Our Partners", href: "/our-partners" },
+									{ text: "Contact Us", href: "/contact" }
+								],
+								delay: "400ms"
+							}
+						].map((section, index) => (
+							<div key={index} className={`space-y-6 animate-fade-in-up ${index === 0 ? 'ml-4' : ''}`} style={{ animationDelay: section.delay }}>
+								<h3 className="text-lg font-bold text-white">{section.title}</h3>
+								<ul className="space-y-3">
+									{section.links.map((link, linkIndex) => (
+										<li key={linkIndex}>
+											{typeof link === 'string' ? (
+												<Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+													{link}
+												</Link>
+											) : (
+												<Link href={link.href} className="text-gray-400 hover:text-amber-400 transition-colors duration-300 hover:translate-x-1 transform inline-block">
+													{link.text}
+												</Link>
+											)}
+										</li>
 									))}
 								</ul>
 							</div>
 						))}
+
+						{/* ISO Certification Section */}
+						<div className="space-y-6 animate-fade-in-up" style={{ animationDelay: "600ms" }}>
+							<h3 className="text-lg font-bold text-white">Certifications</h3>
+							<div className="flex justify-start">
+								<Image 
+									src="/images/iso/iso.png" 
+									alt="ISO Certification" 
+									width={240} 
+									height={240} 
+									className="h-48 w-48 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300 -ml-4"
+								/>
+							</div>
+						</div>
 					</div>
-					<div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between text-gray-400 text-sm">
-						<p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
-						<div className="flex gap-6 mt-3 md:mt-0">
-							<Link href="#" className="hover:text-amber-400">Privacy Policy</Link>
-							<Link href="#" className="hover:text-amber-400">Terms of Service</Link>
-							<Link href="#" className="hover:text-amber-400">ISO Certifications</Link>
+
+					<div className="border-t border-gray-800 mt-16 pt-8">
+						<div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+							<div className="text-gray-400 text-center md:text-left">
+								<p>&copy; 2024 LSME Engineering Solutions. All rights reserved.</p>
+								<p className="text-sm mt-1">Supporting Saudi Arabia's Vision 2030</p>
+							</div>
+							<div className="flex space-x-6 text-sm text-gray-400">
+								<Link href="#" className="hover:text-amber-400 transition-colors duration-300">ISO Certifications</Link>
+							</div>
 						</div>
 					</div>
 				</div>
