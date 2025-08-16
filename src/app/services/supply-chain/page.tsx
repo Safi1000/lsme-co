@@ -289,7 +289,7 @@ export default function SupplyChainPage() {
                 delay: "400ms"
               }
             ].map((section, index) => (
-              <div key={index} className={`space-y-6 animate-fade-in-up ${index === 0 ? 'ml-4' : ''}`} style={{ animationDelay: section.delay }}>
+              <div key={index} className="space-y-6 animate-fade-in-up" style={{ animationDelay: section.delay }}>
                 <h3 className="text-lg font-bold text-white">{section.title}</h3>
                 <ul className="space-y-3">
                   {section.links.map((link, linkIndex) => (

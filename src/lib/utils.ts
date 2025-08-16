@@ -13,14 +13,7 @@ export function handleEmailClick(email: string) {
   );
 
   if (isMobile) {
-    // On mobile, prompt user to choose email app
-    const choice = window.confirm(
-      `Choose how to open email to ${email}:\n\n` +
-      `Click OK to open in Gmail app\n` +
-      `Click Cancel to open in Outlook app`
-    );
-    
-    // Both choices use mailto: which will prompt user to choose their preferred app
+    // On mobile, use native mailto: which will show the system app picker
     window.location.href = `mailto:${email}`;
   } else {
     // On desktop, open Gmail web app with compose and pre-filled email (Gmail takes priority)
