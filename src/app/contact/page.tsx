@@ -24,6 +24,7 @@ import {
   Zap
 } from 'lucide-react';
 import MobileNav from '@/components/MobileNav';
+import { handleEmailClick } from '@/lib/utils';
 
 export default function ContactPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -285,7 +286,18 @@ export default function ContactPage() {
                   </CardDescription>
                 </CardHeader>
                   <CardContent className="text-center">
-                    <div className="font-semibold text-gray-900 mb-1">{method.contact}</div>
+                    <div className="font-semibold text-gray-900 mb-1">
+                      {method.title === "Email Support" ? (
+                        <button 
+                          onClick={() => handleEmailClick(method.contact)}
+                          className="hover:text-amber-700 transition-colors duration-300 cursor-pointer"
+                        >
+                          {method.contact}
+                        </button>
+                      ) : (
+                        method.contact
+                      )}
+                    </div>
                     <div className="text-xs text-gray-500">{method.subtext}</div>
                     <Button 
                       variant="ghost" 
@@ -680,7 +692,12 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                  <p className="text-gray-400 text-sm">info@lsmeco.com</p>
+                  <button 
+                    onClick={() => handleEmailClick("info@lsmeco.com")}
+                    className="text-gray-400 text-sm hover:text-amber-400 transition-colors duration-300 cursor-pointer"
+                  >
+                    info@lsmeco.com
+                  </button>
                 </div>
               </div>
             </div>

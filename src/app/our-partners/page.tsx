@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Star, Users, Award, Globe, ArrowRight, CheckCircle, Train, Phone, Mail, ChevronRight, Clock, Zap, MapPin } from 'lucide-react';
 import MobileNav from '@/components/MobileNav';
+import { handleEmailClick } from '@/lib/utils';
 
 export default function OurPartnersPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -436,7 +437,12 @@ export default function OurPartnersPage() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                  <p className="text-gray-400 text-sm">info@lsmeco.com</p>
+                  <button 
+                    onClick={() => handleEmailClick("info@lsmeco.com")}
+                    className="text-gray-400 text-sm hover:text-amber-400 transition-colors duration-300 cursor-pointer"
+                  >
+                    info@lsmeco.com
+                  </button>
                 </div>
               </div>
             </div>

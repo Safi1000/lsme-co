@@ -9,6 +9,7 @@ import Image from "next/image"
 import Link from "next/link"
 import MobileNav from "@/components/MobileNav"
 import { motion } from 'framer-motion'
+import { handleEmailClick } from '@/lib/utils'
 
 export default function HomePage() {
   // Set theme on component mount
@@ -571,7 +572,12 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                  <p className="text-gray-400 text-sm">info@lsmeco.com</p>
+                  <button 
+                    onClick={() => handleEmailClick("info@lsmeco.com")}
+                    className="text-gray-400 text-sm hover:text-amber-400 transition-colors duration-300 cursor-pointer"
+                  >
+                    info@lsmeco.com
+                  </button>
                 </div>
               </div>
             </div>

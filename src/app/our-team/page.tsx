@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Users, Mail, Phone, Star, ChevronRight, Globe, Building, MapPin } from 'lucide-react';
 import MobileNav from '@/components/MobileNav';
+import { handleEmailClick } from '@/lib/utils';
 
 export default function OurTeamPage() {
   // Set theme on component mount
@@ -27,12 +28,27 @@ export default function OurTeamPage() {
   }, [])
 
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 8)
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    // Function to detect mobile device
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+      const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const teamMembers = [
     {
@@ -290,8 +306,8 @@ export default function OurTeamPage() {
                         
                         {/* Contact - Email with reduced spacing */}
                         <div className="flex justify-center mt-2 sm:mt-3 lg:mt-4">
-                        <motion.a
-                          href={`mailto:${member.email}`}
+                        <motion.button
+                          onClick={() => handleEmailClick(member.email)}
                           className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg cursor-pointer"
                           whileHover={{ scale: 1.05 }}
                         >
@@ -304,7 +320,7 @@ export default function OurTeamPage() {
                           <span className="text-sm sm:text-xs lg:text-sm text-gray-600 font-medium transition-colors duration-300 group-hover:text-amber-700">
                             {member.email}
                           </span>
-                        </motion.a>
+                        </motion.button>
                       </div>
                     </div>
                   </motion.div>
@@ -335,8 +351,8 @@ export default function OurTeamPage() {
                        
                        {/* Contact - Email with reduced spacing */}
                        <div className="flex justify-center mt-2 sm:mt-3 lg:mt-4">
-                         <motion.a
-                           href={`mailto:${member.email}`}
+                         <motion.button
+                           onClick={() => handleEmailClick(member.email)}
                            className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg cursor-pointer"
                            whileHover={{ scale: 1.05 }}
                          >
@@ -349,7 +365,7 @@ export default function OurTeamPage() {
                            <span className="text-sm sm:text-xs lg:text-sm text-gray-600 font-medium transition-colors duration-300 group-hover:text-amber-700">
                              {member.email}
                            </span>
-                         </motion.a>
+                         </motion.button>
                        </div>
                      </div>
                    </motion.div>
@@ -453,7 +469,12 @@ export default function OurTeamPage() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                  <p className="text-gray-400 text-sm">info@lsmeco.com</p>
+                  <button 
+                    onClick={() => handleEmailClick("info@lsmeco.com")}
+                    className="text-gray-400 text-sm hover:text-amber-400 transition-colors duration-300 cursor-pointer"
+                  >
+                    info@lsmeco.com
+                  </button>
                 </div>
               </div>
             </div>

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import MobileNav from '@/components/MobileNav'
+import { handleEmailClick } from '@/lib/utils'
 
 export default function MechanicalPage() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -254,9 +255,14 @@ export default function MechanicalPage() {
                   <Phone className="h-4 w-4 text-amber-400 flex-shrink-0" />
                   <p className="text-gray-400 text-sm">+966 13 8060977</p>
                 </div>
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-0">
                   <Mail className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                  <p className="text-gray-400 text-sm">info@lsmeco.com</p>
+                  <button 
+                    onClick={() => handleEmailClick("info@lsmeco.com")}
+                    className="text-gray-400 text-sm hover:text-amber-400 transition-colors duration-300 cursor-pointer"
+                  >
+                    info@lsmeco.com
+                  </button>
                 </div>
               </div>
             </div>
