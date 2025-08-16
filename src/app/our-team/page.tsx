@@ -290,8 +290,9 @@ export default function OurTeamPage() {
                         
                         {/* Contact - Email with reduced spacing */}
                         <div className="flex justify-center mt-2 sm:mt-3 lg:mt-4">
-                        <motion.div
-                          className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg"
+                        <motion.a
+                          href={`mailto:${member.email}`}
+                          className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg cursor-pointer"
                           whileHover={{ scale: 1.05 }}
                         >
                           <motion.div
@@ -300,10 +301,10 @@ export default function OurTeamPage() {
                           >
                             <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-600 transition-transform duration-300 group-hover:scale-110" />
                           </motion.div>
-                                                      <span className="text-sm sm:text-xs lg:text-sm text-gray-600 font-medium transition-colors duration-300 group-hover:text-amber-700">
-                              {member.email}
-                            </span>
-                        </motion.div>
+                          <span className="text-sm sm:text-xs lg:text-sm text-gray-600 font-medium transition-colors duration-300 group-hover:text-amber-700">
+                            {member.email}
+                          </span>
+                        </motion.a>
                       </div>
                     </div>
                   </motion.div>
@@ -334,8 +335,9 @@ export default function OurTeamPage() {
                        
                        {/* Contact - Email with reduced spacing */}
                        <div className="flex justify-center mt-2 sm:mt-3 lg:mt-4">
-                         <motion.div
-                           className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg"
+                         <motion.a
+                           href={`mailto:${member.email}`}
+                           className="flex items-center space-x-1.5 sm:space-x-2 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1.5 sm:px-3 sm:py-2 shadow-md border border-amber-100 transition-all duration-300 group-hover:bg-amber-50 group-hover:shadow-lg cursor-pointer"
                            whileHover={{ scale: 1.05 }}
                          >
                            <motion.div
@@ -347,7 +349,7 @@ export default function OurTeamPage() {
                            <span className="text-sm sm:text-xs lg:text-sm text-gray-600 font-medium transition-colors duration-300 group-hover:text-amber-700">
                              {member.email}
                            </span>
-                         </motion.div>
+                         </motion.a>
                        </div>
                      </div>
                    </motion.div>
