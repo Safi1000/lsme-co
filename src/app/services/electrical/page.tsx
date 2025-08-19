@@ -83,7 +83,7 @@ export default function ElectricalPage() {
 								</div>
 							</div>
 							{[
-								{ name: 'About', href: '/about' },
+								{ name: 'About LSME', href: '/about' },
 								{ name: 'Our Partners', href: '/our-partners' },
 								{ name: 'Our Team', href: '/our-team' },
 								{ name: 'Contact', href: '/contact' }

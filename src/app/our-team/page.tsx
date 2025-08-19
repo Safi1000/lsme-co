@@ -70,15 +70,6 @@ export default function OurTeamPage() {
       email: "yousuf@lsmeco.com"
     },
     {
-      id: 3,
-      name: "Syed Waqar",
-      position: "Technical Director",
-      department: "Engineering",
-      bio: "Overseeing all engineering projects with extensive experience in mechanical and electrical systems integration.",
-      specialties: ["Project Management", "Systems Integration", "Quality Assurance"],
-      email: "syedwaqar@lsmeco.com"
-    },
-    {
       id: 4,
       name: "Nasser Al-Rashidi",
       position: "Director",
@@ -95,6 +86,15 @@ export default function OurTeamPage() {
       bio: "Expert in mechanical system design and optimization with focus on locomotive components and infrastructure mechanical systems.",
       specialties: ["Mechanical Design", "System Optimization", "CAD/CAM"],
       email: "emad@lsmeco.com"
+    },
+    {
+      id: 3,
+      name: "Syed Waqar",
+      position: "Technical Director",
+      department: "Engineering",
+      bio: "Overseeing all engineering projects with extensive experience in mechanical and electrical systems integration.",
+      specialties: ["Project Management", "Systems Integration", "Quality Assurance"],
+      email: "syedwaqar@lsmeco.com"
     }
   ]
 
@@ -190,7 +190,7 @@ export default function OurTeamPage() {
               </div>
 
               {[
-                { name: 'About', href: '/about' },
+                { name: 'About LSME', href: '/about' },
                 { name: 'Our Partners', href: '/our-partners' },
                 { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
@@ -395,11 +395,14 @@ export default function OurTeamPage() {
                 <Star className="w-3 h-3 mr-1" />
                 Ready to Engineer the Future?
               </Badge>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Partner with Saudi Arabia's
                 <br />
-                <span className="text-amber-200">Engineering Leaders</span>
+                <span className="text-amber-200">Engineering Leader, LSME</span>
               </h2>
+              <div className="flex justify-center mt-4">
+                <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className="h-16 w-16 object-contain" />
+              </div>
               <p className="text-lg sm:text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
                 Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
               </p>

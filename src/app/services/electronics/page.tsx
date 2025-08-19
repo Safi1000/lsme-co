@@ -83,7 +83,7 @@ export default function ElectronicsPage() {
                 </div>
               </div>
               {[
-                { name: 'About', href: '/about' },
+                { name: 'About LSME', href: '/about' },
                 { name: 'Our Partners', href: '/our-partners' },
                 { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
@@ -194,14 +194,12 @@ export default function ElectronicsPage() {
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-amber-700 via-orange-700 to-amber-800 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-md"><Star className="w-3 h-3 mr-1" />Ready to Engineer the Future?</Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-            Partner with Saudi Arabia's
-            <br />
-            <span className="text-amber-200">Electronics Engineering Leaders</span>
+          <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-md"><Star className="w-3 h-3 mr-1" />Partner With Experts</Badge>
+          <h2 className="text-4xl lg:text-4x1 font-bold text-white leading-tight">
+            Ready to advance your electronics systems?
           </h2>
-          <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
-            Connect with our electronics division to build cutting-edge embedded systems, IoT solutions, and advanced electronic technologies for the future.
+          <p className="text-white/90 max-w-3xl mx-auto">
+            From embedded controllers to power electronics and connectivity, our Electronics Division delivers robust hardware designed for real-world conditions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">

@@ -129,7 +129,7 @@ export default function AboutPage() {
               </div>
               
               {[
-                { name: 'About', href: '/about' },
+                { name: 'About LSME', href: '/about' },
                 { name: 'Our Partners', href: '/our-partners' },
                 { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
@@ -138,7 +138,7 @@ export default function AboutPage() {
                   key={item.name}
                   href={item.href} 
                   className={`relative font-medium transition-all duration-300 group py-2 ${
-                    item.name === 'About' 
+                    item.name === 'About LSME' 
                       ? 'text-amber-700' 
                       : 'text-gray-700 hover:text-amber-700'
                   }`}
@@ -146,7 +146,7 @@ export default function AboutPage() {
                 >
                   {item.name}
                   <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-amber-700 to-orange-600 transition-all duration-300 ${
-                    item.name === 'About' 
+                    item.name === 'About LSME' 
                       ? 'w-full' 
                       : 'w-0 group-hover:w-full'
                   }`}></span>
@@ -194,9 +194,9 @@ export default function AboutPage() {
               transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
               className="hero-text font-bold text-gray-900 leading-tight max-w-5xl mx-auto"
             >
-              <span className="text-2xl sm:text-3xl lg:text-4xl">Shaping Saudi Arabia's</span>
+              <span className="text-2xl sm:text-3xl lg:text-4xl">Following Saudi Arabia's</span>
               <br />
-              <span className="text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Future</span>
+              <span className="text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Vision 2030</span>
             </motion.h1>
             
             <motion.p 
@@ -205,7 +205,7 @@ export default function AboutPage() {
               transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
               className="hero-subtitle text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto"
             >
-              Since 2009, LSME has been at the forefront of engineering innovation in Saudi Arabia, delivering world-class solutions across electrical, electronics, and mechanical engineering.
+              LSME is at the forefront of engineering innovation in Saudi Arabia, delivering world-class solutions across electrical, electronics, and mechanical engineering.
             </motion.p>
           </div>
         </div>
@@ -248,7 +248,7 @@ export default function AboutPage() {
             >
               <div className="space-y-6 sm:space-y-8 text-base sm:text-lg leading-relaxed text-gray-700">
                 <p>
-                  Founded in 2009, LSME Engineering Solutions began as a vision to transform Saudi Arabia's engineering landscape. What started as a small team of passionate engineers has grown into the Kingdom's leading provider of comprehensive engineering services, supporting Vision 2030's ambitious infrastructure goals.
+                  LSME Engineering Solutions began as a vision to transform Saudi Arabia's engineering landscape. What started as a small team of passionate engineers has grown into the Kingdom's leading provider of comprehensive engineering services, supporting Vision 2030's ambitious infrastructure goals.
                 </p>
                 
                 <p>
@@ -424,11 +424,14 @@ export default function AboutPage() {
                 <Star className="w-3 h-3 mr-1" />
                 Ready to Engineer the Future?
               </Badge>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Partner with Saudi Arabia's
                 <br />
-                <span className="text-amber-200">Engineering Leaders</span>
+                <span className="text-amber-200">Engineering Leader, LSME</span>
               </h2>
+              <div className="flex justify-center mt-4">
+                <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className="h-16 w-16 object-contain" />
+              </div>
               <p className="text-lg sm:text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
                 Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
               </p>

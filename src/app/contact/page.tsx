@@ -159,7 +159,7 @@ export default function ContactPage() {
               </div>
               
               {[
-                { name: 'About', href: '/about' },
+                { name: 'About LSME', href: '/about' },
                 { name: 'Our Partners', href: '/our-partners' },
                 { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
@@ -183,40 +183,7 @@ export default function ContactPage() {
       {/* Spacer under fixed header */}
       <div className="h-20" />
 
-      {/* Hero Section */}
-      <section className="relative py-8 sm:py-12 lg:py-16 overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-amber-200/30 to-orange-200/30 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-orange-200/30 to-amber-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-amber-300/20 to-orange-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center space-y-6 sm:space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md mb-4 sm:mb-6">
-                  <Phone className="w-3 h-3 mr-1" />
-                Get in Touch
-                </Badge>
-              <h1 className="hero-text font-bold text-gray-900 leading-tight">
-                <span className="text-2xl sm:text-3xl lg:text-4xl">Connect with Our</span>
-                <br />
-                <span className="contact-hero-title text-3xl sm:text-4xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Experts</span>
-                </h1>
-              <p className="contact-hero-subtitle hero-subtitle text-sm sm:text-base lg:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mt-4 sm:mt-6 px-4 sm:px-0">
-                Ready to transform your infrastructure projects? Our team of experts is here to provide consultation, support, and innovative solutions tailored to your needs.
-              </p>
-            </motion.div>
-
-
-          </div>
-        </div>
-      </section>
+      
 
       {/* Contact Methods Section */}
       <section className="py-8 sm:py-12 lg:py-16">
@@ -226,9 +193,11 @@ export default function ContactPage() {
               <Phone className="w-3 h-3 mr-1" />
               Contact Methods
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-              Choose Your Preferred <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Communication</span>
-            </h2>
+            <h1 className="font-bold text-gray-900">
+              <span className="text-2xl sm:text-3xl lg:text-4xl">Choose Your Preferred</span>
+              <br />
+              <span className="text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Communication</span>
+            </h1>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Multiple ways to reach our team of experts for immediate assistance, project consultations, and partnership opportunities.
             </p>
@@ -411,6 +380,7 @@ export default function ContactPage() {
                     <option value="rd">R&D Services</option>
                     <option value="supply-chain">Supply Chain</option>
                     <option value="partnership">Partnership Opportunity</option>
+                    <option value="book-meeting">Book Meeting</option>
                   </select>
                 </div>
 
@@ -618,9 +588,14 @@ export default function ContactPage() {
                 <Star className="w-3 h-3 mr-1" />
               Ready to Engineer the Future?
               </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold px-4 sm:px-0">
-              Ready to Start Your Project?
+            <h2 className="text-4xl lg:text-5xl font-bold px-4 sm:px-0 text-white">
+              Partner with Saudi Arabia's
+              <br />
+              <span className="text-amber-200">Engineering Leader, LSME</span>
               </h2>
+            <div className="flex justify-center mt-4">
+              <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className="h-16 w-16 object-contain" />
+            </div>
             <p className="text-base sm:text-lg lg:text-xl text-white max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
               Join hundreds of satisfied clients who trust LSME for their infrastructure needs. Let's build the future together.
               </p>

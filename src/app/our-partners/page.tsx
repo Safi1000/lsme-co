@@ -63,6 +63,21 @@ export default function OurPartnersPage() {
       establishedYear: "1993",
       websiteUrl: "https://semmco.com"
     }
+    ,
+    {
+      id: 4,
+      name: "GFUVE",
+      logoPlaceholder: "/images/partners/logo4.png", // Logo path
+      introduction: "GFUVE is a leading China‑based manufacturer of energy meter testing solutions and high‑voltage ammeter recorders. The company focuses on complete energy meter test systems, portable meter testers and supporting accessories.",
+      keyFeatures: [
+        "Electrical Test & Calibration Equipment",
+        "Power Quality & Monitoring Solutions",
+        "R&D and Manufacturing Strength",
+        "Global Service & Support"
+      ],
+      establishedYear: "2005",
+      websiteUrl: "https://www.gfuve.com"
+    }
   ];
 
   return (
@@ -142,7 +157,7 @@ export default function OurPartnersPage() {
               </div>
 
               {[
-                { name: 'About', href: '/about' },
+                { name: 'About LSME', href: '/about' },
                 { name: 'Our Partners', href: '/our-partners' },
                 { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
@@ -226,7 +241,11 @@ export default function OurPartnersPage() {
                         alt={`${partner.name} logo`}
                         width={256}
                         height={256}
-                        className="partner-logo w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 mx-auto object-contain"
+                        className={`partner-logo ${
+                          partner.id === 4
+                            ? 'w-[10.4rem] h-[10.4rem] sm:w-[15.6rem] sm:h-[15.6rem] lg:w-[20.8rem] lg:h-[20.8rem]'
+                            : 'w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64'
+                        } mx-auto object-contain`}
                       />
                       
                       {/* Company Info */}
@@ -366,9 +385,14 @@ export default function OurPartnersPage() {
               <Star className="w-3 h-3 mr-1" />
               Ready to Engineer the Future?
             </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold px-4 sm:px-0">
-              Ready to Start Your Project?
+            <h2 className="text-4xl lg:text-5xl font-bold px-4 sm:px-0 text-white">
+              Partner with Saudi Arabia's
+              <br />
+              <span className="text-amber-200">Engineering Leader, LSME</span>
             </h2>
+            <div className="flex justify-center mt-4">
+              <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className="h-16 w-16 object-contain" />
+            </div>
             <p className="text-base sm:text-lg lg:text-xl text-white max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
               Partner with Saudi Arabia's leading engineering experts to build the future of technology together.
             </p>

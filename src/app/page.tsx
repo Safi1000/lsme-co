@@ -119,7 +119,7 @@ export default function HomePage() {
                </div>
                
                              {[
-                { name: 'About', href: '/about' },
+                { name: 'About LSME', href: '/about' },
                 { name: 'Our Partners', href: '/our-partners' },
                 { name: 'Our Team', href: '/our-team' },
                 { name: 'Contact', href: '/contact' }
@@ -173,7 +173,7 @@ export default function HomePage() {
                   <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">LSMECO</span>
                 </h1>
                 <p className="hero-subtitle text-base lg:text-lg text-gray-600 leading-relaxed">
-                  At LSMECO, we are a dynamic and innovative company dedicated to providing solutions in the fields of electrical, mechanical, and electronics engineering. Our expertise spans a wide range of industries. We pride ourselves on our unique capability to develop retrofits through reverse engineering.
+                At LSMECO, we deliver innovative electrical, mechanical, and electronics engineering solutions with a focus on retrofits through reverse engineering. Together with our international partners, we are ready to provide world-class services for Saudi Arabia through our trusted network.
                 </p>
               </div>
               
@@ -233,7 +233,9 @@ export default function HomePage() {
               {/* Vision Text Below Hero Image - Within Image Column */}
               <div className="text-center mt-8">
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  Collective Endeavour, Brighter Future: <span className="font-semibold text-amber-700">LSMECO drives KSA's Vision 2030 forward!</span>
+                  <span className="text-[1.4em]">Collective Endeavour, Brighter Future:</span>
+                  <br />
+                  <span className="font-semibold text-amber-700 text-[1.5em]">LSMECO drives KSA's Vision 2030 forward!</span>
                 </p>
               </div>
 
@@ -435,7 +437,7 @@ export default function HomePage() {
                    {
                      icon: Users,
                      title: "Specialized Expert Teams",
-                     description: "150+ certified engineers across our three divisions with specialized expertise in electrical, electronics, and mechanical systems.",
+                     description: "We have a team of qualified and certified engineers across our three divisions with specialized expertise in electrical, electronics, and mechanical systems.",
                      color: "purple"
                    },
                    {
@@ -497,8 +499,11 @@ export default function HomePage() {
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Partner with Saudi Arabia's
                 <br />
-                <span className="text-amber-200">Engineering Leaders</span>
+                <span className="text-amber-200">Engineering Leader, LSME</span>
               </h2>
+              <div className="flex justify-center mt-4">
+                <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className="h-16 w-16 object-contain" />
+              </div>
               <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
                 Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
               </p>
