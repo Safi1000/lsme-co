@@ -119,7 +119,6 @@ export default function HomePage() {
                </div>
                
                              {[
-                { name: 'Projects', href: '/projects' },
                 { name: 'About', href: '/about' },
                 { name: 'Our Partners', href: '/our-partners' },
                 { name: 'Our Team', href: '/our-team' },
@@ -186,11 +185,7 @@ export default function HomePage() {
                   Explore Our Divisions
                   <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
-                <Link href="/projects">
-                  <Button size="lg" variant="outline" className="hover:bg-amber-50 hover:border-amber-300 transition-all duration-300 transform hover:scale-105">
-                    View Engineering Projects
-                  </Button>
-                </Link>
+
               </div>
 
 
@@ -597,7 +592,6 @@ export default function HomePage() {
                 links: [
                   { text: "About LSME", href: "/about" },
                   { text: "Engineering Team", href: "/our-team" },
-                  { text: "Projects", href: "/projects" },
                   { text: "Our Partners", href: "/our-partners" },
                   { text: "Contact Us", href: "/contact" }
                 ],

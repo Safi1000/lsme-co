@@ -83,7 +83,6 @@ export default function ElectricalPage() {
 								</div>
 							</div>
 							{[
-								{ name: 'Projects', href: '/projects' },
 								{ name: 'About', href: '/about' },
 								{ name: 'Our Partners', href: '/our-partners' },
 								{ name: 'Our Team', href: '/our-team' },
@@ -282,9 +281,8 @@ export default function ElectricalPage() {
 								links: [
 									{ text: "About LSME", href: "/about" },
 									{ text: "Engineering Team", href: "/our-team" },
-									{ text: "Projects", href: "/projects" },
-									{ text: "Our Partners", href: "/our-partners" },
-									{ text: "Contact Us", href: "/contact" }
+																{ text: "Our Partners", href: "/our-partners" },
+							{ text: "Contact Us", href: "/contact" }
 								],
 								delay: "400ms"
 							}

@@ -83,7 +83,6 @@ export default function ElectronicsPage() {
                 </div>
               </div>
               {[
-                { name: 'Projects', href: '/projects' },
                 { name: 'About', href: '/about' },
                 { name: 'Our Partners', href: '/our-partners' },
                 { name: 'Our Team', href: '/our-team' },
@@ -288,7 +287,6 @@ export default function ElectronicsPage() {
                 links: [
                   { text: "About LSME", href: "/about" },
                   { text: "Engineering Team", href: "/our-team" },
-                  { text: "Projects", href: "/projects" },
                   { text: "Our Partners", href: "/our-partners" },
                   { text: "Contact Us", href: "/contact" }
                 ],

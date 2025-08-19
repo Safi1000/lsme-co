@@ -95,7 +95,6 @@ export default function MobileNav({ theme }: MobileNavProps) {
         { name: 'Supply Chain', href: '/services/supply-chain' }
       ]
     },
-    { name: 'Projects', href: '/projects' },
     { name: 'About', href: '/about' },
     { name: 'Our Partners', href: '/our-partners' },
     { name: 'Our Team', href: '/our-team' },
