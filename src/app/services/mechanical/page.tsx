@@ -196,10 +196,10 @@ export default function MechanicalPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <Badge className="bg-white/20 text-white hover:bg-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-md"><Star className="w-3 h-3 mr-1" />Partner With Experts</Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Ready to optimize your systems?</h2>
-          <p className="text-white/90 max-w-3xl mx-auto">From CAD/CAM to heavy-duty repairs, we deliver reliable mechanical solutions.</p>
+          <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">From CAD/CAM to heavy-duty repairs, we deliver reliable mechanical solutions.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
+              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">Schedule Technical Consultation</Button>
             </Link>
           </div>
           <div className="grid sm:grid-cols-3 gap-6 mt-8">

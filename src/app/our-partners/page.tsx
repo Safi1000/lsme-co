@@ -68,7 +68,7 @@ export default function OurPartnersPage() {
       id: 4,
       name: "GFUVE",
       logoPlaceholder: "/images/partners/logo4.png", // Logo path
-      introduction: "GFUVE is a leading China‑based manufacturer of energy meter testing solutions and high‑voltage ammeter recorders. The company focuses on complete energy meter test systems, portable meter testers and supporting accessories.",
+      introduction: "GFUVE is a leading China‑based manufacturer of energy meter testing solutions and high‑voltage ammeter recorders. The company focuses on complete energy meter test systems, portable meter testers and supporting accessories. LSME is an authorized representative of GFUVE, that shows the company's commitment to providing the best possible solutions for our clients.",
       keyFeatures: [
         "Electrical Test & Calibration Equipment",
         "Power Quality & Monitoring Solutions",

@@ -403,7 +403,7 @@ export default function OurTeamPage() {
               <div className="flex justify-center mt-4">
                 <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className="h-16 w-16 object-contain" />
               </div>
-              <p className="text-lg sm:text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
                 Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
               </p>
             </div>

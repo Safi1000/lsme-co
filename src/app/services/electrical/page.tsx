@@ -199,7 +199,7 @@ export default function ElectricalPage() {
 					<p className="text-white/90 max-w-3xl mx-auto">From concept to commissioning, we deliver compliant, efficient, and future-proof electrical solutions.</p>
 					<div className="flex flex-col sm:flex-row gap-4 justify-center">
 						<Link href="/contact">
-							<Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Consultation</Button>
+							<Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">Schedule Technical Consultation</Button>
 						</Link>
 					</div>
 					<div className="grid sm:grid-cols-3 gap-6 mt-8">

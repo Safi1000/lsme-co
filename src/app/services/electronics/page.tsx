@@ -203,7 +203,7 @@ export default function ElectronicsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-amber-700">Schedule Electronics Consultation</Button>
+              <Button size="lg" variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-amber-700 transition-all duration-300 transform hover:scale-105">Schedule Technical Consultation</Button>
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-8 pt-12">
