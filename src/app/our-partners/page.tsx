@@ -81,21 +81,20 @@ export default function OurPartnersPage() {
     {
       id: 5,
       name: "Aterma Microwave Technology Co., Ltd.",
-      logoPlaceholder: "/images/partners/logo5.png", // Logo path - to be updated later
+      logoPlaceholder: "/images/partners/logo5.png", 
       introduction: "Aterma Microwave Technology Co., Ltd. is a leading China-based developer of RF and microwave solutions, specializing in antennas, radar systems, and EMC technologies for defense, aerospace, and communications. LSME is an authorized representative of Aterma, reinforcing our commitment to providing advanced RF and microwave solutions to our clients.",
       keyFeatures: [
-        "RF & Microwave Component Development",
-        "Radar & Antenna Systems",
-        "Electromagnetic Compatibility (EMC) Solutions",
-        "Custom Engineering & System Integration"
+        "Tactical Radio",
+        "Radar Maintenance",
+        "Software Defined Radio (SDR)"
       ],
       establishedYear: "2006",
-      websiteUrl: "#" // Website URL to be updated later
+      websiteUrl: "#" 
     },
     {
       id: 6,
       name: "Emicon AB",
-      logoPlaceholder: "/images/partners/logo6.png", // Logo path - to be updated later
+      logoPlaceholder: "/images/partners/logo6.png", 
       introduction: "Emicon AB is a Sweden-based consultancy with decades of expertise in electromagnetic interference (EMI) and electromagnetic compatibility (EMC) solutions. The company delivers advanced testing, simulation, shielding, and compliance services across multiple industries. LSME is an authorized representative of Emicon, extending world-class EMC and EMI consulting services to our clients.",
       keyFeatures: [
         "EMI/EMC Testing & Compliance",
