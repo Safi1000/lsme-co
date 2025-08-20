@@ -284,6 +284,9 @@ export default function ContactPage() {
         </div>
       </section>
 
+
+
+
       {/* Contact Form Section */}
       <section id="contact-form" className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -466,6 +469,25 @@ export default function ContactPage() {
                   </div>
                 ))}
               </div>
+              
+              {/* Office Address */}
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <div className="flex items-start space-x-3 group">
+                  <div className="bg-amber-100 p-3 rounded-lg flex-shrink-0 transition-all duration-300 group-hover:bg-amber-200 group-hover:scale-110">
+                    <Building className="w-5 h-5 text-amber-800" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 group-hover:text-amber-700 transition-colors duration-300 mb-2">
+                      Main Office Location
+                    </h4>
+                    <div className="space-y-1 text-sm text-gray-600">
+                      <p>Building 2148-8267, Daba Street</p>
+                      <p>King Faisal District, 13215</p>
+                      <p>Riyadh, Saudi Arabia</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
               </div>
 
 
@@ -474,106 +496,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Office Locations Section */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4 sm:space-y-6 mb-8 sm:mb-12">
-            <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800">
-              <MapPin className="w-3 h-3 mr-1" />
-              Our Locations
-            </Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-              Nationwide <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Presence</span>
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              With offices across Saudi Arabia, we provide local expertise and support wherever your projects are located.
-            </p>
-          </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              {
-                city: "Riyadh",
-                title: "Headquarters & R&D Center",
-                address: "King Fahd Road, Olaya District",
-                phone: "+966 11 234 5678",
-                services: ["Full Engineering Services", "R&D Laboratory", "Executive Offices"],
-                image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=400&auto=format&fit=crop"
-              },
-              {
-                city: "Jeddah",
-                title: "Western Region Office",
-                address: "Corniche Road, Al Hamra District",
-                phone: "+966 12 345 6789",
-                services: ["Regional Support", "Coastal Projects", "Port Infrastructure"],
-                image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=400&auto=format&fit=crop"
-              },
-              {
-                city: "Dammam",
-                title: "Eastern Province Center",
-                address: "King Abdulaziz Port Area",
-                phone: "+966 13 456 7890",
-                services: ["Industrial Systems", "Petrochemical Support", "Technical Services"],
-                image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=400&auto=format&fit=crop"
-              }
-            ].map((office, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-              >
-                <Card className="contact-office-card group h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white overflow-hidden">
-                <div className="relative overflow-hidden">
-                  <Image
-                      src={office.image}
-                      alt={`LSME ${office.city} Office`}
-                    width={400}
-                      height={250}
-                      className="w-full h-48 sm:h-56 object-cover transition-all duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-amber-100 text-amber-800">
-                        {office.city}
-                    </Badge>
-                  </div>
-                </div>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="contact-office-title text-lg sm:text-xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors duration-300">
-                    {office.title}
-                  </CardTitle>
-                    <CardDescription className="contact-office-description text-sm text-gray-600">
-                      {office.address}
-                  </CardDescription>
-                </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex items-center space-x-2 text-sm text-gray-700">
-                      <Phone className="w-4 h-4 text-amber-800" />
-                      <span>{office.phone}</span>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">Services Available:</h4>
-                      <ul className="space-y-1">
-                        {office.services.map((service, serviceIndex) => (
-                          <li key={serviceIndex} className="flex items-center space-x-2 text-xs text-gray-600">
-                            <span className="w-3 h-3 text-green-600">•</span>
-                            <span>{service}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <Button variant="ghost" className="w-full group-hover:bg-amber-50 group-hover:text-amber-800 transition-all duration-300">
-                      Get Directions
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Button>
-                </CardContent>
-              </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-r from-amber-700 to-orange-700 text-white">
@@ -593,9 +516,6 @@ export default function ContactPage() {
               <br />
               <span className="text-amber-200">Engineering Leader, LSME</span>
               </h2>
-            <div className="flex justify-center mt-4">
-              <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className="h-16 w-16 object-contain" />
-            </div>
             <p className="text-base sm:text-lg lg:text-xl text-white max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
               Join hundreds of satisfied clients who trust LSME for their infrastructure needs. Let's build the future together.
               </p>

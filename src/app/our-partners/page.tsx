@@ -77,6 +77,34 @@ export default function OurPartnersPage() {
       ],
       establishedYear: "2005",
       websiteUrl: "https://www.gfuve.com"
+    },
+    {
+      id: 5,
+      name: "Aterma Microwave Technology Co., Ltd.",
+      logoPlaceholder: "/images/partners/logo5.png", // Logo path - to be updated later
+      introduction: "Aterma Microwave Technology Co., Ltd. is a leading China-based developer of RF and microwave solutions, specializing in antennas, radar systems, and EMC technologies for defense, aerospace, and communications. LSME is an authorized representative of Aterma, reinforcing our commitment to providing advanced RF and microwave solutions to our clients.",
+      keyFeatures: [
+        "RF & Microwave Component Development",
+        "Radar & Antenna Systems",
+        "Electromagnetic Compatibility (EMC) Solutions",
+        "Custom Engineering & System Integration"
+      ],
+      establishedYear: "2006",
+      websiteUrl: "#" // Website URL to be updated later
+    },
+    {
+      id: 6,
+      name: "Emicon AB",
+      logoPlaceholder: "/images/partners/logo6.png", // Logo path - to be updated later
+      introduction: "Emicon AB is a Sweden-based consultancy with decades of expertise in electromagnetic interference (EMI) and electromagnetic compatibility (EMC) solutions. The company delivers advanced testing, simulation, shielding, and compliance services across multiple industries. LSME is an authorized representative of Emicon, extending world-class EMC and EMI consulting services to our clients.",
+      keyFeatures: [
+        "EMI/EMC Testing & Compliance",
+        "Electromagnetic Simulation & Analysis",
+        "Shielding & Grounding Solutions",
+        "Technical Consulting & Training"
+      ],
+      establishedYear: "2010",
+      websiteUrl: "https://emicon.se/Webbplats/Home.html"
     }
   ];
 
@@ -390,9 +418,6 @@ export default function OurPartnersPage() {
               <br />
               <span className="text-amber-200">Engineering Leader, LSME</span>
             </h2>
-            <div className="flex justify-center mt-4">
-              <Image src="/images/logo/lsme-logo.jpg" alt="LSME logo" width={64} height={64} className="h-16 w-16 object-contain" />
-            </div>
             <p className="text-base sm:text-lg lg:text-xl text-white max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
               Partner with Saudi Arabia's leading engineering experts to build the future of technology together.
             </p>
