@@ -116,7 +116,7 @@ export default function ElectricalPage() {
 							<span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Electrical Services</span>
 						</h1>
 						<p className="hero-subtitle text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
-							Turnkey electrical projects across transmission lines and grid stations, with protection and control, testing and commissioning, and supply of certified grid equipment and tools.
+							Turnkey electrical projects across transmission lines and grid stations, with protection and control, testing and commissioning, and supply of certified grid equipment and tools
 						</p>
 					</div>
 				</div>
