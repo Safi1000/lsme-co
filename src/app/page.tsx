@@ -161,18 +161,18 @@ export default function HomePage() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 animate-fade-in-up">
-              <div className="space-y-6">
+            <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
+              <div className="space-y-4 sm:space-y-6">
                 <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 hover:from-amber-200 hover:to-orange-200 transition-all duration-300 transform hover:scale-105 shadow-md">
                   <Star className="w-3 h-3 mr-1" />
                   Leading Engineering Solutions
                 </Badge>
                 <h1 className="hero-text font-bold text-gray-900 leading-tight">
-                  <span className="text-3xl lg:text-4xl">Welcome to</span>
+                  <span className="text-2xl sm:text-3xl lg:text-4xl">Welcome to</span>
                   <br />
-                  <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">LSMECO</span>
+                  <span className="text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Light Solutions for Mechanical Engineering</span>
                 </h1>
-                <p className="hero-subtitle text-base lg:text-lg text-gray-600 leading-relaxed">
+                <p className="hero-subtitle text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed px-4 sm:px-0">
                 At LSMECO, we deliver innovative electrical, mechanical, and electronics engineering solutions with a focus on retrofits through reverse engineering. Together with our international partners, we are ready to provide world-class services for Saudi Arabia through our trusted network.
                 </p>
               </div>
@@ -231,11 +231,11 @@ export default function HomePage() {
               </div>
 
               {/* Vision Text Below Hero Image - Within Image Column */}
-              <div className="text-center mt-8">
-                <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  <span className="text-[1.4em]">Collective Endeavour, Brighter Future:</span>
+              <div className="text-center mt-6 sm:mt-8">
+                <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed px-4 sm:px-0">
+                  <span className="text-base sm:text-lg md:text-xl">Collective Endeavour, Brighter Future:</span>
                   <br />
-                  <span className="font-semibold text-amber-700 text-[1.5em]">LSMECO drives KSA's Vision 2030 forward!</span>
+                  <span className="font-semibold text-amber-700 text-base sm:text-lg md:text-xl">LSMECO drives KSA's Vision 2030 forward!</span>
                 </p>
               </div>
 
@@ -264,16 +264,16 @@ export default function HomePage() {
               Engineering Excellence
             </Badge>
             <h2 className="section-title font-bold text-gray-900 leading-tight">
-              <span className="text-3xl lg:text-4xl">Our Specialized</span>
+              <span className="text-2xl sm:text-3xl lg:text-4xl">Our Specialized</span>
               <br />
-              <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Divisions</span>
+              <span className="text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Divisions</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
               Three core engineering divisions delivering comprehensive solutions across electrical systems, electronics, and mechanical engineering for infrastructure and industry.
             </p>
           </div>
 
-          <div className="service-grid grid md:grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="service-grid grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
             {[
               {
                 icon: Zap,
@@ -399,16 +399,16 @@ export default function HomePage() {
                Why Choose LSME
              </Badge>
              <h2 className="font-bold text-gray-900 leading-tight">
-               <span className="text-3xl lg:text-4xl">Leading Saudi Arabia's</span>
+               <span className="text-2xl sm:text-3xl lg:text-4xl">Leading Saudi Arabia's</span>
                <br />
-               <span className="text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Services</span>
+               <span className="text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Engineering Services</span>
              </h2>
-             <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+             <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto px-4 sm:px-0">
                As Saudi Arabia's premier engineering company, we combine cutting-edge technology with deep local expertise across our three specialized divisions.
              </p>
            </div>
 
-           <div className="feature-grid grid lg:grid-cols-2 gap-20 items-center">
+           <div className="feature-grid grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
              <div className="relative animate-fade-in-left">
                <div className="relative group overflow-hidden rounded-3xl">
                  <Image
@@ -424,9 +424,9 @@ export default function HomePage() {
 
              </div>
 
-             <div className="space-y-10 animate-fade-in-right">
+                         <div className="space-y-6 sm:space-y-8 lg:space-y-10 animate-fade-in-right">
 
-                             <div className="space-y-8">
+                            <div className="space-y-6 sm:space-y-8">
                  {[
                    {
                      icon: Shield,
@@ -496,12 +496,12 @@ export default function HomePage() {
                 <Star className="w-3 h-3 mr-1" />
                 Ready to Engineer the Future?
               </Badge>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight px-4 sm:px-0">
                 Partner with Saudi Arabia's
                 <br />
                 <span className="text-amber-200">Engineering Leader, LSME</span>
               </h2>
-              <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
                 Connect with our electrical, electronics, and mechanical divisions to build the future of technology together.
               </p>
             </div>
@@ -514,7 +514,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 pt-12">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 pt-8 sm:pt-12">
               {[
                 { icon: Phone, text: "24/7 Engineering Support" },
                 { icon: Mail, text: "Expert Technical Consultation" },

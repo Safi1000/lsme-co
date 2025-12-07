@@ -133,6 +133,7 @@ export default function ElectricalPage() {
 							{ icon: ChevronRight, title: 'Protection & Control', desc: 'Relay schemes, interlocks, control panels, and verification routines.' },
 							{ icon: ChevronRight, title: 'Supply of Grid Equipment & Tools', desc: 'Breakers, CT/VTs, disconnectors, tools, and installation accessories.' },
 							{ icon: ChevronRight, title: 'Testing & Commissioning', desc: 'FAT/SAT, insulation diagnostics, power quality, and energization.' },
+							{ icon: ChevronRight, title: 'Traction Motor Services', desc: 'Traction motor repair readiness, facility expansion planning, international technical partnerships, and end-to-end service enhancement for SAR.' },
 						].map((f, i) => (
 							<motion.div
 								key={i}
@@ -159,7 +160,7 @@ export default function ElectricalPage() {
 					<div className="mb-8 text-center">
 						<h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Projects & Commissioning</h2>
 					</div>
-					<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 						{[
 							{ src: '/images/electrical/line-stringing.jpg', alt: 'Transmission Line Stringing' },
 							{ src: '/images/electrical/control-room.jpg', alt: 'Substation Control Room' },
@@ -168,7 +169,8 @@ export default function ElectricalPage() {
 							{ src: '/images/electrical/voltage-testing.jpg', alt: 'High‑Voltage Testing' },
 							{ src: '/images/electrical/team-eletrical.jpg', alt: 'Electrical Commissioning Team' },
 							{ src: '/images/electrical/cable-termination.jpg', alt: 'Cable Termination' },
-							{ src: '/images/electrical/tools.jpg', alt: 'Tools & Accessories' }
+							{ src: '/images/electrical/tools.jpg', alt: 'Tools & Accessories' },
+							{ src: '/images/electrical/motor.png', alt: 'Traction Motor', contain: true }
 						].map((img, i) => (
 							<motion.div
 								key={i}
@@ -176,9 +178,9 @@ export default function ElectricalPage() {
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true, amount: 0.2 }}
 								transition={{ duration: 0.5, delay: i * 0.07 }}
-								className="relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300"
+								className="relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 bg-gray-100"
 							>
-								<Image src={img.src} alt={img.alt} width={800} height={500} className="w-full h-48 lg:h-56 object-cover transition-transform duration-500 group-hover:scale-105" />
+								<Image src={img.src} alt={img.alt} width={800} height={500} className={`w-full h-48 lg:h-56 transition-transform duration-500 group-hover:scale-105 ${'contain' in img && img.contain ? 'object-contain' : 'object-cover'}`} />
 								<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 								<div className="absolute bottom-2 left-2">
 									<span className="inline-block px-2.5 py-1 rounded-md bg-black/60 text-white text-xs font-semibold tracking-wide backdrop-blur-sm ring-1 ring-white/10 shadow-sm">
